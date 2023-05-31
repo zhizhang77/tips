@@ -1,0 +1,1745 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://zhizhang77.github.io/tips/%E8%B1%86%E7%9F%A5%E8%AF%86/git/">
+      
+      
+        <link rel="prev" href="../electron-nodejs/">
+      
+      
+        <link rel="next" href="../jupyter/">
+      
+      <link rel="icon" href="../../resources/github_icon.png">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.14">
+    
+    
+      
+        <title>git相关 - zz's programming tips</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.85bb2934.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.a6bdf11c.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#git" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="zz&#39;s programming tips" class="md-header__button md-logo" aria-label="zz's programming tips" data-md-component="logo">
+      
+  <img src="../../resources/github_icon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            zz's programming tips
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              git相关
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/zhizhang77/tips/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    zhizhang77/tips
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="zz&#39;s programming tips" class="md-nav__button md-logo" aria-label="zz's programming tips" data-md-component="logo">
+      
+  <img src="../../resources/github_icon.png" alt="logo">
+
+    </a>
+    zz's programming tips
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/zhizhang77/tips/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    zhizhang77/tips
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Welcome to zz的杂物堆
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          各种链接
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          各种链接
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%90%84%E7%A7%8D%E9%93%BE%E6%8E%A5/DL%E7%9B%B8%E5%85%B3%E5%B7%A5%E5%85%B7/" class="md-nav__link">
+        DL 相关工具
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%90%84%E7%A7%8D%E9%93%BE%E6%8E%A5/Python%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" class="md-nav__link">
+        Python性能优化
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%90%84%E7%A7%8D%E9%93%BE%E6%8E%A5/UI%E5%B7%A5%E5%85%B7/" class="md-nav__link">
+        UI开发工具
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%90%84%E7%A7%8D%E9%93%BE%E6%8E%A5/awesomenontech/" class="md-nav__link">
+        各种非技术类的资源网站收集
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%90%84%E7%A7%8D%E9%93%BE%E6%8E%A5/awesometutorials/" class="md-nav__link">
+        技术类tutorial、课程和示例网站
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%90%84%E7%A7%8D%E9%93%BE%E6%8E%A5/profiling%E5%B7%A5%E5%85%B7/" class="md-nav__link">
+        profiling工具：
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%90%84%E7%A7%8D%E9%93%BE%E6%8E%A5/%E4%B8%8B%E8%BD%BD%E5%B7%A5%E5%85%B7/" class="md-nav__link">
+        下载工具
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%90%84%E7%A7%8D%E9%93%BE%E6%8E%A5/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E5%B7%A5%E5%85%B7/" class="md-nav__link">
+        图像处理工具
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%90%84%E7%A7%8D%E9%93%BE%E6%8E%A5/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B8%8E%E5%8F%AF%E8%A7%86%E5%8C%96/" class="md-nav__link">
+        数据分析与可视化
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%90%84%E7%A7%8D%E9%93%BE%E6%8E%A5/%E6%96%87%E6%A1%A3%E5%B7%A5%E5%85%B7/" class="md-nav__link">
+        文档工具
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%90%84%E7%A7%8D%E9%93%BE%E6%8E%A5/%E6%9D%82%E9%A1%B9%E5%B7%A5%E5%85%B7/" class="md-nav__link">
+        杂项工具
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%90%84%E7%A7%8D%E9%93%BE%E6%8E%A5/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%B7%A5%E5%85%B7/" class="md-nav__link">
+        浏览器工具
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%90%84%E7%A7%8D%E9%93%BE%E6%8E%A5/%E7%94%BB%E5%9B%BE%E5%B7%A5%E5%85%B7/" class="md-nav__link">
+        画图工具
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%90%84%E7%A7%8D%E9%93%BE%E6%8E%A5/%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7/" class="md-nav__link">
+        调试工具
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          日常备查
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          日常备查
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%97%A5%E5%B8%B8%E5%A4%87%E6%9F%A5/MD%E5%9F%BA%E6%9C%AC%E6%A0%B7%E5%BC%8F/" class="md-nav__link">
+        MPE支持的Markdown样式
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%97%A5%E5%B8%B8%E5%A4%87%E6%9F%A5/cmake/" class="md-nav__link">
+        Cmake
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%97%A5%E5%B8%B8%E5%A4%87%E6%9F%A5/matplotlib%E5%85%A5%E9%97%A8/" class="md-nav__link">
+        Matplotlib入门
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%97%A5%E5%B8%B8%E5%A4%87%E6%9F%A5/numba/" class="md-nav__link">
+        numba的使用
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+          Docker
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_5">
+          <span class="md-nav__icon md-icon"></span>
+          Docker
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%97%A5%E5%B8%B8%E5%A4%87%E6%9F%A5/docker/Docker%E5%AE%89%E8%A3%85%E4%B8%8E%E5%AE%B9%E5%99%A8%E9%85%8D%E7%BD%AE/" class="md-nav__link">
+        Docker安装与容器配置
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%97%A5%E5%B8%B8%E5%A4%87%E6%9F%A5/docker/%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/" class="md-nav__link">
+        基本命令
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+          Pandas
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_6">
+          <span class="md-nav__icon md-icon"></span>
+          Pandas
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%97%A5%E5%B8%B8%E5%A4%87%E6%9F%A5/pandas/pandas%20style/" class="md-nav__link">
+        Pandas style
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          豆知识
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          豆知识
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python%E5%8E%9F%E7%94%9F%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/" class="md-nav__link">
+        Python虚拟环境
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../arm%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E8%AF%A6%E8%A7%A3/" class="md-nav__link">
+        Arm交叉编译详解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../colab/" class="md-nav__link">
+        colab小技巧记录
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dataset/" class="md-nav__link">
+        数据集相关
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../electron-nodejs/" class="md-nav__link">
+        Electron nodejs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          git相关
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        git相关
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#github-repo" class="md-nav__link">
+    快速下载github repo
+  </a>
+  
+    <nav class="md-nav" aria-label="快速下载github repo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    导入国内
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    设置代理
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#submodule" class="md-nav__link">
+    submodule
+  </a>
+  
+    <nav class="md-nav" aria-label="submodule">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    添加
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    更新
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    获取
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    卸载
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#x" class="md-nav__link">
+    只下载最新的x个版本
+  </a>
+  
+    <nav class="md-nav" aria-label="只下载最新的x个版本">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#-depth" class="md-nav__link">
+    --depth
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-unshallow" class="md-nav__link">
+    --unshallow
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    合并不必要的提交
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rebasemerge" class="md-nav__link">
+    Rebase和merge的区别
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stash" class="md-nav__link">
+    使用stash暂存和恢复当前工作
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#github" class="md-nav__link">
+    同一机器上使用多个github账号
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#github_1" class="md-nav__link">
+    同一机器上连接github和其它服务器
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gitgithub" class="md-nav__link">
+    一些git和github小技巧
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gitk" class="md-nav__link">
+    gitk中文乱码问题解决
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#github_2" class="md-nav__link">
+    github图片显示和文件下载出错
+  </a>
+  
+    <nav class="md-nav" aria-label="github图片显示和文件下载出错">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hosts" class="md-nav__link">
+    改hosts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cloudflare-workerpythongithub" class="md-nav__link">
+    用cloudflare worker或python对github进行转发
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jupyter/" class="md-nav__link">
+        jupyter相关
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../opencv/" class="md-nav__link">
+        opencv相关
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../os/" class="md-nav__link">
+        OS相关
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/" class="md-nav__link">
+        python相关
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../qt/" class="md-nav__link">
+        qt
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sympy/" class="md-nav__link">
+        Sympy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vscode/" class="md-nav__link">
+        VSCode相关
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wsl/" class="md-nav__link">
+        WSL相关
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#github-repo" class="md-nav__link">
+    快速下载github repo
+  </a>
+  
+    <nav class="md-nav" aria-label="快速下载github repo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    导入国内
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    设置代理
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#submodule" class="md-nav__link">
+    submodule
+  </a>
+  
+    <nav class="md-nav" aria-label="submodule">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    添加
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    更新
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    获取
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    卸载
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#x" class="md-nav__link">
+    只下载最新的x个版本
+  </a>
+  
+    <nav class="md-nav" aria-label="只下载最新的x个版本">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#-depth" class="md-nav__link">
+    --depth
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-unshallow" class="md-nav__link">
+    --unshallow
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    合并不必要的提交
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rebasemerge" class="md-nav__link">
+    Rebase和merge的区别
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stash" class="md-nav__link">
+    使用stash暂存和恢复当前工作
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#github" class="md-nav__link">
+    同一机器上使用多个github账号
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#github_1" class="md-nav__link">
+    同一机器上连接github和其它服务器
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gitgithub" class="md-nav__link">
+    一些git和github小技巧
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gitk" class="md-nav__link">
+    gitk中文乱码问题解决
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#github_2" class="md-nav__link">
+    github图片显示和文件下载出错
+  </a>
+  
+    <nav class="md-nav" aria-label="github图片显示和文件下载出错">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hosts" class="md-nav__link">
+    改hosts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cloudflare-workerpythongithub" class="md-nav__link">
+    用cloudflare worker或python对github进行转发
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="git">git相关</h1>
+<div class="toc">
+<ul>
+<li><a href="#git">git相关</a><ul>
+<li><a href="#github-repo">快速下载github repo</a><ul>
+<li><a href="#_1">导入国内</a></li>
+<li><a href="#_2">设置代理</a></li>
+</ul>
+</li>
+<li><a href="#submodule">submodule</a><ul>
+<li><a href="#_3">添加</a></li>
+<li><a href="#_4">更新</a></li>
+<li><a href="#_5">获取</a></li>
+<li><a href="#_6">卸载</a></li>
+</ul>
+</li>
+<li><a href="#x">只下载最新的x个版本</a><ul>
+<li><a href="#-depth">--depth</a></li>
+<li><a href="#-unshallow">--unshallow</a></li>
+</ul>
+</li>
+<li><a href="#_7">合并不必要的提交</a></li>
+<li><a href="#rebasemerge">Rebase和merge的区别</a></li>
+<li><a href="#stash">使用stash暂存和恢复当前工作</a></li>
+<li><a href="#github">同一机器上使用多个github账号</a></li>
+<li><a href="#github_1">同一机器上连接github和其它服务器</a></li>
+<li><a href="#gitgithub">一些git和github小技巧</a></li>
+<li><a href="#gitk">gitk中文乱码问题解决</a></li>
+<li><a href="#github_2">github图片显示和文件下载出错</a><ul>
+<li><a href="#hosts">改hosts</a></li>
+<li><a href="#cloudflare-workerpythongithub">用cloudflare worker或python对github进行转发</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 id="github-repo">快速下载github repo</h2>
+<h3 id="_1">导入国内</h3>
+<p>以opencv为例，在码云用户“Gitee 极速下载”repo中找到对应连接的镜像（如果没有就自己导入一个），然后clone：
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://gitee.com/mirrors/opencv.git
+</code></pre></div>
+进入opencv目录，删除原origin并把github设为origin：
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>remote<span class="w"> </span>remove<span class="w"> </span>origin
+git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>origin<span class="w"> </span>https://github.com/opencv/opencv.git
+</code></pre></div>
+更新并强制覆盖：
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>fetch<span class="w"> </span>--all
+git<span class="w"> </span>reset<span class="w"> </span>--hard<span class="w"> </span>origin/master
+git<span class="w"> </span>pull
+</code></pre></div></p>
+<h3 id="_2">设置代理</h3>
+<p>设置127.0.0.1：1080为全局代理：
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>https.proxy<span class="w"> </span>http://127.0.0.1:1080
+git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>https.proxy<span class="w"> </span>https://127.0.0.1:1080
+git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>http.proxy<span class="w"> </span><span class="s1">&#39;socks5://127.0.0.1:1080&#39;</span>
+git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>https.proxy<span class="w"> </span><span class="s1">&#39;socks5://127.0.0.1:1080&#39;</span>
+</code></pre></div>
+代理服务器需要鉴权配置：
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>https.proxy<span class="w"> </span>https://username:password@proxy.baidu.com:8080
+</code></pre></div>
+注意如果密码中有@等特殊字符，会出错。此时要使用百分比编码(Percent-encoding)对特殊字符进行转换，转换列表如下：</p>
+<blockquote>
+<p>! --&gt; %21       # --&gt; %23     $ --&gt; %24     &amp; --&gt; %26     ' --&gt; %27<br />
+( --&gt; %28       ) --&gt; %29      * --&gt; %2A     + --&gt; %2B     , --&gt; %2C  
+/ --&gt; %2F      : --&gt; %3A      ; --&gt; %3B      = --&gt; %3D     ? --&gt; %3F  
+@ --&gt; %40     [ --&gt; %5B     ] --&gt; %5D  </p>
+</blockquote>
+<p>删除代理：
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>--unset<span class="w"> </span>http.proxy
+git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>--unset<span class="w"> </span>https.proxy
+</code></pre></div></p>
+<h2 id="submodule">submodule</h2>
+<h3 id="_3">添加</h3>
+<p>首先在主项目内添加子项目：
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>submodule<span class="w"> </span>add<span class="w"> </span>git@192.168.8.41:zhizhang/subtest1.git<span class="w"> </span>algorithm
+git<span class="w"> </span>submodule<span class="w"> </span>add<span class="w"> </span>git@192.168.8.41:zhizhang/subtest2.git<span class="w"> </span>toolset
+</code></pre></div></p>
+<p>运行后，git会将相应代码clone到本地。之后进入相应目录，切换到所需的分支或标签即可。
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>algorithm
+git<span class="w"> </span>checkout<span class="w"> </span>tag1_master
+</code></pre></div></p>
+<h3 id="_4">更新</h3>
+<p>commit和加tag时会将子模块版本锁定在当前位置，除非特意更新。可以用foreach更新所有submodule：
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>submodule<span class="w"> </span>foreach<span class="w"> </span><span class="s1">&#39;git pull origin master&#39;</span>
+</code></pre></div></p>
+<p>针对单个子模块，可以进入对应目录内pull
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>project-sub-1
+git<span class="w"> </span>pull<span class="w"> </span>origin<span class="w"> </span>master
+</code></pre></div>
+之后子模块目录下的代码版本会发生变化，这时回到主目录git status可以看到子模块有新的提交，使用 git add/commit 将其添加到主项目的代码提交中即可，实际改动就是.gitmodules文件中保存的子模块版本信息。</p>
+<h3 id="_5">获取</h3>
+<p>通常主项目使用clone 操作并不会拉取到子模块中的实际代码，如果需要，可以用<em>--recurse-submodules</em>参数
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/username/project-main.git<span class="w"> </span>--recurse-submodules
+</code></pre></div></p>
+<p>如果主项目已下载，可以用<em>submodule update --init</em>(等价于<em>submodule init</em>加<em>submodule update</em>)，如果子模块目录中已经有内容，该命令也会把其更新到.gitmodules中指定的版本
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>submodule<span class="w"> </span>update<span class="w"> </span>--init
+</code></pre></div></p>
+<h3 id="_6">卸载</h3>
+<p>根据官方文档的说明，应该使用 <em>git submodule deinit</em> 命令卸载一个子模块。这个命令如果添加上参数 <em>--force</em>或者 <em>-f</em>，则子模块工作区内即使有本地的修改，也会被移除。</p>
+<p>然鹅实测只靠<em>git submodule deinit</em>是删不干净的，参考 https://stackoverflow.com/questions/1260748/how-do-i-remove-a-submodule/36593218#36593218 ，需要手动删除.git/modules目录下的对应文件夹然后再<em>git rm</em>，如下：
+<div class="highlight"><pre><span></span><code><span class="c1"># Remove the submodule entry from .git/config</span>
+git<span class="w"> </span>submodule<span class="w"> </span>deinit<span class="w"> </span>project-sub-1
+<span class="c1"># Remove the submodule directory from the superproject&#39;s .git/modules directory</span>
+rm<span class="w"> </span>-rf<span class="w"> </span>.git/modules/project-sub-1
+<span class="c1"># Remove the entry in .gitmodules and remove the submodule directory located at path/to/submodule</span>
+git<span class="w"> </span>rm<span class="w"> </span>-f<span class="w"> </span>project-sub-1
+</code></pre></div></p>
+<h2 id="x">只下载最新的x个版本</h2>
+<h3 id="-depth">--depth</h3>
+<p>一个repo维护时间久了之后，会有大量的历史提交，使得整个版本库体积变的很大。但绝大部分时候，开发者其实并不关注历史更改，只要下载最新版本就行了，这时候可以用 <em>--depth x</em>来控制只拉取最近的x层提交：
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>--depth<span class="w"> </span><span class="m">1</span><span class="w"> </span>--branch<span class="w"> </span>ttt<span class="w"> </span>https://github.com/xxx/yyy.git
+</code></pre></div>
+以上命令会clone yyy项目在ttt分支上的最新版本。需要注意的是1是层数而非总数，例如，若最后一次提交时merge了三个提交，那么 <em>--depth 2</em>一共会拉取4次提交而不是2次。</p>
+<h3 id="-unshallow">--unshallow</h3>
+<p>如果用 <em>--depth</em>浅层克隆之后又需要下载完整版本，可以用 <em>--unshallow</em>恢复：
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>fetch<span class="w"> </span>--unshallow
+</code></pre></div></p>
+<h2 id="_7">合并不必要的提交</h2>
+<p>大量零碎的commit会使版本历史变得混乱，不利于查找，这时可以用rebase来合并多次commit的历史。
+<div class="highlight"><pre><span></span><code><span class="c1"># 包括HEAD版本在内，最近的3个版本会被拉出来询问是否合并</span>
+git<span class="w"> </span>rebase<span class="w"> </span>-i<span class="w"> </span>HEAD~3
+
+<span class="c1"># 合并指定版本号（不包含此版本）</span>
+<span class="c1"># 注意commitid应该是要合并的提交中最早的，例如连续三次提交id分别为111，222，333，要合并它们，需要</span>
+git<span class="w"> </span>rebase<span class="w"> </span>-i<span class="w"> </span><span class="m">111</span>
+</code></pre></div>
+运行后会进入vi编辑器(如果是vscode会跳出编辑窗口)，如下，将不需要的commit从pick改为s(quash)或f(ixup)，然后:wq保存退出
+<div class="highlight"><pre><span></span><code><span class="c1"># 指定要合并版本号，cf7e875 不参与合并，进入 vi 编辑器</span>
+$<span class="w"> </span>git<span class="w"> </span>rebase<span class="w"> </span>-i<span class="w"> </span>cf7e875<span class="w"> </span>
+pick<span class="w"> </span>17cb931<span class="w"> </span>fix<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>add<span class="w"> </span>batch<span class="w"> </span>del
+pick<span class="w"> </span>e57b0e6<span class="w"> </span>fix<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>add<span class="w"> </span>batch<span class="w"> </span>del
+pick<span class="w"> </span>2db6ad3<span class="w"> </span>add<span class="w"> </span>clear<span class="w"> </span>logs<span class="w"> </span>scripts
+pick<span class="w"> </span>3a51aaa<span class="w"> </span>fix<span class="w"> </span>shellcheck<span class="w"> </span>problem
+pick<span class="w"> </span>9536dab<span class="w"> </span>add<span class="w"> </span>dingtalk<span class="w"> </span>script
+pick<span class="w"> </span>1d795e6<span class="w"> </span>fix<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>update<span class="w"> </span>clear-logs.sh<span class="w"> </span><span class="m">0</span>.0.2
+pick<span class="w"> </span>fc36a2a<span class="w"> </span>add<span class="w"> </span>links
+pick<span class="w"> </span>3759b84<span class="w"> </span>update<span class="w"> </span>clear-logs.sh
+pick<span class="w"> </span>1693a6f<span class="w"> </span>update<span class="w"> </span>clear-logs.sh<span class="w"> </span>version
+pick<span class="w"> </span>8c8f3f4<span class="w"> </span>update<span class="w"> </span>website
+
+<span class="c1"># Rebase cf7e875..291e427 onto cf7e875 (10 commands)</span>
+<span class="c1">#</span>
+<span class="c1"># Commands:</span>
+<span class="c1"># p, pick = use commit</span>
+<span class="c1"># r, reword = use commit, but edit the commit message</span>
+<span class="c1"># e, edit = use commit, but stop for amending</span>
+<span class="c1"># s, squash = use commit, but meld into previous commit</span>
+<span class="c1"># f, fixup = like &quot;squash&quot;, but discard this commit&#39;s log message</span>
+<span class="c1"># x, exec = run command (the rest of the line) using shell</span>
+<span class="c1"># d, drop = remove commit</span>
+<span class="c1">#</span>
+<span class="c1"># These lines can be re-ordered; they are executed from top to bottom.</span>
+<span class="c1">#</span>
+<span class="c1"># If you remove a line here THAT COMMIT WILL BE LOST.</span>
+<span class="c1">#</span>
+<span class="c1"># However, if you remove everything, the rebase will be aborted.</span>
+<span class="c1">#</span>
+<span class="c1"># Note that empty commits are commented out</span>
+</code></pre></div>
+然后会进入commit信息修改界面，改完:wq就可以了。</p>
+<blockquote>
+<p>“No one shall rebase a shared branch”——否则其他人合并时会很痛苦</p>
+</blockquote>
+<h2 id="rebasemerge">Rebase和merge的区别</h2>
+<p>Rebase means <em>reapply commits </em><em>on top of</em><em> another base tip</em>。也就是在新base上把自己的改动重新apply一遍
+<img alt="rebase" src="../../images/rebase.png" />
+Merge means <em>Join two or more development histories together</em>。原先的改动都保留不变，产生一个新的提交把两边的改动都合进去
+<img alt="merge" src="../../images/merge.png" /></p>
+<h2 id="stash">使用stash暂存和恢复当前工作</h2>
+<p><code>git stash</code>命令用于暂时保存没有提交的工作。运行该命令后，所有已提交到暂存区，以及没有提交的修改都将被内部保存，工作区恢复到上一次commit的状态。它处于<code>git reset --hard</code>（完全放弃还修改了一半的代码）与<code>git commit</code>（提交代码）命令之间，很类似于“暂停”按钮。</p>
+<p>同时维护多个分支的情况下，用stash可以实现多个任务间的灵活切换。例如：在分支A改到一半时暂存，切换到分支B修改并commit，然后pop继续工作。</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 暂时保存没有提交的工作</span>
+$<span class="w"> </span>git<span class="w"> </span>stash
+warning:<span class="w"> </span>LF<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>replaced<span class="w"> </span>by<span class="w"> </span>CRLF<span class="w"> </span><span class="k">in</span><span class="w"> </span>豆知识/jupyter.ipynb.
+The<span class="w"> </span>file<span class="w"> </span>will<span class="w"> </span>have<span class="w"> </span>its<span class="w"> </span>original<span class="w"> </span>line<span class="w"> </span>endings<span class="w"> </span><span class="k">in</span><span class="w"> </span>your<span class="w"> </span>working<span class="w"> </span>directory
+Saved<span class="w"> </span>working<span class="w"> </span>directory<span class="w"> </span>and<span class="w"> </span>index<span class="w"> </span>state<span class="w"> </span>WIP<span class="w"> </span>on<span class="w"> </span>main:<span class="w"> </span>6645a0b<span class="w"> </span>add<span class="w"> </span>readme.md
+
+<span class="c1"># 列出所有暂时保存的工作</span>
+$<span class="w"> </span>git<span class="w"> </span>stash<span class="w"> </span>list
+stash@<span class="o">{</span><span class="m">0</span><span class="o">}</span>:<span class="w"> </span>WIP<span class="w"> </span>on<span class="w"> </span>main:<span class="w"> </span>6645a0b<span class="w"> </span>add<span class="w"> </span>readme.md
+stash@<span class="o">{</span><span class="m">1</span><span class="o">}</span>:<span class="w"> </span>WIP<span class="w"> </span>on<span class="w"> </span>main:<span class="w"> </span>6645a0b<span class="w"> </span>add<span class="w"> </span>readme.md
+
+<span class="c1"># 恢复某个暂时保存的工作，恢复时会与当前工作区的代码合并，注意保存越早的stash数字越大，0是最新缓存的那个</span>
+$<span class="w"> </span>git<span class="w"> </span>stash<span class="w"> </span>apply<span class="w"> </span>stash@<span class="o">{</span><span class="m">1</span><span class="o">}</span>
+
+<span class="c1"># 恢复最近一次stash的文件，它会与当前工作区的代码合并</span>
+$<span class="w"> </span>git<span class="w"> </span>stash<span class="w"> </span>pop
+
+<span class="c1"># 丢弃最近一次stash的文件</span>
+$<span class="w"> </span>git<span class="w"> </span>stash<span class="w"> </span>drop
+
+<span class="c1"># 丢弃倒数第二个stash</span>
+$<span class="w"> </span>git<span class="w"> </span>stash<span class="w"> </span>drop<span class="w"> </span>stash@<span class="o">{</span><span class="m">1</span><span class="o">}</span>
+
+<span class="c1"># 删除所有的stash</span>
+$<span class="w"> </span>git<span class="w"> </span>stash<span class="w"> </span>clear
+
+<span class="c1"># 展示目前存在的stash，如果加 -p ，会显示具体改动内容并进入vi编辑页面</span>
+$<span class="w"> </span>git<span class="w"> </span>stash<span class="w"> </span>show
+</code></pre></div>
+<h2 id="github">同一机器上使用多个github账号</h2>
+<p>假设要添加的github账号名是my2ndgitaccount，注册邮箱为my2ndname@companyname.com.cn。</p>
+<ul>
+<li>首先为新账号生成ssh key，起名为id_companyname并添加
+<div class="highlight"><pre><span></span><code><span class="c1"># 生成key时建议与github注册时的邮件地址一一对应，方便查找</span>
+$<span class="w"> </span>ssh-keygen<span class="w"> </span>-t<span class="w"> </span>ed25519<span class="w"> </span>-C<span class="w"> </span><span class="s2">&quot;my2ndname@companyname.com.cn&quot;</span>
+<span class="c1"># /c/Users/myname/.ssh/id_companyname是刚刚生成的key文件名和路径</span>
+$<span class="w"> </span>ssh-add<span class="w">  </span>/c/Users/myname/.ssh/id_companyname
+</code></pre></div></li>
+</ul>
+<ul>
+<li>在my2ndgitaccount的github用户页面找到SSH and GPG keys，选择new SSH key，把生成的id_companyname.pub内容完整粘贴进去保存。</li>
+<li>下一步，编辑本地.ssh目录中的config文件，添加以下段落
+<div class="highlight"><pre><span></span><code>Host host2nd # 名字随便起
+    HostName github.com # 这行和下行不要改
+    User git
+    IdentityFile C:\Users\myname\.ssh\id_companyname # 使用刚刚生成的key文件名和路径，注意windows和linux路径格式不同
+</code></pre></div></li>
+</ul>
+<ul>
+<li>对于要使用这个账号操作的repo，首先看全局设置中的user.name和user.email是否与该账号一致，如果不一致，则使用<span class="arithmatex">\(git config --local\)</span>设置仅对当前目录生效的user.name和user.email，
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>config<span class="w"> </span>--list
+git<span class="w"> </span>config<span class="w"> </span>--local<span class="w"> </span>user.email<span class="w"> </span>my2ndname@companyname.com.cn
+git<span class="w"> </span>config<span class="w"> </span>--local<span class="w"> </span>user.name<span class="w"> </span>my2ndgitaccount
+git<span class="w"> </span>config<span class="w"> </span>--list<span class="w"> </span>--local
+</code></pre></div></li>
+</ul>
+<ul>
+<li>之后就可以使用<span class="arithmatex">\(host2nd\)</span>的名字添加远程并发布了
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>origin<span class="w"> </span>git@host2nd:my2ndgitaccount/myrepo.git
+<span class="c1"># 对比：用缺省账号发布时就不需要加git@host2nd：</span>
+<span class="c1"># git remote add origin https://github.com/my2ndgitaccount/myrepo.git</span>
+git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>main
+</code></pre></div></li>
+</ul>
+<ul>
+<li>如果克隆my2ndgitaccount的repo时指明使用<span class="arithmatex">\(host2nd\)</span>，后续可以直接修改和push。但如果没有设置user.name和user.email，github上看到的修改记录会是来自主账号而非my2ndgitaccount，这点需要注意
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>git@host2nd:my2ndgitaccount/myrepo.git
+</code></pre></div></li>
+</ul>
+<h2 id="github_1">同一机器上连接github和其它服务器</h2>
+<p>首先确认全局用户名，email等已清除：</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>config<span class="w"> </span>--system<span class="w"> </span>--unset<span class="w"> </span>user.name
+git<span class="w"> </span>config<span class="w"> </span>--system<span class="w"> </span>--unset<span class="w"> </span>user.email
+git<span class="w"> </span>config<span class="w"> </span>--system<span class="w"> </span>--unset<span class="w"> </span>credential.helper
+</code></pre></div>
+<p>配完后通过git config -l检查这三项确实没了。然后为每个服务器生成密钥并起不同的名字，将其放到ssh目录（windows下在C:\Users\用户名.ssh）下：</p>
+<div class="highlight"><pre><span></span><code>ssh-keygen<span class="w"> </span>-t<span class="w"> </span>rsa<span class="w"> </span>-C<span class="w"> </span><span class="s2">&quot;youremail@example.com&quot;</span>
+</code></pre></div>
+<p>在服务器侧添加对应的ssh密钥。最后在ssh目录下创建config文件，内容示例：</p>
+<div class="highlight"><pre><span></span><code>    # 该配置用于工作
+    # Host 服务器别名
+    Host 192.168.8.41
+    # HostName 服务器ip地址或机器名
+    HostName 192.168.8.41
+    # User连接服务器的用户名
+    User zhizhang
+    # IdentityFile 密匙文件的具体路径
+    IdentityFile C:/Users/HP/.ssh/id_rsa_gitlab
+
+
+    # 该配置用于github
+    # Host 服务器别名
+    Host github.com
+    # HostName 服务器ip地址或机器名
+    HostName github.com
+    # User连接服务器的用户名
+    User zhizhang77
+    # IdentityFile 密匙文件的具体路径
+    IdentityFile C:/Users/HP/.ssh/id_rsa
+</code></pre></div>
+<p>之后提交时还有可能会要求输入用户名和email，如果不想每次都输入，可以在repo所在目录下设置不带--global的用户信息，这样该用户名和电邮就只对当前repo生效了</p>
+<div class="highlight"><pre><span></span><code><span class="w">    </span>git<span class="w"> </span>config<span class="w"> </span>user.email<span class="w"> </span><span class="s2">&quot;you@example.com&quot;</span>
+<span class="w">    </span>git<span class="w"> </span>config<span class="w"> </span>user.name<span class="w"> </span><span class="s2">&quot;Your Name&quot;</span>
+</code></pre></div>
+<h2 id="gitgithub">一些git和github小技巧</h2>
+<ul>
+<li>https://github.com/tiimgreen/github-cheat-sheet</li>
+</ul>
+<h2 id="gitk">gitk中文乱码问题解决</h2>
+<ol>
+<li>打开gitk-&gt;file菜单-&gt;start git gui</li>
+<li>git gui-&gt;edit菜单-&gt;options</li>
+<li>将local和global的default file contents encoding都改为utf-8</li>
+<li>重启gitk</li>
+</ol>
+<h2 id="github_2">github图片显示和文件下载出错</h2>
+<h3 id="hosts">改hosts</h3>
+<p>先到https://www.ipaddress.com/ 输入raw.githubusercontent.com查询到真实IP地址，ping一下选择延迟最小的，然后手动修改hosts加映射
+ - windows系统的hosts文件在C:\Windows\System32\drivers\etc目录下
+ - linux在etc目录下</p>
+<p>当然最简单的方法是翻墙~</p>
+<h3 id="cloudflare-workerpythongithub">用cloudflare worker或python对github进行转发</h3>
+<p>https://github.com/hunshcn/gh-proxy
+现成站点：
+https://gh.api.99988866.xyz/
+https://g.ioiox.com
+http://toolwa.com/github/</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.indexes"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.b4d07000.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/wavedrom/2.6.8/wavedrom.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/wavedrom/2.6.8/skins/default.js"></script>
+      
+        <script src="../../javascripts/wavedrom_loader.js"></script>
+      
+    
+  </body>
+</html>

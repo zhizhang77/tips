@@ -1,0 +1,1536 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://zhizhang77.github.io/tips/%E5%90%84%E7%A7%8D%E9%93%BE%E6%8E%A5/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B8%8E%E5%8F%AF%E8%A7%86%E5%8C%96/">
+      
+      
+        <link rel="prev" href="../%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E5%B7%A5%E5%85%B7/">
+      
+      
+        <link rel="next" href="../%E6%96%87%E6%A1%A3%E5%B7%A5%E5%85%B7/">
+      
+      <link rel="icon" href="../../resources/github_icon.png">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.14">
+    
+    
+      
+        <title>数据分析与可视化 - zz's programming tips</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.85bb2934.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.a6bdf11c.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="zz&#39;s programming tips" class="md-header__button md-logo" aria-label="zz's programming tips" data-md-component="logo">
+      
+  <img src="../../resources/github_icon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            zz's programming tips
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              数据分析与可视化
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/zhizhang77/tips/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    zhizhang77/tips
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="zz&#39;s programming tips" class="md-nav__button md-logo" aria-label="zz's programming tips" data-md-component="logo">
+      
+  <img src="../../resources/github_icon.png" alt="logo">
+
+    </a>
+    zz's programming tips
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/zhizhang77/tips/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    zhizhang77/tips
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Welcome to zz的杂物堆
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          各种链接
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          各种链接
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DL%E7%9B%B8%E5%85%B3%E5%B7%A5%E5%85%B7/" class="md-nav__link">
+        DL 相关工具
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" class="md-nav__link">
+        Python性能优化
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UI%E5%B7%A5%E5%85%B7/" class="md-nav__link">
+        UI开发工具
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../awesomenontech/" class="md-nav__link">
+        各种非技术类的资源网站收集
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../awesometutorials/" class="md-nav__link">
+        技术类tutorial、课程和示例网站
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../profiling%E5%B7%A5%E5%85%B7/" class="md-nav__link">
+        profiling工具：
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E4%B8%8B%E8%BD%BD%E5%B7%A5%E5%85%B7/" class="md-nav__link">
+        下载工具
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E5%B7%A5%E5%85%B7/" class="md-nav__link">
+        图像处理工具
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          数据分析与可视化
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        数据分析与可视化
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pandas-profiling" class="md-nav__link">
+    pandas-profiling
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sweetviz" class="md-nav__link">
+    Sweetviz
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autoviz" class="md-nav__link">
+    Autoviz（速度慢外部依赖多，不好用）
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#d-tale" class="md-nav__link">
+    D-Tale（编程习惯很烂，外部依赖多且锁版本，很容易出错，非虚拟环境慎装慎用）
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%96%87%E6%A1%A3%E5%B7%A5%E5%85%B7/" class="md-nav__link">
+        文档工具
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%9D%82%E9%A1%B9%E5%B7%A5%E5%85%B7/" class="md-nav__link">
+        杂项工具
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%B5%8F%E8%A7%88%E5%99%A8%E5%B7%A5%E5%85%B7/" class="md-nav__link">
+        浏览器工具
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%94%BB%E5%9B%BE%E5%B7%A5%E5%85%B7/" class="md-nav__link">
+        画图工具
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7/" class="md-nav__link">
+        调试工具
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          日常备查
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          日常备查
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%97%A5%E5%B8%B8%E5%A4%87%E6%9F%A5/MD%E5%9F%BA%E6%9C%AC%E6%A0%B7%E5%BC%8F/" class="md-nav__link">
+        MPE支持的Markdown样式
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%97%A5%E5%B8%B8%E5%A4%87%E6%9F%A5/cmake/" class="md-nav__link">
+        Cmake
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%97%A5%E5%B8%B8%E5%A4%87%E6%9F%A5/matplotlib%E5%85%A5%E9%97%A8/" class="md-nav__link">
+        Matplotlib入门
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%97%A5%E5%B8%B8%E5%A4%87%E6%9F%A5/numba/" class="md-nav__link">
+        numba的使用
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+          Docker
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_5">
+          <span class="md-nav__icon md-icon"></span>
+          Docker
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%97%A5%E5%B8%B8%E5%A4%87%E6%9F%A5/docker/Docker%E5%AE%89%E8%A3%85%E4%B8%8E%E5%AE%B9%E5%99%A8%E9%85%8D%E7%BD%AE/" class="md-nav__link">
+        Docker安装与容器配置
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%97%A5%E5%B8%B8%E5%A4%87%E6%9F%A5/docker/%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/" class="md-nav__link">
+        基本命令
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+          Pandas
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_6">
+          <span class="md-nav__icon md-icon"></span>
+          Pandas
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%97%A5%E5%B8%B8%E5%A4%87%E6%9F%A5/pandas/pandas%20style/" class="md-nav__link">
+        Pandas style
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          豆知识
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          豆知识
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%B1%86%E7%9F%A5%E8%AF%86/Python%E5%8E%9F%E7%94%9F%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/" class="md-nav__link">
+        Python虚拟环境
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%B1%86%E7%9F%A5%E8%AF%86/arm%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E8%AF%A6%E8%A7%A3/" class="md-nav__link">
+        Arm交叉编译详解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%B1%86%E7%9F%A5%E8%AF%86/colab/" class="md-nav__link">
+        colab小技巧记录
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%B1%86%E7%9F%A5%E8%AF%86/dataset/" class="md-nav__link">
+        数据集相关
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%B1%86%E7%9F%A5%E8%AF%86/electron-nodejs/" class="md-nav__link">
+        Electron nodejs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%B1%86%E7%9F%A5%E8%AF%86/git/" class="md-nav__link">
+        git相关
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%B1%86%E7%9F%A5%E8%AF%86/jupyter/" class="md-nav__link">
+        jupyter相关
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%B1%86%E7%9F%A5%E8%AF%86/opencv/" class="md-nav__link">
+        opencv相关
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%B1%86%E7%9F%A5%E8%AF%86/os/" class="md-nav__link">
+        OS相关
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%B1%86%E7%9F%A5%E8%AF%86/python/" class="md-nav__link">
+        python相关
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%B1%86%E7%9F%A5%E8%AF%86/qt/" class="md-nav__link">
+        qt
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%B1%86%E7%9F%A5%E8%AF%86/sympy/" class="md-nav__link">
+        Sympy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%B1%86%E7%9F%A5%E8%AF%86/vscode/" class="md-nav__link">
+        VSCode相关
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%B1%86%E7%9F%A5%E8%AF%86/wsl/" class="md-nav__link">
+        WSL相关
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pandas-profiling" class="md-nav__link">
+    pandas-profiling
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sweetviz" class="md-nav__link">
+    Sweetviz
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autoviz" class="md-nav__link">
+    Autoviz（速度慢外部依赖多，不好用）
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#d-tale" class="md-nav__link">
+    D-Tale（编程习惯很烂，外部依赖多且锁版本，很容易出错，非虚拟环境慎装慎用）
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<div class="toc">
+<ul>
+<li><a href="#_1">数据分析工具</a><ul>
+<li><a href="#pandas-profiling">pandas-profiling</a></li>
+<li><a href="#sweetviz">Sweetviz</a></li>
+<li><a href="#autoviz">Autoviz（速度慢外部依赖多，不好用）</a></li>
+<li><a href="#d-tale">D-Tale（编程习惯很烂，外部依赖多且锁版本，很容易出错，非虚拟环境慎装慎用）</a></li>
+</ul>
+</li>
+<li><a href="#_2">数据可视化工具</a><ul>
+<li><a href="#_3">各种类型图的汇总</a></li>
+<li><a href="#pandasgui">pandasgui</a></li>
+<li><a href="#plotly">Plotly</a></li>
+<li><a href="#altair">Altair</a></li>
+<li><a href="#pyecharts">pyecharts</a></li>
+<li><a href="#yellowbrickscikit-learn">yellowbrick：Scikit-Learn可视化扩展</a></li>
+<li><a href="#charticulator">微软出品的可视化工具Charticulator</a></li>
+<li><a href="#sanddancevscode">另一个微软出品的可视化工具SandDance（有vscode插件）</a></li>
+<li><a href="#_4">地图工具</a><ul>
+<li><a href="#folium">Folium</a></li>
+<li><a href="#geopandas">Geopandas</a></li>
+</ul>
+</li>
+<li><a href="#hiplot">hiplot</a></li>
+<li><a href="#pydeck">pydeck</a></li>
+<li><a href="#pygmt">pygmt</a></li>
+<li><a href="#geopy">geopy</a></li>
+<li><a href="#_5">国内地图网站</a></li>
+</ul>
+</li>
+<li><a href="#_6">词云工具</a><ul>
+<li><a href="#_7">在线词云生成</a></li>
+<li><a href="#python">支持词云的python库</a><ul>
+<li><a href="#plotly_1">plotly:</a></li>
+<li><a href="#pyecharts_1">pyecharts</a></li>
+<li><a href="#wordcloud">wordcloud</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_8">配色方案</a><ul>
+<li><a href="#haishoku">Haishoku：从图片中提取配色方案</a></li>
+<li><a href="#matplotlib">matplotlib自带配色表：</a></li>
+<li><a href="#palettable">palettable：</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h1 id="_1">数据分析工具</h1>
+<p>简介来自https://towardsdatascience.com/4-libraries-that-can-perform-eda-in-one-line-of-python-code-b13938a06ae</p>
+<h2 id="pandas-profiling">pandas-profiling</h2>
+<p>Pandas profiling is an open-source python library that automates the EDA process and creates a detailed report. Pandas Profiling can be used easily for large datasets as it is blazingly fast and creates reports in a few seconds.
+repo: https://github.com/ydataai/pandas-profiling</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 导入相关库</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">pandas_profiling</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;train.csv&#39;</span><span class="p">)</span>
+<span class="n">report</span> <span class="o">=</span> <span class="n">pandas_profiling</span><span class="o">.</span><span class="n">ProfileReport</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="n">report</span><span class="o">.</span><span class="n">to_file</span><span class="p">(</span><span class="s1">&#39;temp.html&#39;</span><span class="p">)</span> <span class="c1"># 导出报告</span>
+</code></pre></div>
+<h2 id="sweetviz">Sweetviz</h2>
+<p>Sweetviz is an open-source python auto-visualization library that generates a report, exploring the data with the help of high-density plots. It not only automates the EDA but is also used for comparing datasets and drawing inferences from it. A comparison of two datasets can be done by treating one as training and the other as testing.</p>
+<p>repo: https://github.com/fbdesignpro/sweetviz</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">sweetviz</span> <span class="k">as</span> <span class="nn">sv</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;train.csv&#39;</span><span class="p">)</span>
+
+<span class="n">my_report</span> <span class="o">=</span> <span class="n">sv</span><span class="o">.</span><span class="n">analyze</span><span class="p">(</span><span class="n">df</span><span class="p">)</span> <span class="c1"># 三个主要的报告生成函数：analyze, compare, compare_intra</span>
+<span class="n">my_report</span><span class="o">.</span><span class="n">show_html</span><span class="p">()</span> <span class="c1"># Default arguments will generate to &quot;SWEETVIZ_REPORT.html&quot;</span>
+<span class="c1"># my_report.show_notebook() # 在jupyterlab或者jupyter notebook中显示</span>
+</code></pre></div>
+<h2 id="autoviz">Autoviz（速度慢外部依赖多，不好用）</h2>
+<p>Autoviz is an open-source python auto visualization library that mainly focuses on visualizing the relationship of the data by generating different types of plot.</p>
+<p>repo: https://github.com/AutoViML/AutoViz</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">autoviz.AutoViz_Class</span> <span class="kn">import</span> <span class="n">AutoViz_Class</span>
+
+<span class="n">AV</span> <span class="o">=</span> <span class="n">AutoViz_Class</span><span class="p">()</span>
+
+<span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;train.csv&quot;</span> <span class="c1"># 输入也可以是dataframe</span>
+<span class="n">sep</span> <span class="o">=</span> <span class="s2">&quot;,&quot;</span>
+<span class="n">dft</span> <span class="o">=</span> <span class="n">AV</span><span class="o">.</span><span class="n">AutoViz</span><span class="p">(</span>
+    <span class="n">filename</span><span class="p">,</span>
+    <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">,</span>
+    <span class="n">depVar</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">dfte</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">header</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="n">lowess</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">chart_format</span><span class="o">=</span><span class="s2">&quot;html&quot;</span><span class="p">,</span>
+    <span class="n">max_rows_analyzed</span><span class="o">=</span><span class="mi">150000</span><span class="p">,</span>
+    <span class="n">max_cols_analyzed</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
+    <span class="n">save_plot_dir</span><span class="o">=</span><span class="kc">None</span>
+<span class="p">)</span>
+</code></pre></div>
+<h2 id="d-tale">D-Tale（编程习惯很烂，外部依赖多且锁版本，很容易出错，非虚拟环境慎装慎用）</h2>
+<p>D-Tale is an open-source python auto-visualization library. It is one of the best auto data-visualization libraries. D-Tale helps you to get a detailed EDA of the data. It also has a feature of code export, for every plot or analysis in the report.</p>
+<p>repo: https://github.com/man-group/dtale</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">dtale</span>
+<span class="n">dtale</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">open_browser</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># 貌似在notebook中工作正常但命令行就不行，另外windows下会被防火墙拦截，要允许</span>
+</code></pre></div>
+<h1 id="_2">数据可视化工具</h1>
+<h2 id="_3">各种类型图的汇总</h2>
+<p>https://github.com/holtzy/The-Python-Graph-Gallery</p>
+<h2 id="pandasgui">pandasgui</h2>
+<p><div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>pandasgui
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">pandasgui</span> <span class="kn">import</span> <span class="n">show</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;train.csv&quot;</span><span class="p">)</span>
+<span class="n">show</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</code></pre></div></p>
+<h2 id="plotly">Plotly</h2>
+<p>文档在：https://plotly.com/python/getting-started/<br />
+原本的plotly express现已合入plotly v4，可以通过模块名plotly.express引用。<br />
+jupyterlab到v3.0为止，还需要安装插件才能正常显示</p>
+<div class="highlight"><pre><span></span><code><span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>plotly
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">plotly.graph_objects</span> <span class="k">as</span> <span class="nn">go</span>
+<span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
+<span class="n">gapminder</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">gapminder</span><span class="p">()</span>
+<span class="n">gapminder2007</span> <span class="o">=</span> <span class="n">gapminder</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;year == 2007&#39;</span><span class="p">)</span>
+<span class="n">px</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">gapminder2007</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;gdpPercap&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;lifeExp&#39;</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="altair">Altair</h2>
+<p>亮点是可以互动和用图片画点。自身不带渲染实现，要通过jupyter notebook或者nteract显示，但可以保存为文件，支持json/png/svg/html/pdf等
+https://altair-viz.github.io/
+https://altair-viz.github.io/gallery/</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+<span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
+
+<span class="n">source</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">cars</span><span class="p">()</span>
+
+<span class="n">brush</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">selection</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;interval&#39;</span><span class="p">)</span>
+
+<span class="n">points</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">source</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;Horsepower&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Miles_per_Gallon&#39;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">condition</span><span class="p">(</span><span class="n">brush</span><span class="p">,</span> <span class="s1">&#39;Origin&#39;</span><span class="p">,</span> <span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="s1">&#39;lightgray&#39;</span><span class="p">))</span>
+<span class="p">)</span><span class="o">.</span><span class="n">add_selection</span><span class="p">(</span>
+    <span class="n">brush</span>
+<span class="p">)</span>
+
+<span class="n">bars</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">source</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Origin&#39;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;Origin&#39;</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;count(Origin)&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span>
+    <span class="n">brush</span>
+<span class="p">)</span>
+
+<span class="n">points</span> <span class="o">&amp;</span> <span class="n">bars</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">source</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_records</span><span class="p">([</span>
+      <span class="p">{</span><span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s2">&quot;img&quot;</span><span class="p">:</span> <span class="s2">&quot;https://vega.github.io/vega-datasets/data/ffox.png&quot;</span><span class="p">},</span>
+      <span class="p">{</span><span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="mf">1.5</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="mf">1.5</span><span class="p">,</span> <span class="s2">&quot;img&quot;</span><span class="p">:</span> <span class="s2">&quot;https://vega.github.io/vega-datasets/data/gimp.png&quot;</span><span class="p">},</span>
+      <span class="p">{</span><span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="mf">2.5</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="mf">2.5</span><span class="p">,</span> <span class="s2">&quot;img&quot;</span><span class="p">:</span> <span class="s2">&quot;https://vega.github.io/vega-datasets/data/7zip.png&quot;</span><span class="p">}</span>
+<span class="p">])</span>
+
+<span class="n">mychart</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">source</span><span class="p">)</span><span class="o">.</span><span class="n">mark_image</span><span class="p">(</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">height</span><span class="o">=</span><span class="mi">50</span>
+<span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span>
+    <span class="n">url</span><span class="o">=</span><span class="s1">&#39;img&#39;</span>
+<span class="p">)</span>
+<span class="n">mychart</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;chartoutput.html&#39;</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="pyecharts">pyecharts</h2>
+<p>https://github.com/pyecharts/pyecharts-gallery.git<br />
+https://pyecharts.org/#/zh-cn/intro</p>
+<p>不同的 Notebook 环境有自己不同的渲染要求，pyecharts 在底层做了适配处理，但因为我们无法在 import pyecharts 的时候知道用户具体使用的是哪种 Notebook 环境，所以需要用户在使用时在顶部声明环境类型。</p>
+<p>render_notebook 随时随地渲染图表，默认为 Jupter-Notebook。</p>
+<p>Jupyter Lab 渲染的时候有两点需要注意</p>
+<p>在顶部声明 Notebook 类型，必须在引入 pyecharts.charts 等模块前声明</p>
+<div class="highlight"><pre><span></span><code>from pyecharts.globals import CurrentConfig, NotebookType
+CurrentConfig.NOTEBOOK_TYPE = NotebookType.JUPYTER_LAB
+</code></pre></div>
+<p>在第一次渲染的时候调用 load_javascript() 会预先加载基本 JavaScript 文件到 Notebook 中。如若后面其他图形渲染不出来，则请开发者尝试再次调用，因为 load_javascript 只会预先加载最基本的 js 引用。而主题、地图等 js 文件需要再次按需加载。
+load_javascript() 和 render_notebook() 方法需要在不同的 cell 中调用，这是 Notebook 的内联机制，其实本质上我们是返回了带有 <em>html</em>, <em>javascript</em> 对象的 class。notebook 会自动去调用这些方法。</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pyecharts.globals</span> <span class="kn">import</span> <span class="n">CurrentConfig</span><span class="p">,</span> <span class="n">NotebookType</span>
+<span class="c1"># CurrentConfig.NOTEBOOK_TYPE = NotebookType.JUPYTER_LAB</span>
+
+<span class="kn">import</span> <span class="nn">pyecharts.options</span> <span class="k">as</span> <span class="nn">opts</span>
+<span class="kn">from</span> <span class="nn">pyecharts.charts</span> <span class="kn">import</span> <span class="n">Bar</span><span class="p">,</span> <span class="n">Line</span>
+
+<span class="n">bar</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">Bar</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">add_xaxis</span><span class="p">([</span><span class="s2">&quot;衬衫&quot;</span><span class="p">,</span> <span class="s2">&quot;羊毛衫&quot;</span><span class="p">,</span> <span class="s2">&quot;雪纺衫&quot;</span><span class="p">,</span> <span class="s2">&quot;裤子&quot;</span><span class="p">,</span> <span class="s2">&quot;高跟鞋&quot;</span><span class="p">,</span> <span class="s2">&quot;袜子&quot;</span><span class="p">])</span>
+    <span class="o">.</span><span class="n">add_yaxis</span><span class="p">(</span><span class="s2">&quot;商家A&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">90</span><span class="p">])</span>
+    <span class="o">.</span><span class="n">add_yaxis</span><span class="p">(</span><span class="s2">&quot;商家B&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">15</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">66</span><span class="p">])</span>
+    <span class="o">.</span><span class="n">set_global_opts</span><span class="p">(</span><span class="n">title_opts</span><span class="o">=</span><span class="n">opts</span><span class="o">.</span><span class="n">TitleOpts</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;主标题&quot;</span><span class="p">,</span> <span class="n">subtitle</span><span class="o">=</span><span class="s2">&quot;副标题&quot;</span><span class="p">))</span>
+<span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">bar</span><span class="o">.</span><span class="n">render_notebook</span><span class="p">()</span>
+</code></pre></div>
+<h2 id="yellowbrickscikit-learn">yellowbrick：Scikit-Learn可视化扩展</h2>
+<p>https://www.scikit-yb.org/en/latest/index.html</p>
+<h2 id="charticulator">微软出品的可视化工具Charticulator</h2>
+<p>https://charticulator.com/templates.html
+https://github.com/Microsoft/charticulator</p>
+<h2 id="sanddancevscode">另一个微软出品的可视化工具SandDance（有vscode插件）</h2>
+<p>https://github.com/Microsoft/SandDance</p>
+<h2 id="_4">地图工具</h2>
+<h3 id="folium">Folium</h3>
+<p>https://github.com/python-visualization/folium<br />
+https://python-visualization.github.io/folium/quickstart.html<br />
+世界地图和国家地图似乎要翻墙才能正常显示，而城市地图可以，原因不明。<br />
+一个很好的实例： https://towardsdatascience.com/data-101s-spatial-visualizations-and-analysis-in-python-with-folium-39730da2adf</p>
+<h3 id="geopandas">Geopandas</h3>
+<p>https://github.com/geopandas/geopandas
+https://www.zhihu.com/question/24590883/answer/1632399054</p>
+<h2 id="hiplot">hiplot</h2>
+<p>https://hiplot.com.cn/  交大openbiox发起的一个在线画图工具</p>
+<h2 id="pydeck">pydeck</h2>
+<p>https://pydeck.gl/index.html 提供不少呈现格式，但map_provider现仅支持carto、mapbox和googlemap，需要翻墙才能访问</p>
+<h2 id="pygmt">pygmt</h2>
+<p>https://www.pygmt.org/ ：<a href="https://www.generic-mapping-tools.org/">GMT工具包</a>官方提供的python API</p>
+<h2 id="geopy">geopy</h2>
+<p>https://geopy.readthedocs.io/en/latest/
+支持包括百度地图在内的多种地图API，可以实现地点查经纬度或者经纬度反查地点，计算距离，单位换算等功能</p>
+<h2 id="_5">国内地图网站</h2>
+<p>http://datav.aliyun.com/portal/school/atlas/area_selector 可下载细到县城的svg格式地图
+https://nbcharts.com/map/map.php 3D地图</p>
+<h1 id="_6">词云工具</h1>
+<h2 id="_7">在线词云生成</h2>
+<p>https://wordart.com/</p>
+<h2 id="python">支持词云的python库</h2>
+<h3 id="plotly_1">plotly:</h3>
+<p>https://plotly.com/python/</p>
+<h3 id="pyecharts_1">pyecharts</h3>
+<h3 id="wordcloud">wordcloud</h3>
+<p>可以指定蒙版图像和字体的词云库：
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">wordcloud</span> <span class="kn">import</span> <span class="n">WordCloud</span>
+<span class="kn">import</span> <span class="nn">collections</span>
+<span class="kn">import</span> <span class="nn">jieba</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># 读取数据</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;barrages.txt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">jieba</span><span class="o">.</span><span class="n">load_userdict</span><span class="p">(</span><span class="s2">&quot;./词云图//add.txt&quot;</span><span class="p">)</span>
+
+<span class="c1"># 文本预处理  去除一些无用的字符   只提取出中文出来</span>
+<span class="n">new_data</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;[</span><span class="se">\u4e00</span><span class="s1">-</span><span class="se">\u9fa5</span><span class="s1">]+&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">S</span><span class="p">)</span>
+<span class="n">new_data</span> <span class="o">=</span> <span class="s2">&quot;/&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">new_data</span><span class="p">)</span>
+
+<span class="c1"># 文本分词</span>
+<span class="n">seg_list_exact</span> <span class="o">=</span> <span class="n">jieba</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">new_data</span><span class="p">,</span> <span class="n">cut_all</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">result_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;./词云图/stoplist.txt&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">con</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">stop_words</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">con</span><span class="p">:</span>
+        <span class="n">stop_words</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">seg_list_exact</span><span class="p">:</span>
+    <span class="c1"># 设置停用词并去除单个词</span>
+    <span class="k">if</span> <span class="n">word</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stop_words</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">result_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+
+<span class="c1"># 筛选后统计词频</span>
+<span class="n">word_counts</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">Counter</span><span class="p">(</span><span class="n">result_list</span><span class="p">)</span>
+<span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;./wordcloud/&#39;</span>
+
+<span class="n">img_files</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s1">&#39;./mask_img&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">img_files</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">img_files</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="n">img</span> <span class="o">=</span> <span class="sa">fr</span><span class="s1">&#39;.\mask_img\mask_</span><span class="si">{</span><span class="n">num</span><span class="si">}</span><span class="s1">.png&#39;</span>
+    <span class="c1"># 获取蒙版图片</span>
+    <span class="n">mask_</span> <span class="o">=</span> <span class="mi">255</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">img</span><span class="p">))</span>
+    <span class="c1"># 绘制词云</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+    <span class="n">my_cloud</span> <span class="o">=</span> <span class="n">WordCloud</span><span class="p">(</span>
+        <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span>  <span class="c1"># 设置背景颜色  默认是black</span>
+        <span class="n">mask</span><span class="o">=</span><span class="n">mask_</span><span class="p">,</span>      <span class="c1"># 自定义蒙版</span>
+        <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;RGBA&#39;</span><span class="p">,</span>
+        <span class="n">max_words</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span>
+        <span class="n">font_path</span><span class="o">=</span><span class="s1">&#39;simhei.ttf&#39;</span><span class="p">,</span>   <span class="c1"># 设置字体  显示中文</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">generate_from_frequencies</span><span class="p">(</span><span class="n">word_counts</span><span class="p">)</span>
+
+    <span class="c1"># 显示生成的词云图片</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">my_cloud</span><span class="p">)</span>
+    <span class="c1"># 显示设置词云图中无坐标轴</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+    <span class="n">word_cloud_name</span> <span class="o">=</span> <span class="n">path</span> <span class="o">+</span> <span class="s1">&#39;wordcloud_</span><span class="si">{}</span><span class="s1">.png&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+    <span class="n">my_cloud</span><span class="o">.</span><span class="n">to_file</span><span class="p">(</span><span class="n">word_cloud_name</span><span class="p">)</span>    <span class="c1"># 保存词云图片</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;======== 第</span><span class="si">{</span><span class="n">num</span><span class="si">}</span><span class="s1">张词云图生成 ========&#39;</span><span class="p">)</span>
+</code></pre></div></p>
+<h1 id="_8">配色方案</h1>
+<h2 id="haishoku">Haishoku：从图片中提取配色方案</h2>
+<p>https://github.com/LanceGin/haishoku
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>haishoku
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pprint</span>
+<span class="kn">from</span> <span class="nn">haishoku.haishoku</span> <span class="kn">import</span> <span class="n">Haishoku</span>
+<span class="n">image</span> <span class="o">=</span> <span class="s1">&#39;images/lunyu.jpg&#39;</span>
+<span class="n">dominant</span> <span class="o">=</span> <span class="n">Haishoku</span><span class="o">.</span><span class="n">getDominant</span><span class="p">(</span><span class="n">image</span><span class="p">)</span> <span class="c1"># 提取主打颜色</span>
+<span class="n">Haishoku</span><span class="o">.</span><span class="n">showDominant</span><span class="p">(</span><span class="n">image</span><span class="p">)</span> <span class="c1"># 显示主打颜色</span>
+<span class="n">palette</span> <span class="o">=</span> <span class="n">Haishoku</span><span class="o">.</span><span class="n">getPalette</span><span class="p">(</span><span class="n">image</span><span class="p">)</span> <span class="c1"># 提取调色板</span>
+<span class="n">Haishoku</span><span class="o">.</span><span class="n">showPalette</span><span class="p">(</span><span class="n">image</span><span class="p">)</span> <span class="c1"># 显示调色板</span>
+
+<span class="c1"># 另一种实现方法</span>
+<span class="n">haishoku</span> <span class="o">=</span> <span class="n">Haishoku</span><span class="o">.</span><span class="n">loadHaishoku</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">haishoku</span><span class="o">.</span><span class="n">dominant</span><span class="p">)</span>
+<span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">haishoku</span><span class="o">.</span><span class="n">palette</span><span class="p">)</span>
+</code></pre></div></p>
+<h2 id="matplotlib">matplotlib自带配色表：</h2>
+<p>https://matplotlib.org/tutorials/colors/colormaps.html#colorcet</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Have colormaps separated into categories:</span>
+<span class="c1"># http://matplotlib.org/examples/color/colormaps_reference.html</span>
+<span class="n">cmaps</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;Perceptually Uniform Sequential&#39;</span><span class="p">,</span> <span class="p">[</span>
+            <span class="s1">&#39;viridis&#39;</span><span class="p">,</span> <span class="s1">&#39;plasma&#39;</span><span class="p">,</span> <span class="s1">&#39;inferno&#39;</span><span class="p">,</span> <span class="s1">&#39;magma&#39;</span><span class="p">]),</span>
+         <span class="p">(</span><span class="s1">&#39;Sequential&#39;</span><span class="p">,</span> <span class="p">[</span>
+            <span class="s1">&#39;Greys&#39;</span><span class="p">,</span> <span class="s1">&#39;Purples&#39;</span><span class="p">,</span> <span class="s1">&#39;Blues&#39;</span><span class="p">,</span> <span class="s1">&#39;Greens&#39;</span><span class="p">,</span> <span class="s1">&#39;Oranges&#39;</span><span class="p">,</span> <span class="s1">&#39;Reds&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;YlOrBr&#39;</span><span class="p">,</span> <span class="s1">&#39;YlOrRd&#39;</span><span class="p">,</span> <span class="s1">&#39;OrRd&#39;</span><span class="p">,</span> <span class="s1">&#39;PuRd&#39;</span><span class="p">,</span> <span class="s1">&#39;RdPu&#39;</span><span class="p">,</span> <span class="s1">&#39;BuPu&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;GnBu&#39;</span><span class="p">,</span> <span class="s1">&#39;PuBu&#39;</span><span class="p">,</span> <span class="s1">&#39;YlGnBu&#39;</span><span class="p">,</span> <span class="s1">&#39;PuBuGn&#39;</span><span class="p">,</span> <span class="s1">&#39;BuGn&#39;</span><span class="p">,</span> <span class="s1">&#39;YlGn&#39;</span><span class="p">]),</span>
+         <span class="p">(</span><span class="s1">&#39;Sequential (2)&#39;</span><span class="p">,</span> <span class="p">[</span>
+            <span class="s1">&#39;binary&#39;</span><span class="p">,</span> <span class="s1">&#39;gist_yarg&#39;</span><span class="p">,</span> <span class="s1">&#39;gist_gray&#39;</span><span class="p">,</span> <span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="s1">&#39;bone&#39;</span><span class="p">,</span> <span class="s1">&#39;pink&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;spring&#39;</span><span class="p">,</span> <span class="s1">&#39;summer&#39;</span><span class="p">,</span> <span class="s1">&#39;autumn&#39;</span><span class="p">,</span> <span class="s1">&#39;winter&#39;</span><span class="p">,</span> <span class="s1">&#39;cool&#39;</span><span class="p">,</span> <span class="s1">&#39;Wistia&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;hot&#39;</span><span class="p">,</span> <span class="s1">&#39;afmhot&#39;</span><span class="p">,</span> <span class="s1">&#39;gist_heat&#39;</span><span class="p">,</span> <span class="s1">&#39;copper&#39;</span><span class="p">]),</span>
+         <span class="p">(</span><span class="s1">&#39;Diverging&#39;</span><span class="p">,</span> <span class="p">[</span>
+            <span class="s1">&#39;PiYG&#39;</span><span class="p">,</span> <span class="s1">&#39;PRGn&#39;</span><span class="p">,</span> <span class="s1">&#39;BrBG&#39;</span><span class="p">,</span> <span class="s1">&#39;PuOr&#39;</span><span class="p">,</span> <span class="s1">&#39;RdGy&#39;</span><span class="p">,</span> <span class="s1">&#39;RdBu&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;RdYlBu&#39;</span><span class="p">,</span> <span class="s1">&#39;RdYlGn&#39;</span><span class="p">,</span> <span class="s1">&#39;Spectral&#39;</span><span class="p">,</span> <span class="s1">&#39;coolwarm&#39;</span><span class="p">,</span> <span class="s1">&#39;bwr&#39;</span><span class="p">,</span> <span class="s1">&#39;seismic&#39;</span><span class="p">]),</span>
+         <span class="p">(</span><span class="s1">&#39;Qualitative&#39;</span><span class="p">,</span> <span class="p">[</span>
+            <span class="s1">&#39;Pastel1&#39;</span><span class="p">,</span> <span class="s1">&#39;Pastel2&#39;</span><span class="p">,</span> <span class="s1">&#39;Paired&#39;</span><span class="p">,</span> <span class="s1">&#39;Accent&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;Dark2&#39;</span><span class="p">,</span> <span class="s1">&#39;Set1&#39;</span><span class="p">,</span> <span class="s1">&#39;Set2&#39;</span><span class="p">,</span> <span class="s1">&#39;Set3&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;tab10&#39;</span><span class="p">,</span> <span class="s1">&#39;tab20&#39;</span><span class="p">,</span> <span class="s1">&#39;tab20b&#39;</span><span class="p">,</span> <span class="s1">&#39;tab20c&#39;</span><span class="p">]),</span>
+         <span class="p">(</span><span class="s1">&#39;Miscellaneous&#39;</span><span class="p">,</span> <span class="p">[</span>
+            <span class="s1">&#39;flag&#39;</span><span class="p">,</span> <span class="s1">&#39;prism&#39;</span><span class="p">,</span> <span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;gist_earth&#39;</span><span class="p">,</span> <span class="s1">&#39;terrain&#39;</span><span class="p">,</span> <span class="s1">&#39;gist_stern&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;gnuplot&#39;</span><span class="p">,</span> <span class="s1">&#39;gnuplot2&#39;</span><span class="p">,</span> <span class="s1">&#39;CMRmap&#39;</span><span class="p">,</span> <span class="s1">&#39;cubehelix&#39;</span><span class="p">,</span> <span class="s1">&#39;brg&#39;</span><span class="p">,</span> <span class="s1">&#39;hsv&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;gist_rainbow&#39;</span><span class="p">,</span> <span class="s1">&#39;rainbow&#39;</span><span class="p">,</span> <span class="s1">&#39;jet&#39;</span><span class="p">,</span> <span class="s1">&#39;nipy_spectral&#39;</span><span class="p">,</span> <span class="s1">&#39;gist_ncar&#39;</span><span class="p">])]</span>
+
+
+<span class="n">nrows</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">cmap_list</span><span class="p">)</span> <span class="k">for</span> <span class="n">cmap_category</span><span class="p">,</span> <span class="n">cmap_list</span> <span class="ow">in</span> <span class="n">cmaps</span><span class="p">)</span>
+<span class="n">gradient</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">256</span><span class="p">)</span>
+<span class="n">gradient</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">gradient</span><span class="p">,</span> <span class="n">gradient</span><span class="p">))</span>
+
+
+<span class="k">def</span> <span class="nf">plot_color_gradients</span><span class="p">(</span><span class="n">cmap_category</span><span class="p">,</span> <span class="n">cmap_list</span><span class="p">,</span> <span class="n">nrows</span><span class="p">):</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="n">nrows</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">top</span><span class="o">=</span><span class="mf">0.95</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">left</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="mf">0.99</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">cmap_category</span> <span class="o">+</span> <span class="s1">&#39; colormaps&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">ax</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">axes</span><span class="p">,</span> <span class="n">cmap_list</span><span class="p">):</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">gradient</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
+        <span class="n">pos</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">get_position</span><span class="p">()</span><span class="o">.</span><span class="n">bounds</span><span class="p">)</span>
+        <span class="n">x_text</span> <span class="o">=</span> <span class="n">pos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mf">0.01</span>
+        <span class="n">y_text</span> <span class="o">=</span> <span class="n">pos</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">pos</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">/</span><span class="mf">2.</span>
+        <span class="n">fig</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">x_text</span><span class="p">,</span> <span class="n">y_text</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+    <span class="c1"># Turn off *all* ticks &amp; spines, not just the ones with colormaps.</span>
+    <span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">axes</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
+
+
+<span class="k">for</span> <span class="n">cmap_category</span><span class="p">,</span> <span class="n">cmap_list</span> <span class="ow">in</span> <span class="n">cmaps</span><span class="p">:</span>
+    <span class="n">plot_color_gradients</span><span class="p">(</span><span class="n">cmap_category</span><span class="p">,</span> <span class="n">cmap_list</span><span class="p">,</span> <span class="n">nrows</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<h2 id="palettable">palettable：</h2>
+<p>https://github.com/jiffyclub/palettable</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.indexes"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.b4d07000.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/wavedrom/2.6.8/wavedrom.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/wavedrom/2.6.8/skins/default.js"></script>
+      
+        <script src="../../javascripts/wavedrom_loader.js"></script>
+      
+    
+  </body>
+</html>
