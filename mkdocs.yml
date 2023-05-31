@@ -1,0 +1,60 @@
+site_name: zz's programming tips
+site_url: https://zhizhang77.github.io/tips/
+
+repo_name: zhizhang77/tips
+repo_url: https://github.com/zhizhang77/tips/
+edit_uri: ""
+
+theme:
+  name: material
+  # custom_dir: mkdocs-overrides
+  font:
+    text: Roboto
+  palette:
+    primary: black
+  logo: resources/github_icon.png
+  favicon: resources/github_icon.png
+  features:
+    - navigation.instant
+    - navigation.indexes
+
+plugins:
+  - mkdocs-jupyter
+  - search
+  # - git-revision-date-localized
+  # - plantuml:
+  #     puml_url: https://www.plantuml.com/plantuml/
+  #     num_workers: 8
+  #     puml_keyword: puml
+
+markdown_extensions:
+  - meta
+  - admonition
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.highlight
+  - pymdownx.pathconverter
+  - pymdownx.tabbed
+  - mdx_truly_sane_lists
+  - pymdownx.tasklist
+  - plantuml_markdown:
+      server: "https://www.plantuml.com/plantuml"
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - markdown_wavedrom
+
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  - https://cdnjs.cloudflare.com/ajax/libs/wavedrom/2.6.8/wavedrom.min.js
+  - https://cdnjs.cloudflare.com/ajax/libs/wavedrom/2.6.8/skins/default.js
+  - javascripts/wavedrom_loader.js

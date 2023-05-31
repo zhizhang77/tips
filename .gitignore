@@ -1,0 +1,7 @@
+*.html
+.*/
+__pycache__/
+test/*
+*.out
+temp*
+myvenv/
