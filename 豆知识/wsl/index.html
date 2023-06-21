@@ -1036,6 +1036,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#wsl_2" class="md-nav__link">
+    wsl空间回收
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1126,6 +1133,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#wsl_2" class="md-nav__link">
+    wsl空间回收
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1152,6 +1166,7 @@
 <li><a href="#vscode">VSCode远程不工作</a></li>
 <li><a href="#wslwindows">在WSL下使用Windows的字体库</a></li>
 <li><a href="#wsl_1">将指定的wsl系统迁移到其它目录</a></li>
+<li><a href="#wsl_2">wsl空间回收</a></li>
 </ul>
 </li>
 </ul>
@@ -1222,6 +1237,19 @@
 <span class="nb">PS </span><span class="n">D</span><span class="p">:\&gt;</span> <span class="n">ubuntu2004</span><span class="p">.</span><span class="n">exe</span> <span class="n">config</span> <span class="p">-</span><span class="n">-default-user</span> <span class="n">yourusername</span> <span class="c"># 迁移后缺省的登录用户是root，用这个改为你想要的用户，不同发布版文件名不同。</span>
 </code></pre></div>
 如果原系统集成了docker desktop，迁移后需要在docker desktop的Settings-&gt;Resources-&gt;WSL integration里重新打开。</p>
+<h2 id="wsl_2">wsl空间回收</h2>
+<p>wsl的虚拟机文件（ext4.vhdx）大小只会增加，不会自动缩减。如果在linux内部删除一些文件，<code>df -h</code>可以看到其对应的/dev/sdc空间占用减少了，但从windows文件管理器里看，ext4.vhdx文件的大小并没有变化。这时可以用windows自带工具diskpart缩减文件大小。</p>
+<p>首先在powershell下关闭wsl，然后启动diskpart
+<div class="highlight"><pre><span></span><code><span class="nb">PS </span><span class="n">D</span><span class="p">:\&gt;</span> <span class="n">wsl</span> <span class="p">-</span><span class="n">-shutdown</span>
+<span class="nb">PS </span><span class="n">D</span><span class="p">:\&gt;</span> <span class="n">diskpart</span>
+</code></pre></div></p>
+<p>然后在diskpart中操作
+<div class="highlight"><pre><span></span><code>select vdisk file=&quot;D:\wsl\ext4.vhdx&quot;
+attach vdisk readonly
+compact vdisk
+detach vdisk
+exit
+</code></pre></div></p>
 
 
 
