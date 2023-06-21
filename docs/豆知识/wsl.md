@@ -10,7 +10,7 @@
    dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
    ```
 
-   
+
 
 2. 确定win10已升级到版本 1903 或更高版本
 
@@ -20,7 +20,7 @@
    dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
    ```
 
-   
+
 
 4. 下载并安装[适用于 x64 计算机的 WSL2 Linux 内核更新包](https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi)
 
@@ -30,11 +30,11 @@
    wsl --set-default-version 2
    ```
 
-   
+
 
 6. 使用`wsl -l -v`可以看到当前安装的系统名称和使用的wsl版本，如果想修改所用的wsl版本，可以使用命令`wsl --set-version linuxname wslversion`，其中linuxname要跟`wsl -l -v`显示的name一致，wslversion就是数字1或者2。转换过程需要一些时间。
 
-   
+
 
 ## win10访问WSL2文件
 
@@ -91,3 +91,22 @@ PS D:\> wsl --import Ubuntu-20.04 D:\tools\wsl\ D:\tools\wsl\u.tar
 PS D:\> ubuntu2004.exe config --default-user yourusername # 迁移后缺省的登录用户是root，用这个改为你想要的用户，不同发布版文件名不同。
 ```
 如果原系统集成了docker desktop，迁移后需要在docker desktop的Settings->Resources->WSL integration里重新打开。
+
+## wsl空间回收
+
+wsl的虚拟机文件（ext4.vhdx）大小只会增加，不会自动缩减。如果在linux内部删除一些文件，`df -h`可以看到其对应的/dev/sdc空间占用减少了，但从windows文件管理器里看，ext4.vhdx文件的大小并没有变化。这时可以用windows自带工具diskpart缩减文件大小。
+
+首先在powershell下关闭wsl，然后启动diskpart
+```powershell
+PS D:\> wsl --shutdown
+PS D:\> diskpart
+```
+
+然后在diskpart中操作
+```txt
+select vdisk file="D:\wsl\ext4.vhdx"
+attach vdisk readonly
+compact vdisk
+detach vdisk
+exit
+```
