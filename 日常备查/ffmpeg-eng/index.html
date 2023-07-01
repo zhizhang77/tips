@@ -8,20 +8,20 @@
       
       
       
-        <link rel="canonical" href="https://zhizhang77.github.io/tips/%E8%B1%86%E7%9F%A5%E8%AF%86/dataset/">
+        <link rel="canonical" href="https://zhizhang77.github.io/tips/%E6%97%A5%E5%B8%B8%E5%A4%87%E6%9F%A5/ffmpeg-eng/">
       
       
-        <link rel="prev" href="../colab/">
+        <link rel="prev" href="../ffmpeg-chs/">
       
       
-        <link rel="next" href="../electron-nodejs/">
+        <link rel="next" href="../matplotlib%E5%85%A5%E9%97%A8/">
       
       <link rel="icon" href="../../resources/github_icon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.14">
     
     
       
-        <title>数据集相关 - zz的杂物堆</title>
+        <title>FFmpeg cheat sheet - zz的杂物堆</title>
       
     
     
@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#ffmpeg-cheat-sheet" class="md-skip">
           Skip to content
         </a>
       
@@ -103,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              数据集相关
+              FFmpeg cheat sheet
             
           </span>
         </div>
@@ -488,14 +488,16 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
       
       
         
@@ -522,7 +524,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_3">
           <span class="md-nav__icon md-icon"></span>
           日常备查
@@ -535,7 +537,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E6%97%A5%E5%B8%B8%E5%A4%87%E6%9F%A5/MD%E5%9F%BA%E6%9C%AC%E6%A0%B7%E5%BC%8F/" class="md-nav__link">
+      <a href="../MD%E5%9F%BA%E6%9C%AC%E6%A0%B7%E5%BC%8F/" class="md-nav__link">
         MPE支持的Markdown样式
       </a>
     </li>
@@ -549,7 +551,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E6%97%A5%E5%B8%B8%E5%A4%87%E6%9F%A5/cmake/" class="md-nav__link">
+      <a href="../cmake/" class="md-nav__link">
         Cmake
       </a>
     </li>
@@ -563,7 +565,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E6%97%A5%E5%B8%B8%E5%A4%87%E6%9F%A5/ffmpeg-chs/" class="md-nav__link">
+      <a href="../ffmpeg-chs/" class="md-nav__link">
         FFmpeg CheatSheet中文（忘记出处，未检查，正确性不保证）
       </a>
     </li>
@@ -575,11 +577,163 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../%E6%97%A5%E5%B8%B8%E5%A4%87%E6%9F%A5/ffmpeg-eng/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          FFmpeg cheat sheet
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         FFmpeg cheat sheet
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#basic-conversion" class="md-nav__link">
+    Basic conversion
+  </a>
+  
+    <nav class="md-nav" aria-label="Basic conversion">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#remux-an-mkv-file-into-mp4" class="md-nav__link">
+    Remux an MKV file into MP4
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#high-quality-encoding" class="md-nav__link">
+    High-quality encoding
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trimming" class="md-nav__link">
+    Trimming
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mux-video-and-audio-from-another-video" class="md-nav__link">
+    Mux video and audio from another video
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concat-demuxer" class="md-nav__link">
+    Concat demuxer
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#delay-audiovideo" class="md-nav__link">
+    Delay audio/video
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#burn-subtitles" class="md-nav__link">
+    Burn subtitles
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extract-the-frames-from-a-video" class="md-nav__link">
+    Extract the frames from a video
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rotate-a-video" class="md-nav__link">
+    Rotate a video
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#download-transport-stream-video-streams" class="md-nav__link">
+    Download "Transport Stream" video streams
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mute-some-of-the-audio" class="md-nav__link">
+    Mute some of the audio
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deinterlace" class="md-nav__link">
+    Deinterlace
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-video-slideshow-from-images" class="md-nav__link">
+    Create a video slideshow from images
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extract-images-from-a-video" class="md-nav__link">
+    Extract images from a video
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metadata-change-the-title" class="md-nav__link">
+    Metadata: Change the title
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -591,7 +745,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E6%97%A5%E5%B8%B8%E5%A4%87%E6%9F%A5/matplotlib%E5%85%A5%E9%97%A8/" class="md-nav__link">
+      <a href="../matplotlib%E5%85%A5%E9%97%A8/" class="md-nav__link">
         Matplotlib入门
       </a>
     </li>
@@ -605,7 +759,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E6%97%A5%E5%B8%B8%E5%A4%87%E6%9F%A5/numba/" class="md-nav__link">
+      <a href="../numba/" class="md-nav__link">
         numba的使用
       </a>
     </li>
@@ -652,7 +806,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E6%97%A5%E5%B8%B8%E5%A4%87%E6%9F%A5/docker/Docker%E5%AE%89%E8%A3%85%E4%B8%8E%E5%AE%B9%E5%99%A8%E9%85%8D%E7%BD%AE/" class="md-nav__link">
+      <a href="../docker/Docker%E5%AE%89%E8%A3%85%E4%B8%8E%E5%AE%B9%E5%99%A8%E9%85%8D%E7%BD%AE/" class="md-nav__link">
         Docker安装与容器配置
       </a>
     </li>
@@ -666,7 +820,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E6%97%A5%E5%B8%B8%E5%A4%87%E6%9F%A5/docker/%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/" class="md-nav__link">
+      <a href="../docker/%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/" class="md-nav__link">
         基本命令
       </a>
     </li>
@@ -718,7 +872,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E6%97%A5%E5%B8%B8%E5%A4%87%E6%9F%A5/pandas/pandas%20style/" class="md-nav__link">
+      <a href="../pandas/pandas%20style/" class="md-nav__link">
         Pandas style
       </a>
     </li>
@@ -745,16 +899,14 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
       
       
         
@@ -793,7 +945,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
           豆知识
@@ -806,7 +958,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Python%E5%8E%9F%E7%94%9F%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/" class="md-nav__link">
+      <a href="../../%E8%B1%86%E7%9F%A5%E8%AF%86/Python%E5%8E%9F%E7%94%9F%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/" class="md-nav__link">
         Python虚拟环境
       </a>
     </li>
@@ -820,7 +972,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../arm%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E8%AF%A6%E8%A7%A3/" class="md-nav__link">
+      <a href="../../%E8%B1%86%E7%9F%A5%E8%AF%86/arm%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E8%AF%A6%E8%A7%A3/" class="md-nav__link">
         Arm交叉编译详解
       </a>
     </li>
@@ -834,7 +986,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../colab/" class="md-nav__link">
+      <a href="../../%E8%B1%86%E7%9F%A5%E8%AF%86/colab/" class="md-nav__link">
         colab小技巧记录
       </a>
     </li>
@@ -846,52 +998,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          数据集相关
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../%E8%B1%86%E7%9F%A5%E8%AF%86/dataset/" class="md-nav__link">
         数据集相关
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#mnistfashionmnist" class="md-nav__link">
-    MNIST和FashionMNIST的格式
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -903,7 +1014,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../electron-nodejs/" class="md-nav__link">
+      <a href="../../%E8%B1%86%E7%9F%A5%E8%AF%86/electron-nodejs/" class="md-nav__link">
         Electron nodejs
       </a>
     </li>
@@ -917,7 +1028,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../git/" class="md-nav__link">
+      <a href="../../%E8%B1%86%E7%9F%A5%E8%AF%86/git/" class="md-nav__link">
         git相关
       </a>
     </li>
@@ -931,7 +1042,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../jupyter/" class="md-nav__link">
+      <a href="../../%E8%B1%86%E7%9F%A5%E8%AF%86/jupyter/" class="md-nav__link">
         jupyter相关
       </a>
     </li>
@@ -945,7 +1056,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../opencv/" class="md-nav__link">
+      <a href="../../%E8%B1%86%E7%9F%A5%E8%AF%86/opencv/" class="md-nav__link">
         opencv相关
       </a>
     </li>
@@ -959,7 +1070,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../os/" class="md-nav__link">
+      <a href="../../%E8%B1%86%E7%9F%A5%E8%AF%86/os/" class="md-nav__link">
         OS相关
       </a>
     </li>
@@ -973,7 +1084,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../python/" class="md-nav__link">
+      <a href="../../%E8%B1%86%E7%9F%A5%E8%AF%86/python/" class="md-nav__link">
         python相关
       </a>
     </li>
@@ -987,7 +1098,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../qt/" class="md-nav__link">
+      <a href="../../%E8%B1%86%E7%9F%A5%E8%AF%86/qt/" class="md-nav__link">
         qt
       </a>
     </li>
@@ -1001,7 +1112,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sympy/" class="md-nav__link">
+      <a href="../../%E8%B1%86%E7%9F%A5%E8%AF%86/sympy/" class="md-nav__link">
         Sympy
       </a>
     </li>
@@ -1015,7 +1126,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../vscode/" class="md-nav__link">
+      <a href="../../%E8%B1%86%E7%9F%A5%E8%AF%86/vscode/" class="md-nav__link">
         VSCode相关
       </a>
     </li>
@@ -1029,7 +1140,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../wsl/" class="md-nav__link">
+      <a href="../../%E8%B1%86%E7%9F%A5%E8%AF%86/wsl/" class="md-nav__link">
         WSL相关
       </a>
     </li>
@@ -1070,8 +1181,119 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#mnistfashionmnist" class="md-nav__link">
-    MNIST和FashionMNIST的格式
+  <a href="#basic-conversion" class="md-nav__link">
+    Basic conversion
+  </a>
+  
+    <nav class="md-nav" aria-label="Basic conversion">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#remux-an-mkv-file-into-mp4" class="md-nav__link">
+    Remux an MKV file into MP4
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#high-quality-encoding" class="md-nav__link">
+    High-quality encoding
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trimming" class="md-nav__link">
+    Trimming
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mux-video-and-audio-from-another-video" class="md-nav__link">
+    Mux video and audio from another video
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concat-demuxer" class="md-nav__link">
+    Concat demuxer
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#delay-audiovideo" class="md-nav__link">
+    Delay audio/video
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#burn-subtitles" class="md-nav__link">
+    Burn subtitles
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extract-the-frames-from-a-video" class="md-nav__link">
+    Extract the frames from a video
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rotate-a-video" class="md-nav__link">
+    Rotate a video
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#download-transport-stream-video-streams" class="md-nav__link">
+    Download "Transport Stream" video streams
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mute-some-of-the-audio" class="md-nav__link">
+    Mute some of the audio
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deinterlace" class="md-nav__link">
+    Deinterlace
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-video-slideshow-from-images" class="md-nav__link">
+    Create a video slideshow from images
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extract-images-from-a-video" class="md-nav__link">
+    Extract images from a video
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metadata-change-the-title" class="md-nav__link">
+    Metadata: Change the title
   </a>
   
 </li>
@@ -1091,64 +1313,116 @@
                   
 
 
-<h1 id="_1">数据集相关</h1>
-<div class="toc">
+<h1 id="ffmpeg-cheat-sheet">FFmpeg cheat sheet</h1>
+<p>A list of useful commands for the ffmpeg command line tool.</p>
+<p>Download FFmpeg: https://www.ffmpeg.org/download.html</p>
+<p>Full documentation: https://www.ffmpeg.org/ffmpeg.html</p>
+<h2 id="basic-conversion">Basic conversion</h2>
+<div class="highlight"><pre><span></span><code>ffmpeg -i in.mp4 out.avi
+</code></pre></div>
+<h3 id="remux-an-mkv-file-into-mp4">Remux an MKV file into MP4</h3>
+<div class="highlight"><pre><span></span><code>ffmpeg -i in.mkv -c:v copy -c:a copy out.mp4
+</code></pre></div>
+<h3 id="high-quality-encoding">High-quality encoding</h3>
+<p>Use the <code>crf</code> (Constant Rate Factor) parameter to control the output quality. The lower crf, the higher the quality (range: 0-51). The default value is 23, and visually lossless compression corresponds to <code>-crf 18</code>. Use the <code>preset</code> parameter to control the speed of the compression process. Additional info: https://trac.ffmpeg.org/wiki/Encode/H.264</p>
+<div class="highlight"><pre><span></span><code>ffmpeg -i in.mp4 -preset slower -crf 18 out.mp4
+</code></pre></div>
+<h2 id="trimming">Trimming</h2>
+<p>Without re-encoding:
+<div class="highlight"><pre><span></span><code>ffmpeg -ss [start] -i in.mp4 -t [duration] -c copy out.mp4
+</code></pre></div>
+- <a href="http://ffmpeg.org/ffmpeg-all.html#Main-options"><code>-ss</code></a> specifies the start time, e.g. <code>00:01:23.000</code> or <code>83</code> (in seconds)
+- <a href="http://ffmpeg.org/ffmpeg-all.html#Main-options"><code>-t</code></a> specifies the duration of the clip (same format).
+- Recent <code>ffmpeg</code> also has a flag to supply the end time with <code>-to</code>.
+- <a href="http://ffmpeg.org/ffmpeg-all.html#Main-options"><code>-c</code></a> copy copies the first video, audio, and subtitle bitstream from the input to the output file without re-encoding them. This won't harm the quality and make the command run within seconds.</p>
+<p>With re-encoding:</p>
+<p>If you leave out the <code>-c copy</code> option, <code>ffmpeg</code> will automatically re-encode the output video and audio according to the format you chose. For high quality video and audio, read the <a href="https://ffmpeg.org/trac/ffmpeg/wiki/x264EncodingGuide">x264 Encoding Guide</a> and the <a href="http://ffmpeg.org/trac/ffmpeg/wiki/AACEncodingGuide">AAC Encoding Guide</a>, respectively.</p>
+<p>For example:
+<div class="highlight"><pre><span></span><code>ffmpeg -ss [start] -i in.mp4 -t [duration] -c:v libx264 -c:a aac -strict experimental -b:a 128k out.mp4
+</code></pre></div></p>
+<h2 id="mux-video-and-audio-from-another-video">Mux video and audio from another video</h2>
+<p>To copy the video from in0.mp4 and audio from in1.mp4:
+<div class="highlight"><pre><span></span><code>ffmpeg -i in0.mp4 -i in1.mp4 -c copy -map 0:0 -map 1:1 -shortest out.mp4
+</code></pre></div>
+- With <a href="http://ffmpeg.org/ffmpeg.html#Stream-copy">-c copy</a> the streams will be <code>stream copied</code>, not re-encoded, so there will be no quality loss. If you want to re-encode, see <a href="https://trac.ffmpeg.org/wiki/Encode/H.264">FFmpeg Wiki: H.264 Encoding Guide</a>.
+- The <code>-shortest</code> option will cause the output duration to match the duration of the shortest input stream.
+- See the <a href="http://ffmpeg.org/ffmpeg.html#Advanced-options"><code>-map</code> option documentation</a> for more info.</p>
+<h2 id="concat-demuxer">Concat demuxer</h2>
+<p>First, make a text file.
+<div class="highlight"><pre><span></span><code>file &#39;in1.mp4&#39;
+file &#39;in2.mp4&#39;
+file &#39;in3.mp4&#39;
+file &#39;in4.mp4&#39;
+</code></pre></div>
+Then, run <code>ffmpeg</code>:
+<div class="highlight"><pre><span></span><code>ffmpeg -f concat -i list.txt -c copy out.mp4
+</code></pre></div></p>
+<h2 id="delay-audiovideo">Delay audio/video</h2>
+<p>Delay video by 3.84 seconds:
+<div class="highlight"><pre><span></span><code>ffmpeg -i in.mp4 -itsoffset 3.84 -i in.mp4 -map 1:v -map 0:a -vcodec copy -acodec copy out.mp4
+</code></pre></div>
+Delay audio by 3.84 seconds:
+<div class="highlight"><pre><span></span><code>ffmpeg -i in.mp4 -itsoffset 3.84 -i in.mp4 -map 0:v -map 1:a -vcodec copy -acodec copy out.mp4
+</code></pre></div></p>
+<h2 id="burn-subtitles">Burn subtitles</h2>
+<p>Use the <a href="http://ffmpeg.org/ffmpeg.html#ass">libass</a> library (make sure your ffmpeg install has the library in the configuration <code>--enable-libass</code>).</p>
+<p>First convert the subtitles to .ass format:
+<div class="highlight"><pre><span></span><code>ffmpeg -i sub.srt sub.ass
+</code></pre></div>
+Then add them using a video filter:</p>
+<div class="highlight"><pre><span></span><code>ffmpeg -i in.mp4 -vf ass=sub.ass out.mp4
+</code></pre></div>
+<h2 id="extract-the-frames-from-a-video">Extract the frames from a video</h2>
+<p>To extract all frames from between 1 and 5 seconds, and also between 11 and 15 seconds:</p>
+<div class="highlight"><pre><span></span><code>ffmpeg -i in.mp4 -vf select=&#39;between(t,1,5)+between(t,11,15)&#39; -vsync 0 out%d.png
+</code></pre></div>
+<p>To extract one frame per second only:</p>
+<div class="highlight"><pre><span></span><code>ffmpeg -i in.mp4 -fps=1 -vsync 0 out%d.png
+</code></pre></div>
+<h2 id="rotate-a-video">Rotate a video</h2>
+<p>Rotate 90 clockwise:</p>
+<div class="highlight"><pre><span></span><code>ffmpeg -i in.mov -vf &quot;transpose=1&quot; out.mov
+</code></pre></div>
+<p>For the transpose parameter you can pass:</p>
+<div class="highlight"><pre><span></span><code>0 = 90CounterCLockwise and Vertical Flip (default)
+1 = 90Clockwise
+2 = 90CounterClockwise
+3 = 90Clockwise and Vertical Flip
+</code></pre></div>
+<p>Use <code>-vf "transpose=2,transpose=2"</code> for 180 degrees.</p>
+<h2 id="download-transport-stream-video-streams">Download "Transport Stream" video streams</h2>
+<ol>
+<li>Locate the playlist file, e.g. using Chrome &gt; F12 &gt; Network &gt; Filter: m3u8</li>
+<li>Download and concatenate the video fragments:</li>
+</ol>
+<div class="highlight"><pre><span></span><code>ffmpeg -i &quot;path_to_playlist.m3u8&quot; -c copy -bsf:a aac_adtstoasc out.mp4
+</code></pre></div>
+<p>If you get a "Protocol 'https not on whitelist 'file,crypto'!" error, add the <code>protocol_whitelist</code> option:</p>
+<div class="highlight"><pre><span></span><code>ffmpeg -protocol_whitelist &quot;file,http,https,tcp,tls&quot; -i &quot;path_to_playlist.m3u8&quot; -c copy -bsf:a aac_adtstoasc out.mp4
+</code></pre></div>
+<h2 id="mute-some-of-the-audio">Mute some of the audio</h2>
+<p>To replace the first 90 seconds of audio with silence:</p>
+<div class="highlight"><pre><span></span><code>ffmpeg -i in.mp4 -vcodec copy -af &quot;volume=enable=&#39;lte(t,90)&#39;:volume=0&quot; out.mp4
+</code></pre></div>
+<p>To replace all audio between 1'20" and 1'30" with silence:</p>
+<div class="highlight"><pre><span></span><code>ffmpeg -i in.mp4 -vcodec copy -af &quot;volume=enable=&#39;between(t,80,90)&#39;:volume=0&quot; out.mp4
+</code></pre></div>
+<h2 id="deinterlace">Deinterlace</h2>
+<p>Deinterlacing using "yet another deinterlacing filter".</p>
+<div class="highlight"><pre><span></span><code>ffmpeg -i in.mp4 -vf yadif out.mp4
+</code></pre></div>
+<h2 id="create-a-video-slideshow-from-images">Create a video slideshow from images</h2>
+<p>Parameters: <code>-r</code> marks the image framerate (inverse time of each image); <code>-vf fps=25</code> marks the true framerate of the output.</p>
+<div class="highlight"><pre><span></span><code>ffmpeg -r 1/5 -i img%03d.png -c:v libx264 -vf fps=25 -pix_fmt yuv420p out.mp4
+</code></pre></div>
+<h2 id="extract-images-from-a-video">Extract images from a video</h2>
 <ul>
-<li><a href="#_1">数据集相关</a><ul>
-<li><a href="#mnistfashionmnist">MNIST和FashionMNIST的格式</a></li>
+<li>Extract all frames: <code>ffmpeg -i input.mp4 thumb%04d.jpg -hide_banner</code></li>
+<li>Extract a frame each second: <code>ffmpeg -i input.mp4 -vf fps=1 thumb%04d.jpg -hide_banner</code></li>
+<li>Extract only one frame: <code>ffmpeg -i input.mp4 -ss 00:00:10.000 -vframes 1 thumb.jpg</code></li>
 </ul>
-</li>
-</ul>
-</div>
-<h2 id="mnistfashionmnist">MNIST和FashionMNIST的格式</h2>
-<p>图像和label文件都是big endian的字节流
-图像文件的前4个32位整数分别是magic number，图像总数，单张图像行数和列数，之后每784个bytes表示一张图片
-label文件的前2个32位整数分别是magic number和图像整数，之后每个byte表示一张图片</p>
-<p>以训练集为例：
-image: magic 2051, numImages 60000, numRows 28, numColumns 28 
-label: magic 2049, numImages 60000</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">struct</span>
-<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
-<span class="kn">import</span> <span class="nn">scipy.misc</span>
-<span class="kn">import</span> <span class="nn">os</span>
-
-<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s1">&#39;train&#39;</span><span class="p">):</span>
-    <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="s1">&#39;train&#39;</span><span class="p">)</span>
-
-<span class="n">labelfn</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;raw/train-labels-idx1-ubyte&#39;</span>
-<span class="n">imgfn</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;raw/train-images-idx3-ubyte&#39;</span>
-<span class="n">imgfile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">imgfn</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span>
-<span class="n">labelfile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">labelfn</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span>
-<span class="n">imgbuf</span> <span class="o">=</span> <span class="n">imgfile</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<span class="n">labelbuf</span> <span class="o">=</span> <span class="n">labelfile</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<span class="n">imgfile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-<span class="n">labelfile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-
-<span class="n">index</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">magic</span><span class="p">,</span> <span class="n">numImages</span><span class="p">,</span> <span class="n">numRows</span><span class="p">,</span> <span class="n">numColumns</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">unpack_from</span><span class="p">(</span><span class="s1">&#39;&gt;IIII&#39;</span><span class="p">,</span> <span class="n">imgbuf</span><span class="p">,</span> <span class="n">index</span><span class="p">)</span>
-<span class="n">index</span> <span class="o">+=</span> <span class="n">struct</span><span class="o">.</span><span class="n">calcsize</span><span class="p">(</span><span class="s1">&#39;&gt;IIII&#39;</span><span class="p">)</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;image: magic </span><span class="si">%d</span><span class="s1">, numImages </span><span class="si">%d</span><span class="s1">, numRows </span><span class="si">%d</span><span class="s1">, numColumns </span><span class="si">%d</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">magic</span><span class="p">,</span> <span class="n">numImages</span><span class="p">,</span> <span class="n">numRows</span><span class="p">,</span> <span class="n">numColumns</span><span class="p">))</span>
-
-<span class="n">labelindex</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">magicl</span><span class="p">,</span> <span class="n">numImagesl</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">unpack_from</span><span class="p">(</span><span class="s1">&#39;&gt;II&#39;</span><span class="p">,</span> <span class="n">labelbuf</span><span class="p">,</span> <span class="n">labelindex</span><span class="p">)</span>
-<span class="n">labelindex</span> <span class="o">+=</span> <span class="n">struct</span><span class="o">.</span><span class="n">calcsize</span><span class="p">(</span><span class="s1">&#39;&gt;II&#39;</span><span class="p">)</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;label: magic </span><span class="si">%d</span><span class="s1">, numImages </span><span class="si">%d</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">magicl</span><span class="p">,</span> <span class="n">numImagesl</span><span class="p">))</span>
-
-<span class="c1"># num of images u wanna dump</span>
-<span class="n">numImages</span> <span class="o">=</span> <span class="mi">70</span>
-
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">numImages</span><span class="p">):</span>
-    <span class="n">im</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">unpack_from</span><span class="p">(</span><span class="s1">&#39;&gt;784B&#39;</span><span class="p">,</span> <span class="n">imgbuf</span><span class="p">,</span> <span class="n">index</span><span class="p">)</span>  <span class="c1"># 28*28=784 bytes, big endian</span>
-    <span class="n">index</span> <span class="o">+=</span> <span class="n">struct</span><span class="o">.</span><span class="n">calcsize</span><span class="p">(</span><span class="s1">&#39;&gt;784B&#39;</span><span class="p">)</span>
-    <span class="n">im</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>
-    <span class="n">im</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">28</span><span class="p">,</span> <span class="mi">28</span><span class="p">)</span>
-
-    <span class="n">l</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">unpack_from</span><span class="p">(</span><span class="s1">&#39;&gt;B&#39;</span><span class="p">,</span> <span class="n">labelbuf</span><span class="p">,</span> <span class="n">labelindex</span><span class="p">)</span>
-    <span class="n">l</span> <span class="o">=</span> <span class="n">l</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">labelindex</span> <span class="o">+=</span> <span class="n">struct</span><span class="o">.</span><span class="n">calcsize</span><span class="p">(</span><span class="s1">&#39;&gt;B&#39;</span><span class="p">)</span>
-
-    <span class="n">scipy</span><span class="o">.</span><span class="n">misc</span><span class="o">.</span><span class="n">imsave</span><span class="p">(</span><span class="s1">&#39;train/&#39;</span><span class="o">+</span><span class="s2">&quot;train&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;_&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">l</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;.png&quot;</span><span class="p">,</span> <span class="n">im</span><span class="p">)</span>
+<h2 id="metadata-change-the-title">Metadata: Change the title</h2>
+<div class="highlight"><pre><span></span><code>ffmpeg -i in.mp4 -map_metadata -1 -metadata title=&quot;My Title&quot; -c:v copy -c:a copy out.mp4
 </code></pre></div>
 
 

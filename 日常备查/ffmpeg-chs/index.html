@@ -1,0 +1,1796 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://zhizhang77.github.io/tips/%E6%97%A5%E5%B8%B8%E5%A4%87%E6%9F%A5/ffmpeg-chs/">
+      
+      
+        <link rel="prev" href="../cmake/">
+      
+      
+        <link rel="next" href="../ffmpeg-eng/">
+      
+      <link rel="icon" href="../../resources/github_icon.png">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.14">
+    
+    
+      
+        <title>FFmpeg CheatSheet中文（忘记出处，未检查，正确性不保证） - zz的杂物堆</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.85bb2934.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.a6bdf11c.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ffmpeg-cheatsheet" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="zz的杂物堆" class="md-header__button md-logo" aria-label="zz的杂物堆" data-md-component="logo">
+      
+  <img src="../../resources/github_icon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            zz的杂物堆
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              FFmpeg CheatSheet中文（忘记出处，未检查，正确性不保证）
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/zhizhang77/tips/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    zhizhang77/tips
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="zz的杂物堆" class="md-nav__button md-logo" aria-label="zz的杂物堆" data-md-component="logo">
+      
+  <img src="../../resources/github_icon.png" alt="logo">
+
+    </a>
+    zz的杂物堆
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/zhizhang77/tips/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    zhizhang77/tips
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Welcome to zz的杂物堆
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          各种链接
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          各种链接
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%90%84%E7%A7%8D%E9%93%BE%E6%8E%A5/DL%E7%9B%B8%E5%85%B3%E5%B7%A5%E5%85%B7/" class="md-nav__link">
+        DL 相关工具
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%90%84%E7%A7%8D%E9%93%BE%E6%8E%A5/Python%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" class="md-nav__link">
+        Python性能优化
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%90%84%E7%A7%8D%E9%93%BE%E6%8E%A5/UI%E5%B7%A5%E5%85%B7/" class="md-nav__link">
+        UI开发工具
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%90%84%E7%A7%8D%E9%93%BE%E6%8E%A5/awesomenontech/" class="md-nav__link">
+        各种非技术类的资源网站收集
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%90%84%E7%A7%8D%E9%93%BE%E6%8E%A5/awesometutorials/" class="md-nav__link">
+        技术类tutorial、课程和示例网站
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%90%84%E7%A7%8D%E9%93%BE%E6%8E%A5/profiling%E5%B7%A5%E5%85%B7/" class="md-nav__link">
+        profiling工具：
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%90%84%E7%A7%8D%E9%93%BE%E6%8E%A5/%E4%B8%8B%E8%BD%BD%E5%B7%A5%E5%85%B7/" class="md-nav__link">
+        下载工具
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%90%84%E7%A7%8D%E9%93%BE%E6%8E%A5/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E5%B7%A5%E5%85%B7/" class="md-nav__link">
+        图像处理工具
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%90%84%E7%A7%8D%E9%93%BE%E6%8E%A5/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B8%8E%E5%8F%AF%E8%A7%86%E5%8C%96/" class="md-nav__link">
+        数据分析与可视化
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%90%84%E7%A7%8D%E9%93%BE%E6%8E%A5/%E6%96%87%E6%A1%A3%E5%B7%A5%E5%85%B7/" class="md-nav__link">
+        文档工具
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%90%84%E7%A7%8D%E9%93%BE%E6%8E%A5/%E6%9D%82%E9%A1%B9%E5%B7%A5%E5%85%B7/" class="md-nav__link">
+        杂项工具
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%90%84%E7%A7%8D%E9%93%BE%E6%8E%A5/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%B7%A5%E5%85%B7/" class="md-nav__link">
+        浏览器工具
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%90%84%E7%A7%8D%E9%93%BE%E6%8E%A5/%E7%94%BB%E5%9B%BE%E5%B7%A5%E5%85%B7/" class="md-nav__link">
+        画图工具
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%90%84%E7%A7%8D%E9%93%BE%E6%8E%A5/%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7/" class="md-nav__link">
+        调试工具
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          日常备查
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          日常备查
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MD%E5%9F%BA%E6%9C%AC%E6%A0%B7%E5%BC%8F/" class="md-nav__link">
+        MPE支持的Markdown样式
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cmake/" class="md-nav__link">
+        Cmake
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          FFmpeg CheatSheet中文（忘记出处，未检查，正确性不保证）
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        FFmpeg CheatSheet中文（忘记出处，未检查，正确性不保证）
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    基础使用
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    参数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    录制
+  </a>
+  
+    <nav class="md-nav" aria-label="录制">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#windows" class="md-nav__link">
+    Windows
+  </a>
+  
+    <nav class="md-nav" aria-label="Windows">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    屏幕录制
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mac" class="md-nav__link">
+    Mac
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    其他直播
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    视频处理
+  </a>
+  
+    <nav class="md-nav" aria-label="视频处理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    视频联接
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    分解/复用
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    格式转换与压缩
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    图/视互转
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    对称视频与画中画
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    处理原始数据
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    滤镜
+  </a>
+  
+    <nav class="md-nav" aria-label="滤镜">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    水印
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ffmpeg-eng/" class="md-nav__link">
+        FFmpeg cheat sheet
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../matplotlib%E5%85%A5%E9%97%A8/" class="md-nav__link">
+        Matplotlib入门
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../numba/" class="md-nav__link">
+        numba的使用
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" >
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="0">
+          Docker
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_7">
+          <span class="md-nav__icon md-icon"></span>
+          Docker
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker/Docker%E5%AE%89%E8%A3%85%E4%B8%8E%E5%AE%B9%E5%99%A8%E9%85%8D%E7%BD%AE/" class="md-nav__link">
+        Docker安装与容器配置
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker/%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/" class="md-nav__link">
+        基本命令
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_8" >
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_8" id="__nav_3_8_label" tabindex="0">
+          Pandas
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_8_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_8">
+          <span class="md-nav__icon md-icon"></span>
+          Pandas
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pandas/pandas%20style/" class="md-nav__link">
+        Pandas style
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          豆知识
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          豆知识
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%B1%86%E7%9F%A5%E8%AF%86/Python%E5%8E%9F%E7%94%9F%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/" class="md-nav__link">
+        Python虚拟环境
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%B1%86%E7%9F%A5%E8%AF%86/arm%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E8%AF%A6%E8%A7%A3/" class="md-nav__link">
+        Arm交叉编译详解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%B1%86%E7%9F%A5%E8%AF%86/colab/" class="md-nav__link">
+        colab小技巧记录
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%B1%86%E7%9F%A5%E8%AF%86/dataset/" class="md-nav__link">
+        数据集相关
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%B1%86%E7%9F%A5%E8%AF%86/electron-nodejs/" class="md-nav__link">
+        Electron nodejs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%B1%86%E7%9F%A5%E8%AF%86/git/" class="md-nav__link">
+        git相关
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%B1%86%E7%9F%A5%E8%AF%86/jupyter/" class="md-nav__link">
+        jupyter相关
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%B1%86%E7%9F%A5%E8%AF%86/opencv/" class="md-nav__link">
+        opencv相关
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%B1%86%E7%9F%A5%E8%AF%86/os/" class="md-nav__link">
+        OS相关
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%B1%86%E7%9F%A5%E8%AF%86/python/" class="md-nav__link">
+        python相关
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%B1%86%E7%9F%A5%E8%AF%86/qt/" class="md-nav__link">
+        qt
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%B1%86%E7%9F%A5%E8%AF%86/sympy/" class="md-nav__link">
+        Sympy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%B1%86%E7%9F%A5%E8%AF%86/vscode/" class="md-nav__link">
+        VSCode相关
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%B1%86%E7%9F%A5%E8%AF%86/wsl/" class="md-nav__link">
+        WSL相关
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    基础使用
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    参数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    录制
+  </a>
+  
+    <nav class="md-nav" aria-label="录制">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#windows" class="md-nav__link">
+    Windows
+  </a>
+  
+    <nav class="md-nav" aria-label="Windows">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    屏幕录制
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mac" class="md-nav__link">
+    Mac
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    其他直播
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    视频处理
+  </a>
+  
+    <nav class="md-nav" aria-label="视频处理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    视频联接
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    分解/复用
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    格式转换与压缩
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    图/视互转
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    对称视频与画中画
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    处理原始数据
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    滤镜
+  </a>
+  
+    <nav class="md-nav" aria-label="滤镜">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    水印
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="ffmpeg-cheatsheet">FFmpeg CheatSheet中文（忘记出处，未检查，正确性不保证）</h1>
+<div class="toc">
+<ul>
+<li><a href="#ffmpeg-cheatsheet">FFmpeg CheatSheet中文（忘记出处，未检查，正确性不保证）</a><ul>
+<li><a href="#_1">基础使用</a></li>
+<li><a href="#_2">参数</a></li>
+<li><a href="#_3">录制</a><ul>
+<li><a href="#windows">Windows</a><ul>
+<li><a href="#_4">屏幕录制</a></li>
+</ul>
+</li>
+<li><a href="#mac">Mac</a></li>
+<li><a href="#_5">其他直播</a></li>
+</ul>
+</li>
+<li><a href="#_6">视频处理</a><ul>
+<li><a href="#_7">视频联接</a></li>
+<li><a href="#_8">分解/复用</a></li>
+<li><a href="#_9">格式转换与压缩</a></li>
+<li><a href="#_10">图/视互转</a></li>
+<li><a href="#_11">对称视频与画中画</a></li>
+<li><a href="#_12">处理原始数据</a></li>
+<li><a href="#_13">滤镜</a><ul>
+<li><a href="#_14">水印</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 id="_1">基础使用</h2>
+<p>FFmpeg 可以使用下面的参数进行基本信息查询。例如，想查询一下现在使用的 FFmpeg 都支持哪些 filter，就可以用 ffmpeg -filters 来查询。详细参数说明如下：</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ffmpeg -version</td>
+<td>显示版本</td>
+</tr>
+<tr>
+<td>-formats</td>
+<td>显示可用的格式（包括设备）</td>
+</tr>
+<tr>
+<td>-demuxers</td>
+<td>显示可用的 demuxers</td>
+</tr>
+<tr>
+<td>-muxers</td>
+<td>显示可用的 muxers</td>
+</tr>
+<tr>
+<td>-devices</td>
+<td>显示可用的设备</td>
+</tr>
+<tr>
+<td>-codecs</td>
+<td>显示已知的所有编解码器</td>
+</tr>
+<tr>
+<td>-decoders</td>
+<td>显示可用的解码器</td>
+</tr>
+<tr>
+<td>-encoders</td>
+<td>显示所有可用的编码器</td>
+</tr>
+<tr>
+<td>-bsfs</td>
+<td>显示可用的比特流 filter</td>
+</tr>
+<tr>
+<td>-protocols</td>
+<td>显示可用的协议</td>
+</tr>
+<tr>
+<td>-filters</td>
+<td>显示可用的过滤器</td>
+</tr>
+<tr>
+<td>-pix_fmts</td>
+<td>显示可用的像素格式</td>
+</tr>
+<tr>
+<td>-sample_fmts</td>
+<td>显示可用的采样格式</td>
+</tr>
+<tr>
+<td>-layouts</td>
+<td>显示 channel 名称和标准 channel 布局</td>
+</tr>
+<tr>
+<td>-colors</td>
+<td>显示识别的颜色名称</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_2">参数</h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># Common switches</span>
+-codecs<span class="w">          </span><span class="c1"># list codecs</span>
+-c:v<span class="w">             </span><span class="c1"># video codec (-vcodec): &#39;copy&#39; to copy stream</span>
+-c:a<span class="w">             </span><span class="c1"># audio codec (-acodec)</span>
+-fs<span class="w"> </span>SIZE<span class="w">         </span><span class="c1"># limit file size (bytes)</span>
+
+<span class="c1"># Audio</span>
+-aq<span class="w"> </span>QUALITY<span class="w">      </span><span class="c1"># audio quality (codec-specific)</span>
+-ar<span class="w"> </span><span class="m">44100</span><span class="w">        </span><span class="c1"># audio sample rate (hz)</span>
+-ac<span class="w"> </span><span class="m">1</span><span class="w">            </span><span class="c1"># audio channels (1=mono, 2=stereo)</span>
+-an<span class="w">              </span><span class="c1"># no audio</span>
+-vol<span class="w"> </span>N<span class="w">           </span><span class="c1"># volume (256=normal)</span>
+
+<span class="c1"># Bitrate</span>
+-b:v<span class="w"> </span>1M<span class="w">          </span><span class="c1"># video bitrate (1M = 1Mbit/s)</span>
+-b:a<span class="w"> </span>1M<span class="w">          </span><span class="c1"># audio bitrate</span>
+
+<span class="c1"># Video</span>
+-aspect<span class="w"> </span>RATIO<span class="w">    </span><span class="c1"># aspect ratio (4:3, 16:9, or 1.25)</span>
+-r<span class="w"> </span>RATE<span class="w">          </span><span class="c1"># frame rate per sec</span>
+-s<span class="w"> </span>WIDTHxHEIGHT<span class="w">  </span><span class="c1"># frame size</span>
+-vn<span class="w">              </span><span class="c1"># no video</span>
+</code></pre></div>
+<h2 id="_3">录制</h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># 查找设备名</span>
+
+<span class="c1">## Windows</span>
+$<span class="w"> </span>ffmpeg<span class="w"> </span>-list_devices<span class="w"> </span><span class="nb">true</span><span class="w"> </span>-f<span class="w"> </span>dshow<span class="w"> </span>-i<span class="w"> </span>dummy
+
+<span class="c1">## MAC</span>
+$<span class="w"> </span>ffmpeg<span class="w"> </span>-f<span class="w"> </span>avfoundation<span class="w"> </span>-list_devices<span class="w"> </span><span class="nb">true</span><span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;&quot;</span>
+</code></pre></div>
+<h3 id="windows">Windows</h3>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>ffmpeg<span class="w"> </span>-f<span class="w"> </span>dshow<span class="w"> </span>-i<span class="w"> </span><span class="nv">video</span><span class="o">=</span><span class="s2">&quot;Virtual-Camera&quot;</span><span class="w"> </span>-preset<span class="w"> </span>ultrafast<span class="w"> </span>-vcodec<span class="w"> </span>libx264<span class="w"> </span>-tune<span class="w"> </span>zerolatency<span class="w"> </span>-b<span class="w"> </span>900k<span class="w"> </span>-f<span class="w"> </span>mpegts<span class="w"> </span>udp://10.1.0.102:1234
+
+$<span class="w"> </span>ffmpeg<span class="w"> </span>-f<span class="w"> </span>dshow<span class="w"> </span>-i<span class="w"> </span><span class="nv">video</span><span class="o">=</span><span class="s2">&quot;screen-capture-recorder&quot;</span>:audio<span class="o">=</span><span class="s2">&quot;Stereo Mix (IDT High Definition&quot;</span><span class="w"> </span><span class="se">\</span>
+-vcodec<span class="w"> </span>libx264<span class="w"> </span>-preset<span class="w"> </span>ultrafast<span class="w"> </span>-tune<span class="w"> </span>zerolatency<span class="w"> </span>-r<span class="w"> </span><span class="m">10</span><span class="w"> </span>-async<span class="w"> </span><span class="m">1</span><span class="w"> </span>-acodec<span class="w"> </span>libmp3lame<span class="w"> </span>-ab<span class="w"> </span>24k<span class="w"> </span>-ar<span class="w"> </span><span class="m">22050</span><span class="w"> </span>-bsf:v<span class="w"> </span>h264_mp4toannexb<span class="w"> </span><span class="se">\</span>
+-maxrate<span class="w"> </span>750k<span class="w"> </span>-bufsize<span class="w"> </span>3000k<span class="w"> </span>-f<span class="w"> </span>mpegts<span class="w"> </span>udp://192.168.5.215:48550
+</code></pre></div>
+<ul>
+<li><code>-f fshow</code>: windows system drivers for capturing video and audio</li>
+<li><code>-f v4l2</code>: linux system drivers for capturing video</li>
+<li><code>-f alsa</code>: linux system drivers for capturing audio</li>
+<li><code>-i</code>: ffmpeg option that defines <strong>input</strong></li>
+<li><code>-vcodec libx264</code>: raw video from camera will be encoded using H264 video codec</li>
+<li><code>-r 10</code>: video FPS (frames per second)</li>
+<li><code>-b:v 512k</code>: video bitrate Kb/s (kilo bits per second)</li>
+<li><code>-s 640x360</code>: video width and height</li>
+<li><code>-acodec aac</code>: raw audio from microphone will be encoded using AAC audio codec</li>
+<li><code>-ac 2</code>: 2 audio channels (stereo)</li>
+<li><code>-ab 32k</code>: audio bitrate in Kb/s</li>
+<li><code>-ar 44100</code>: audio sampling rate 44.1 KHz</li>
+<li><code>-f mpegts</code>: video and audio will be packed into <a href="https://en.wikipedia.org/wiki/MPEG_transport_stream">MPEG transport stream (MPEG TS)</a></li>
+<li><code>udp://192.168.1.4:5000</code>: MPEG transport stream is sent via UDP protocol to computer with IP address 192.168.1.4 on IP port 5000.</li>
+</ul>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>ffmpeg<span class="w"> </span>-y<span class="w"> </span>-loglevel<span class="w"> </span>warning<span class="w"> </span>-f<span class="w"> </span>dshow<span class="w"> </span>-i<span class="w"> </span><span class="nv">video</span><span class="o">=</span><span class="s2">&quot;screen-capture-recorder&quot;</span><span class="w"> </span>-vf<span class="w"> </span><span class="nv">crop</span><span class="o">=</span><span class="m">690</span>:388:136:0<span class="w"> </span>-r<span class="w"> </span><span class="m">30</span><span class="w"> </span>-s<span class="w"> </span>962x388<span class="w"> </span>-threads<span class="w"> </span><span class="m">2</span><span class="w"> </span>-vcodec<span class="w"> </span>libx264<span class="w"> </span>-vpre<span class="w"> </span>baseline<span class="w"> </span>-vpre<span class="w"> </span>my_ffpreset<span class="w"> </span>-f<span class="w"> </span>flv<span class="w"> </span>rtmp:///live/myStream.sdp
+
+<span class="c1"># 输出为 MP4</span>
+$<span class="w"> </span>ffmpeg<span class="w"> </span>-f<span class="w"> </span>dshow<span class="w"> </span>-rtbufsize<span class="w"> </span>1000000k<span class="w"> </span>-s<span class="w"> </span><span class="m">640</span>×480<span class="w"> </span>-r<span class="w"> </span><span class="m">30</span><span class="w"> </span>-i<span class="w"> </span><span class="nv">video</span><span class="o">=</span>”1714-INOGENI<span class="w"> </span>4K2USB3″<span class="w"> </span>-an<span class="w"> </span>-c:v<span class="w"> </span>libx264<span class="w"> </span>-q<span class="w"> </span><span class="m">0</span><span class="w"> </span>-f<span class="w"> </span>h264<span class="w"> </span>–<span class="w"> </span><span class="p">|</span><span class="w"> </span>ffmpeg<span class="w"> </span>-f<span class="w"> </span>h264<span class="w"> </span>-i<span class="w"> </span>–<span class="w"> </span>-an<span class="w"> </span>-c:v<span class="w"> </span>copy<span class="w"> </span>-f<span class="w"> </span>mp4<span class="w"> </span>file.mp4<span class="w"> </span>-an<span class="w"> </span>-c:v<span class="w"> </span>copy<span class="w"> </span>-f<span class="w"> </span>h264<span class="w"> </span>pipe:play<span class="w"> </span><span class="p">|</span><span class="w"> </span>ffplay<span class="w"> </span>-i<span class="w"> </span>pipe:play
+</code></pre></div>
+<h4 id="_4">屏幕录制</h4>
+<div class="highlight"><pre><span></span><code><span class="c1"># 屏幕录制并保存成文件</span>
+$<span class="w"> </span>ffmpeg<span class="w"> </span>-f<span class="w"> </span>gdigrab<span class="w"> </span>-i<span class="w"> </span>desktop<span class="w"> </span>eguid.mp4
+
+<span class="c1"># 屏幕录制并推流</span>
+$<span class="w"> </span>ffmpeg<span class="w"> </span>-f<span class="w"> </span>gdigrab<span class="w"> </span>-i<span class="w"> </span>desktop<span class="w"> </span>-vcodec<span class="w"> </span>libx264<span class="w"> </span>-preset:v<span class="w"> </span>ultrafast<span class="w"> </span>-tune:v<span class="w"> </span>zerolatency<span class="w"> </span>-f<span class="w"> </span>flv<span class="w"> </span>rtmp://eguid.cc:1935/rtmp/destop
+
+<span class="c1"># 视频文件推流</span>
+$<span class="w"> </span>ffmpeg<span class="w"> </span>-re<span class="w"> </span>-i<span class="w"> </span>eguid.flv<span class="w"> </span>-vcodec<span class="w"> </span>copy<span class="w"> </span>-acodec<span class="w"> </span>copy<span class="w"> </span>-f<span class="w"> </span>flv<span class="w"> </span>-y<span class="w"> </span>rtmp://eguid.cc:1935/rtmp/eguid
+
+<span class="c1"># 转流（rtsp转rtmp为例）</span>
+$<span class="w"> </span>ffmpeg<span class="w"> </span>-i<span class="w"> </span>rtsp://184.72.239.149/vod/mp4://BigBuckBunny_175k.mov<span class="w"> </span>-rtsp_transport<span class="w"> </span>tcp<span class="w"> </span>-vcodec<span class="w"> </span>h264<span class="w"> </span>-acodec<span class="w"> </span>aac<span class="w"> </span>-f<span class="w"> </span>flv<span class="w"> </span>rtmp://eguid.cc:1935/rtmp/eguid
+
+<span class="c1"># 拉流</span>
+
+-<span class="w"> </span>ffmpeg<span class="w"> </span>-i<span class="w"> </span>rtmp://eguid.cc:1935/rtmp/eguid<span class="w"> </span>-vcodec<span class="w"> </span>h264<span class="w"> </span>-f<span class="w"> </span>flv<span class="w"> </span>-acodec<span class="w"> </span>aac<span class="w"> </span>-ac<span class="w"> </span><span class="m">2</span><span class="w"> </span>eguid.flv
+</code></pre></div>
+<h3 id="mac">Mac</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># 录屏+声音</span>
+$<span class="w"> </span>ffmpeg<span class="w"> </span>-f<span class="w"> </span>avfoundation<span class="w"> </span>-i<span class="w"> </span><span class="m">1</span><span class="w"> </span>-r<span class="w"> </span><span class="m">30</span><span class="w"> </span>out.yuv
+-f<span class="w"> </span>指定使用<span class="w"> </span>avfoundation<span class="w"> </span>采集数据。
+-i<span class="w"> </span>指定从哪儿采集数据，它是一个文件索引号。在我的MAC上，1代表桌面（可以通过上面的命令查询设备索引号）。
+-r<span class="w"> </span>指定帧率。按ffmpeg官方文档说-r与-framerate作用相同，但实际测试时发现不同。-framerate<span class="w"> </span>用于限制输入，而-r用于限制输出。
+
+<span class="c1"># 录视频</span>
+$<span class="w"> </span>ffmpeg<span class="w"> </span>-f<span class="w"> </span>avfoundation<span class="w"> </span>-i<span class="w"> </span><span class="m">1</span>:0<span class="w"> </span>-r<span class="w"> </span><span class="m">29</span>.97<span class="w"> </span>-c:v<span class="w"> </span>libx264<span class="w"> </span>-crf<span class="w"> </span><span class="m">0</span><span class="w"> </span>-c:a<span class="w"> </span>libfdk_aac<span class="w"> </span>-profile:a<span class="w"> </span>aac_he_v2<span class="w"> </span>-b:a<span class="w"> </span>32k<span class="w"> </span>out.flv
+-i<span class="w"> </span><span class="m">1</span>:0<span class="w"> </span>冒号前面的<span class="w"> </span>“1”<span class="w"> </span>代表的屏幕索引号。冒号后面的<span class="s2">&quot;0&quot;</span>代表的声音索相号。
+-c:v<span class="w"> </span>与参数<span class="w"> </span>-vcodec<span class="w"> </span>一样，表示视频编码器。c<span class="w"> </span>是<span class="w"> </span>codec<span class="w"> </span>的缩写，v<span class="w"> </span>是video的缩写。
+-crf<span class="w"> </span>是<span class="w"> </span>x264<span class="w"> </span>的参数。0<span class="w"> </span>表式无损压缩。
+-c:a<span class="w"> </span>与参数<span class="w"> </span>-acodec<span class="w"> </span>一样，表示音频编码器。
+-profile<span class="w"> </span>是<span class="w"> </span>fdk_aac<span class="w"> </span>的参数。aac_he_v2<span class="w"> </span>表式使用<span class="w"> </span>AAC_HE<span class="w"> </span>v2<span class="w"> </span>压缩数据。
+-b:a<span class="w"> </span>指定音频码率。b<span class="w"> </span>是<span class="w"> </span>bitrate的缩写,<span class="w"> </span>a是<span class="w"> </span>audio的缩与。
+
+<span class="c1"># 录音</span>
+$<span class="w"> </span>ffmpeg<span class="w"> </span>-f<span class="w"> </span>avfoundation<span class="w"> </span>-i<span class="w"> </span>:0<span class="w"> </span>out.wav
+<span class="c1"># 录制音频裸数据</span>
+$<span class="w"> </span>ffmpeg<span class="w"> </span>-f<span class="w"> </span>avfoundation<span class="w"> </span>-i<span class="w"> </span>:0<span class="w"> </span>-ar<span class="w"> </span><span class="m">44100</span><span class="w"> </span>-f<span class="w"> </span>s16le<span class="w"> </span>out.pcm
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="ch">#! /bin/bash</span>
+<span class="c1">#</span>
+<span class="c1"># Diffusion bilibili live avec ffmpeg</span>
+<span class="c1"># Make sure you have FFmpeg installed in your mac</span>
+
+<span class="c1"># list avfoundation devices</span>
+ffmpeg<span class="w"> </span>-f<span class="w"> </span>avfoundation<span class="w"> </span>-list_devices<span class="w"> </span><span class="nb">true</span><span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;&quot;</span>
+
+<span class="c1"># change the param after `-i` and `-f flv`</span>
+
+<span class="c1"># use 140m mermory</span>
+ffmpeg<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-f<span class="w"> </span>avfoundation<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-re<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;2&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-vcodec<span class="w"> </span>libx264<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-preset<span class="w"> </span>ultrafast<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-acodec<span class="w"> </span>aac<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-ar<span class="w"> </span><span class="m">44100</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-ac<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-f<span class="w"> </span>flv<span class="w"> </span><span class="s2">&quot;rtmp://example.com/path?key=xx&quot;</span>
+
+<span class="c1"># 560m mermory 90% cpu</span>
+ffmpeg<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-f<span class="w"> </span>avfoundation<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-video_size<span class="w"> </span>1920x1080<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-framerate<span class="w"> </span><span class="m">30</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-i<span class="w"> </span><span class="s2">&quot;2:0&quot;</span><span class="w"> </span>-ac<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-vcodec<span class="w"> </span>libx264<span class="w"> </span>-maxrate<span class="w"> </span>2000k<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-bufsize<span class="w"> </span>2000k<span class="w"> </span>-acodec<span class="w"> </span>libmp3lame<span class="w"> </span>-ar<span class="w"> </span><span class="m">44100</span><span class="w"> </span>-b:a<span class="w"> </span>128k<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-f<span class="w"> </span>flv<span class="w"> </span><span class="s2">&quot;rtmp://example.com/path?key=xx&quot;</span>
+</code></pre></div>
+<h3 id="_5">其他直播</h3>
+<ul>
+<li>推流: <code>ffmpeg -re -i out.mp4 -c copy -f flv rtmp://server/live/streamName</code></li>
+</ul>
+<ul>
+<li>拉流保存: <code>ffmpeg -i rtmp://server/live/streamName -c copy dump.flv</code></li>
+</ul>
+<ul>
+<li>转流: <code>ffmpeg -i rtmp://server/live/originalStream -c:a copy -c:v copy -f flv rtmp://server/live/h264Stream</code></li>
+</ul>
+<ul>
+<li>实时推流: <code>ffmpeg -framerate 15 -f avfoundation -i "1" -s 1280x720 -c:v libx264 -f flv rtmp://localhost:1935/live/room</code></li>
+</ul>
+<h2 id="_6">视频处理</h2>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>ffmpeg<span class="w"> </span>-framerate<span class="w"> </span><span class="m">1</span><span class="w"> </span>-pattern_type<span class="w"> </span>glob<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;*.bmp&#39;</span><span class="w"> </span>-c:v<span class="w"> </span>libx264<span class="w"> </span>-r<span class="w"> </span><span class="m">30</span><span class="w"> </span>-pix_fmt<span class="w"> </span>yuv420p<span class="w"> </span>out.mp4
+</code></pre></div>
+<h3 id="_7">视频联接</h3>
+<div class="highlight"><pre><span></span><code>::<span class="w"> </span>Create<span class="w"> </span>File<span class="w"> </span>List
+<span class="nb">echo</span><span class="w"> </span>file<span class="w"> </span>file1.mp4<span class="w"> </span>&gt;<span class="w">  </span>mylist.txt
+<span class="nb">echo</span><span class="w"> </span>file<span class="w"> </span>file2.mp4<span class="w"> </span>&gt;&gt;<span class="w"> </span>mylist.txt
+<span class="nb">echo</span><span class="w"> </span>file<span class="w"> </span>file3.mp4<span class="w"> </span>&gt;&gt;<span class="w"> </span>mylist.txt
+
+<span class="c1"># Windows 下视频连接</span>
+::<span class="w"> </span>Concatenate<span class="w"> </span>Files
+$<span class="w"> </span>ffmpeg<span class="w"> </span>-f<span class="w"> </span>concat<span class="w"> </span>-i<span class="w"> </span>mylist.txt<span class="w"> </span>-c<span class="w"> </span>copy<span class="w"> </span>output.mp4
+
+::<span class="w"> </span>Create<span class="w"> </span>File<span class="w"> </span>List
+<span class="k">for</span><span class="w"> </span>%%i<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="o">(</span>*.mp4<span class="o">)</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span>file<span class="w"> </span><span class="s1">&#39;%%i&#39;</span>&gt;&gt;<span class="w"> </span>mylist.txt
+
+::<span class="w"> </span>Concatenate<span class="w"> </span>Files
+$<span class="w"> </span>ffmpeg<span class="w"> </span>-f<span class="w"> </span>concat<span class="w"> </span>-safe<span class="w"> </span><span class="m">0</span><span class="w"> </span>-i<span class="w"> </span>mylist.txt<span class="w"> </span>-c<span class="w"> </span>copy<span class="w"> </span>output.mp4
+
+$<span class="w"> </span>ffmpeg<span class="w"> </span>-f<span class="w"> </span>avfoundation<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="w"> </span>-framerate<span class="w"> </span><span class="m">30</span><span class="w"> </span>-f<span class="w"> </span>avfoundation<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;0:0&quot;</span><span class="w"> </span>-r<span class="w"> </span><span class="m">30</span><span class="w"> </span>-c:v<span class="w"> </span>libx264<span class="w"> </span>-preset<span class="w"> </span>ultrafast<span class="w"> </span>-c:a<span class="w"> </span>libfdk_aac<span class="w"> </span>-profile:a<span class="w"> </span>aac_he_v2<span class="w"> </span>-ar<span class="w"> </span><span class="m">44100</span><span class="w"> </span>-ac<span class="w"> </span><span class="m">2</span><span class="w"> </span>-filter_complex<span class="w"> </span><span class="s2">&quot;[0:v]scale=320:240[a];[a]pad=640:240[b];[b][1:v]overlay=320:0[out]&quot;</span><span class="w"> </span>-map<span class="w"> </span><span class="s2">&quot;[out]&quot;</span><span class="w"> </span>-movflags<span class="w"> </span>faststart<span class="w"> </span>-map<span class="w"> </span><span class="m">1</span>:a<span class="w"> </span>c.mp4
+</code></pre></div>
+<h3 id="_8">分解/复用</h3>
+<ul>
+<li><strong>抽取音频流</strong></li>
+</ul>
+<p><code>ffmpeg -i input.mp4 -acodec copy -vn out.aac</code></p>
+<p>acodec: 指定音频编码器，copy 指明只拷贝，不做编解码。
+vn: v 代表视频，n 代表 no 也就是无视频的意思。</p>
+<ul>
+<li><strong>抽取视频流</strong></li>
+</ul>
+<p><code>ffmpeg -i input.mp4 -vcodec copy -an out.h264</code></p>
+<p>vcodec: 指定视频编码器，copy 指明只拷贝，不做编解码。
+an: a 代表视频，n 代表 no 也就是无音频的意思。</p>
+<ul>
+<li><strong>转格式</strong></li>
+</ul>
+<p><code>ffmpeg -i out.mp4 -vcodec copy -acodec copy out.flv</code></p>
+<p>上面的命令表式的是音频、视频都直接 copy，只是将 mp4 的封装格式转成了 flv。</p>
+<ul>
+<li><strong>音视频合并</strong></li>
+</ul>
+<p><code>ffmpeg -i out.h264 -i out.aac -vcodec copy -acodec copy out.mp4</code></p>
+<h3 id="_9">格式转换与压缩</h3>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>ffmpeg<span class="w"> </span>-i<span class="w"> </span><span class="k">in</span>.mp4<span class="w"> </span>out.avi
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>ffmpeg<span class="w"> </span>-i<span class="w"> </span>foo.mp3<span class="w"> </span>-ac<span class="w"> </span><span class="m">1</span><span class="w"> </span>-ab<span class="w"> </span><span class="m">128000</span><span class="w"> </span>-f<span class="w"> </span>mp4<span class="w"> </span>-acodec<span class="w"> </span>libfaac<span class="w"> </span>-y<span class="w"> </span>target.m4r
+
+<span class="c1"># no audio</span>
+ffmpeg<span class="w"> </span>-i<span class="w"> </span>input.mov<span class="w"> </span>-vcodec<span class="w"> </span>h264<span class="w">   </span>-an<span class="w"> </span>-strict<span class="w"> </span>-2<span class="w"> </span>output.mp4
+ffmpeg<span class="w"> </span>-i<span class="w"> </span>input.mov<span class="w"> </span>-vcodec<span class="w"> </span>libvpx<span class="w"> </span>-an<span class="w"> </span>output.webm
+ffmpeg<span class="w"> </span>-i<span class="w"> </span>input.mov<span class="w"> </span>-vcodec<span class="w"> </span>h264<span class="w"> </span>-acodec<span class="w"> </span>aac<span class="w"> </span>-strict<span class="w"> </span>-2<span class="w"> </span>output.mp4
+ffmpeg<span class="w"> </span>-i<span class="w"> </span>input.mov<span class="w"> </span>-vcodec<span class="w"> </span>libvpx<span class="w"> </span>-acodec<span class="w"> </span>libvorbis<span class="w"> </span>output.webm
+&lt;video<span class="w"> </span><span class="nv">width</span><span class="o">=</span><span class="s2">&quot;320&quot;</span><span class="w"> </span><span class="nv">height</span><span class="o">=</span><span class="s2">&quot;240&quot;</span><span class="w"> </span>controls&gt;
+<span class="w">  </span>&lt;<span class="nb">source</span><span class="w"> </span><span class="nv">src</span><span class="o">=</span><span class="s2">&quot;movie.mp4&quot;</span><span class="w"> </span><span class="nv">type</span><span class="o">=</span><span class="s1">&#39;video/mp4&#39;</span>&gt;&lt;/source&gt;
+<span class="w">  </span>&lt;<span class="nb">source</span><span class="w"> </span><span class="nv">src</span><span class="o">=</span><span class="s2">&quot;movie.webm&quot;</span><span class="w"> </span><span class="nv">type</span><span class="o">=</span><span class="s1">&#39;video/ogg&#39;</span>&gt;&lt;/source&gt;
+&lt;/video&gt;
+</code></pre></div>
+<ul>
+<li>视频缩小一倍</li>
+</ul>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>ffmpeg<span class="w"> </span>-i<span class="w"> </span>out.mp4<span class="w"> </span>-vf<span class="w"> </span><span class="nv">scale</span><span class="o">=</span>iw/2:-1<span class="w"> </span>scale.mp4
+</code></pre></div>
+<p><code>-vf scale</code> 指定使用简单过滤器 scale，iw/2:-1 中的 iw 指定按整型取视频的宽度。-1 表示高度随宽度一起变化。</p>
+<ul>
+<li>视频裁剪</li>
+</ul>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>ffmpeg<span class="w"> </span>-i<span class="w"> </span>VR.mov<span class="w"> </span>-vf<span class="w"> </span><span class="nv">crop</span><span class="o">=</span>in_w-200:in_h-200<span class="w"> </span>-c:v<span class="w"> </span>libx264<span class="w"> </span>-c:a<span class="w"> </span>copy<span class="w"> </span>-video_size<span class="w"> </span>1280x720<span class="w"> </span>vr_new.mp4
+</code></pre></div>
+<p>crop 格式：crop=out_w:out_h: x :y</p>
+<ul>
+<li>out_w: 输出的宽度。可以使用 in_w 表式输入视频的宽度。</li>
+<li>out_h: 输出的高度。可以使用 in_h 表式输入视频的高度。</li>
+<li>x : X 坐标</li>
+<li>y : Y 坐标</li>
+</ul>
+<ul>
+<li>倍速播放</li>
+</ul>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>ffmpeg<span class="w"> </span>-i<span class="w"> </span>out.mp4<span class="w"> </span>-filter_complex<span class="w"> </span><span class="s2">&quot;[0:v]setpts=0.5*PTS[v];[0:a]atempo=2.0[a]&quot;</span><span class="w"> </span>-map<span class="w"> </span><span class="s2">&quot;[v]&quot;</span><span class="w"> </span>-map<span class="w"> </span><span class="s2">&quot;[a]&quot;</span><span class="w"> </span>speed2.0.mp4
+</code></pre></div>
+<ul>
+<li>-filter_complex 复杂滤镜，[0:v]表示第一个（文件索引号是 0）文件的视频作为输入。<code>setpts=0.5*PTS</code> 表示每帧视频的 pts 时间戳都乘 0.5，也就是差少一半。[v]表示输出的别名。音频同理就不详述了。</li>
+<li>map 可用于处理复杂输出，如可以将指定的多路流输出到一个输出文件，也可以指定输出到多个文件。"[v]" 复杂滤镜输出的别名作为输出文件的一路流。上面 map 的用法是将复杂滤镜输出的视频和音频输出到指定文件中。</li>
+</ul>
+<h3 id="_10">图/视互转</h3>
+<ul>
+<li><strong>视频转 JPEG</strong>：<code>ffmpeg -i test.flv -r 1 -f image2 image-%3d.jpeg</code></li>
+</ul>
+<ul>
+<li><strong>视频转 gif</strong>：<code>ffmpeg -i out.mp4 -ss 00:00:00 -t 10 out.gif</code></li>
+</ul>
+<ul>
+<li><strong>图片转视频</strong>：<code>ffmpeg -f image2 -i image-%3d.jpeg images.mp4</code></li>
+</ul>
+<h3 id="_11">对称视频与画中画</h3>
+<ul>
+<li>对称视频：<code>$ ffmpeg -i out.mp4 -filter_complex "[0:v]pad=w=2*iw[a];[0:v]hflip[b];[a][b]overlay=x=w" duicheng.mp4</code></li>
+</ul>
+<ul>
+<li>画中画：<code>ffmpeg -i out.mp4 -i out1.mp4 -filter_complex "[1:v]scale=w=176:h=144:force_original_aspect_ratio=decrease[ckout];[0:v][ckout]overlay=x=W-w-10:y=0[out]" -map "[out]" -movflags faststart new.mp4</code></li>
+</ul>
+<ul>
+<li>录制画中画：<code>ffmpeg -f avfoundation -i "1" -framerate 30 -f avfoundation -i "0:0" -r 30 -c:v libx264 -preset ultrafast -c:a libfdk_aac -profile:a aac_he_v2 -ar 44100 -ac 2 -filter_complex "[1:v]scale=w=176:h=144:force_original_aspect_ratio=decrease[a];[0:v][a]overlay=x=W-w-10:y=0[out]" -map "[out]" -movflags faststart -map 1:a b.mp4</code></li>
+</ul>
+<h3 id="_12">处理原始数据</h3>
+<ul>
+<li><strong>提取 YUV 数据</strong></li>
+</ul>
+<p><code>ffmpeg -i input.mp4 -an -c:v rawvideo -pixel_format yuv420p out.yuv ffplay -s wxh out.yuv</code></p>
+<p>-c:v rawvideo 指定将视频转成原始数据
+-pixel_format yuv420p 指定转换格式为 yuv420p</p>
+<ul>
+<li><strong>YUV 转 H264</strong></li>
+</ul>
+<p><code>ffmpeg -f rawvideo -pix_fmt yuv420p -s 320x240 -r 30 -i out.yuv -c:v libx264 -f rawvideo out.h264</code></p>
+<ul>
+<li><strong>提取 PCM 数据</strong></li>
+</ul>
+<p><code>ffmpeg -i out.mp4 -vn -ar 44100 -ac 2 -f s16le out.pcm ffplay -ar 44100 -ac 2 -f s16le -i out.pcm</code></p>
+<h3 id="_13">滤镜</h3>
+<p>在编码之前，ffmpeg 可以使用 libavfilter 库中的过滤器处理原始音频和视频帧。几个链式过滤器形成一个过滤器图形。ffmpeg 区分两种类型的过滤器图形：简单和复杂。</p>
+<h4 id="_14">水印</h4>
+<ul>
+<li>添加水印</li>
+</ul>
+<p><code>ffmpeg -i out.mp4 -vf "movie=logo.png,scale=64:48[watermask];[in][watermask] overlay=30:10 [out]" water.mp4</code></p>
+<p><code>-vf</code> 中的 movie 指定 logo 位置。scale 指定 logo 大小。overlay 指定 logo 摆放的位置。</p>
+<ul>
+<li>滤镜加水印</li>
+</ul>
+<p><code>ffmpeg -i killer.mp4 -filter_complex "movie=./logo/daka.png,scale=64:48[w];[0:v]curves=vintage[o];[o][w]overlay=30:10[out]" -map "[out]" -map 0:a test1.mp4</code></p>
+<ul>
+<li>删除水印</li>
+</ul>
+<p>先通过 ffplay 找到要删除 LOGO 的位置。</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>ffplay<span class="w"> </span>-i<span class="w"> </span>test.flv<span class="w"> </span>-vf<span class="w"> </span><span class="nv">delogo</span><span class="o">=</span><span class="nv">x</span><span class="o">=</span><span class="m">806</span>:y<span class="o">=</span><span class="m">20</span>:w<span class="o">=</span><span class="m">70</span>:h<span class="o">=</span><span class="m">80</span>:show<span class="o">=</span><span class="m">1</span>
+</code></pre></div>
+<p>使用 delogo 滤镜删除 LOGO。</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>ffmpeg<span class="w"> </span>-i<span class="w"> </span>test.flv<span class="w"> </span>-vf<span class="w"> </span><span class="nv">delogo</span><span class="o">=</span><span class="nv">x</span><span class="o">=</span><span class="m">806</span>:y<span class="o">=</span><span class="m">20</span>:w<span class="o">=</span><span class="m">70</span>:h<span class="o">=</span><span class="m">80</span><span class="w"> </span>output.flv
+</code></pre></div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.indexes"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.b4d07000.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/wavedrom/2.6.8/wavedrom.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/wavedrom/2.6.8/skins/default.js"></script>
+      
+        <script src="../../javascripts/wavedrom_loader.js"></script>
+      
+    
+  </body>
+</html>
