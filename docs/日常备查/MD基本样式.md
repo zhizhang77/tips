@@ -10,7 +10,7 @@ Typora支持的markdown语法参考[这里][1]和[github][2]
 
 [也可以直接连到外部超链接和本地文件](https://www.baidu.com)
 
-支持  _下杠斜_ __下杠黑__ *星号斜*  **星号黑** _斜体**黑体**嵌套_ <u>下划线</u>  ~~删除~~  `高亮`  ~\~下标~ <sub>下标</sub> <sup>上标</sup>
+支持  _下杠斜_ __下杠黑__ *星号斜*  **星号黑** _斜体**黑体**嵌套_ <u>下划线</u>  ~~删除~~  ==高亮== `代码`  ~\~下标~ <sub>下标</sub> <sup>上标</sup>
 
 emoji:slightly_smiling_face:可能有兼容性问题:bomb::smile_cat::arrow_left::arrow_right::arrow_upper_left::arrow_upper_right::rocket:
 
@@ -26,6 +26,11 @@ emoji:slightly_smiling_face:可能有兼容性问题:bomb::smile_cat::arrow_left
 
 - [ ] 待办事项
 - [x] 待办事项
+
+定义列表
+: 第一行是要定义的名词，第二行跟:加空格，列出其定义
+: 每个词可以有多种定义
+
 
 > 引用
 >
@@ -471,32 +476,6 @@ digraph G {
 
 眼下同样只有markdown preview enhanced插件支持，typora不支持，vega-lite在MPE上还有问题
 
-```vega-lite
-{
-  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "data": {
-    "values": [
-      {"category":"A", "group": "x", "value":0.1},
-      {"category":"A", "group": "y", "value":0.6},
-      {"category":"A", "group": "z", "value":0.9},
-      {"category":"B", "group": "x", "value":0.7},
-      {"category":"B", "group": "y", "value":0.2},
-      {"category":"B", "group": "z", "value":1.1},
-      {"category":"C", "group": "x", "value":0.6},
-      {"category":"C", "group": "y", "value":0.1},
-      {"category":"C", "group": "z", "value":0.2}
-    ]
-  },
-  "mark": "bar",
-  "encoding": {
-    "x": {"field": "category"},
-    "y": {"field": "value", "type": "quantitative"},
-    "xOffset": {"field": "group"},
-    "color": {"field": "group"}
-  }
-}
-```
-
 ```vega
 {
   "$schema": "https://vega.github.io/schema/vega/v5.json",
@@ -583,6 +562,9 @@ digraph G {
 
 ```
 
+### 其它
+GitHub Markdown支持用geojson和topojson显示地图，还可以用stl生成3D模型，见[这里][10]。但MPE都还没有支持。
+
 [^注]: 最多支持六级小标题。
 [^LaTeX]: 支持 **LaTeX** 编辑显示，例如：$\sum_{i=1}^n a_i=0$， 访问 [MathJax][4] 参考更多使用方法。
 
@@ -600,3 +582,4 @@ digraph G {
 [7]: https://wavedrom.com/tutorial.html
 [8]: https://vega.github.io/vega-lite/
 [9]: https://vega.github.io/vega/
+[10]: https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams
