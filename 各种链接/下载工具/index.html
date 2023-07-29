@@ -428,6 +428,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#bbdownb" class="md-nav__link">
+    BBDown（专门下载B站）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#youtube-dl" class="md-nav__link">
     youtube-dl（已停止更新）
   </a>
@@ -441,6 +448,13 @@
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
+    下载整个网站
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
     国家标准下载
   </a>
   
@@ -1126,6 +1140,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#bbdownb" class="md-nav__link">
+    BBDown（专门下载B站）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#youtube-dl" class="md-nav__link">
     youtube-dl（已停止更新）
   </a>
@@ -1139,6 +1160,13 @@
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
+    下载整个网站
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
     国家标准下载
   </a>
   
@@ -1173,9 +1201,16 @@
 <p>命令行
 <div class="highlight"><pre><span></span><code><span class="w">    </span>yt-dlp<span class="w"> </span>--proxy<span class="w"> </span>socks5://127.0.0.1:1080/<span class="w"> </span>https://www.youtube.com/watch?v<span class="o">=</span>f78ZVLVdO0A
 </code></pre></div></p>
+<h3 id="bbdownb">BBDown（专门下载B站）</h3>
+<p>https://github.com/nilaoda/BBDown</p>
 <h3 id="youtube-dl">youtube-dl（已停止更新）</h3>
 <p>https://ytdl-org.github.io/youtube-dl/index.html</p>
-<h2 id="_3">国家标准下载</h2>
+<h2 id="_3">下载整个网站</h2>
+<p>直接用wget就可以，如下：
+<div class="highlight"><pre><span></span><code>wget<span class="w"> </span>-c<span class="w"> </span>-m<span class="w"> </span>-k<span class="w"> </span>-np<span class="w"> </span>-p<span class="w"> </span>-E<span class="w"> </span>-U<span class="w"> </span>Mozilla<span class="w"> </span>--no-check-certificate<span class="w"> </span>网页链接
+<span class="c1"># 如果网站设置了防采集，可以尝试加上-e robots=off </span>
+</code></pre></div></p>
+<h2 id="_4">国家标准下载</h2>
 <p>国家标准全文公开系统 http://openstd.samr.gov.cn/  因为国际版权的原因不提供GB/T下载，但该网站用的是pdf.js渲染PDF（在chrome、火狐上测试过），只不过隐藏了下载和打印功能。</p>
 <p>那么只需要把规范拉到最后一页，等待进度条加载完成，然后F12 console 执行命令PDFViewerApplication.save()就可以把当前文件保存为document.pdf。</p>
 <p>=========================================================================================</p>
