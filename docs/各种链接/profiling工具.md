@@ -93,3 +93,8 @@ https://github.com/gperftools/gperftools
 
 ### gprof
 [GNU binutils](https://www.gnu.org/software/binutils/)自带，[手册地址](https://sourceware.org/binutils/docs-2.39/gprof.html)。
+
+## 通用
+
+### perf
+强大但太复杂不好摘要，建议现用现搜……
