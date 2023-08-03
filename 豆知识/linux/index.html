@@ -8,20 +8,20 @@
       
       
       
-        <link rel="canonical" href="https://zhizhang77.github.io/tips/%E8%B1%86%E7%9F%A5%E8%AF%86/vscode/">
+        <link rel="canonical" href="https://zhizhang77.github.io/tips/%E8%B1%86%E7%9F%A5%E8%AF%86/linux/">
       
       
-        <link rel="prev" href="../sympy/">
+        <link rel="prev" href="../jupyter/">
       
       
-        <link rel="next" href="../wsl/">
+        <link rel="next" href="../opencv/">
       
       <link rel="icon" href="../../resources/github_icon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.14">
     
     
       
-        <title>VSCode相关 - zz的杂物堆</title>
+        <title>Linux - zz的杂物堆</title>
       
     
     
@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#vscode" class="md-skip">
+        <a href="#_1" class="md-skip">
           Skip to content
         </a>
       
@@ -103,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              VSCode相关
+              Linux
             
           </span>
         </div>
@@ -904,11 +904,89 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../linux/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Linux
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Linux
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    获取处理器信息
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    获取处理器状态
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    获取各个进程状态和资源占用
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#non-uniform-memory-access-numa-cpu" class="md-nav__link">
+    基于Non-Uniform Memory Access (NUMA) 的CPU配置
+  </a>
+  
+    <nav class="md-nav" aria-label="基于Non-Uniform Memory Access (NUMA) 的CPU配置">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tasksetubuntu" class="md-nav__link">
+    taskset(ubuntu自带)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numactl" class="md-nav__link">
+    numactl可以控制的内容更广，但需要额外安装
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -988,66 +1066,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          VSCode相关
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../vscode/" class="md-nav__link">
         VSCode相关
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    程序调试时带输入参数
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#vscodec" class="md-nav__link">
-    vscode编译和调试C++
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#vscodecmake" class="md-nav__link">
-    vscode中使用cmake
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1090,8 +1113,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1101,22 +1122,49 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    程序调试时带输入参数
+    获取处理器信息
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#vscodec" class="md-nav__link">
-    vscode编译和调试C++
+  <a href="#_2" class="md-nav__link">
+    获取处理器状态
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#vscodecmake" class="md-nav__link">
-    vscode中使用cmake
+  <a href="#_3" class="md-nav__link">
+    获取各个进程状态和资源占用
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#non-uniform-memory-access-numa-cpu" class="md-nav__link">
+    基于Non-Uniform Memory Access (NUMA) 的CPU配置
+  </a>
+  
+    <nav class="md-nav" aria-label="基于Non-Uniform Memory Access (NUMA) 的CPU配置">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tasksetubuntu" class="md-nav__link">
+    taskset(ubuntu自带)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numactl" class="md-nav__link">
+    numactl可以控制的内容更广，但需要额外安装
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1135,53 +1183,48 @@
                   
 
 
-<h1 id="vscode">VSCode相关</h1>
-<div class="toc">
-<ul>
-<li><a href="#vscode">VSCode相关</a><ul>
-<li><a href="#_1">程序调试时带输入参数</a></li>
-<li><a href="#vscodec">vscode编译和调试C++</a></li>
-<li><a href="#vscodecmake">vscode中使用cmake</a></li>
-</ul>
-</li>
-</ul>
-</div>
-<h2 id="_1">程序调试时带输入参数</h2>
-<ol>
-<li>菜单“调试-&gt;打开配置”打开launch.json</li>
-<li>在configurations中增加args，参数中的每个用空格隔开的都用双引号括起，如下例：<blockquote>
-<p>"args": [ "--model", "EDSR", "--scale", "2", "--save", "edsr_x2", "--n_resblocks", "32", "--n_feats", "256", "--res_scale", "0.1", "--reset"]</p>
-</blockquote>
-<h2 id="vscodec">vscode编译和调试C++</h2>
-</li>
-</ol>
-<ul>
-<li>首先在F1面板里输入关键词"C/C++ edit"，选择匹配到的命令"C/C++: Edit Configurations (UI)"，确认编译程序和intelliSenseMode都是正确的。如果之前从未配置过，需要选择一个配置名称比如win32，设置其编译器路径等参数</li>
-<li>打开所在文件夹之后选择菜单栏【运行】-&gt;【添加配置…】-&gt;"C++ (GDB/LLDB)"-&gt;"g++.exe - 生成和调试活动文件"(后两者按实际情况选)</li>
-<li>上述操作完成后会生成task.json和launch.json两个文件，打开task.json，增加你想要的配置，或者把原有配置改成想要的即可。比方说原有配置是 <strong>"command": "gcc",</strong> ，而我们需要用makefile编译，那就把它改成 <strong>"command": "make"</strong> </li>
-<li>通常不用改launch.json，需要注意的是cwd和program的目录，根据情况可能要设为工作目录<span class="arithmatex">\({workspaceFolder}\)</span>或<span class="arithmatex">\({fileDirname}\)</span></li>
-<li>需要调试gcc/g++的话编译时要在文件名前加-g标志，如下。如果-g放到$&lt;之后是无效的。</li>
-</ul>
-<div class="highlight"><pre><span></span><code><span class="w">    </span>%.o:<span class="w"> </span>%.cpp<span class="p">;</span><span class="w"> </span><span class="k">$(</span>CXX<span class="k">)</span><span class="w"> </span>-g<span class="w"> </span>$&lt;<span class="w"> </span>-o<span class="w"> </span><span class="nv">$@</span><span class="w"> </span><span class="k">$(</span>CXXFLAGS<span class="k">)</span>
+  <h1>Linux</h1>
+
+<h2 id="_1">获取处理器信息</h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># 逐个胪列CPU信息</span>
+cat<span class="w"> </span>/proc/cpuinfo
+<span class="c1"># 多核CPU信息汇总显示</span>
+lscpu
 </code></pre></div>
-<h2 id="vscodecmake">vscode中使用cmake</h2>
-<ul>
-<li>首先确认系统中有安装cmake并且已添加系统路径（或手动设置vscode设置项中的cmake.cmakepath为正确的cmake路径），否则vscode内的插件运行会出错。</li>
-<li>其次安装cmake(作者twxs)和cmake tools（作者microsoft）两个vscode插件，微软官方的C++ extension pack内已包含。安装后会自动扫描可以用的工具链（kits），win10下扫描结果保存在C:\Users\zhi.zhang\AppData\Local\CMakeTools\cmake-tools-kits.json中，之后也可以在f1命令面板中选择cmake: scan for kits来添加新的工具链，注意工具链的c编译器所在目录要在当前系统路径里，否则搜索不到。</li>
-<li>新建工程时可以用f1面板的cmake: quick start生成CMakeLists.txt，但这样会自动生成main.cpp文件，不需要的话可以手动删掉</li>
-<li>手动修改CMakeLists.txt添加所需的文件，如以下代码把当前目录和sub1子目录下所有后缀名匹配的文件加入需要编译的文件列表，并把sub1子目录加入.h文件的搜索列表（当前目录缺省包含在搜索列表内），生成文件名为zztest的可执行文件
-<div class="highlight"><pre><span></span><code><span class="nb">aux_source_directory</span><span class="p">(</span><span class="s">.</span><span class="w"> </span><span class="s">DIR_SRCS</span><span class="p">)</span>
-<span class="nb">aux_source_directory</span><span class="p">(</span><span class="s">sub1</span><span class="w"> </span><span class="s">TEST_SRCS</span><span class="p">)</span>
-
-<span class="nb">include_directories</span><span class="p">(</span><span class="s">sub1</span><span class="p">)</span>
-<span class="c"># message可用于检查变量的值</span>
-<span class="nb">message</span><span class="w"> </span><span class="p">(</span><span class="s2">&quot;files in .: ${DIR_SRCS}, files in sub1: ${TEST_SRCS}&quot;</span><span class="p">)</span>
-
-<span class="nb">add_executable</span><span class="p">(</span><span class="s">zztest</span><span class="w">  </span><span class="o">${</span><span class="nv">DIR_SRCS</span><span class="o">}</span><span class="w"> </span><span class="o">${</span><span class="nv">TEST_SRCS</span><span class="o">}</span><span class="p">)</span>
-</code></pre></div></li>
-<li>配置完成后，可以在左下角选择build生成可执行文件，选bug图标启动debug，三角图标执行，以及选择使用的kit，编译选项等等。</li>
-<li>通过f1面板调出cmake: edit Cmake Cache(UI)，可以在不修改CMakeLists.txt的情况下，通过直接编辑build目录下的CMakeCache.txt，临时修改各种参数如编译选项（CMAKE_C_FLAGS_RELEASE，CMAKE_C_FLAGS_DEBUG等）设置，以及CMakeLists.txt中用option命令自定义的变量开关等等。</li>
-</ul>
+<h2 id="_2">获取处理器状态</h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># 系统支持的CPU核心数</span>
+cat<span class="w"> </span>/sys/devices/system/cpu/present
+<span class="c1"># 在线的核心数</span>
+cat<span class="w"> </span>/cat<span class="w"> </span>sys/devices/system/cpu/online
+<span class="c1"># cpu0的硬件线程数</span>
+cat<span class="w"> </span>/sys/devices/system/cpu/cpu0/topology/thread_siblings_list
+<span class="c1"># 当前工作频率（部分系统里不支持，下同）</span>
+cat<span class="w"> </span>/sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_cur_freq
+<span class="c1"># 最大工作频率</span>
+cat<span class="w"> </span>/sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_max
+<span class="c1"># 最小工作频率</span>
+cat<span class="w"> </span>/sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_min
+</code></pre></div>
+<h2 id="_3">获取各个进程状态和资源占用</h2>
+<div class="highlight"><pre><span></span><code>ps<span class="w"> </span>aux
+top
+</code></pre></div>
+<h2 id="non-uniform-memory-access-numa-cpu">基于Non-Uniform Memory Access (NUMA) 的CPU配置</h2>
+<h3 id="tasksetubuntu">taskset(ubuntu自带)</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># 查看mytaskid可用的核心列表，分号枚举格式</span>
+taskset<span class="w"> </span>-pc<span class="w"> </span>mytaskid
+<span class="c1"># 查看mytaskid可用的核心列表，掩码格式（0b1表示cpu0，0b10表示cpu1，等等）</span>
+taskset<span class="w"> </span>-pc<span class="w"> </span>mytaskid
+<span class="c1"># 设置mytaskid只能跑在#1，#2核心上</span>
+taskset<span class="w"> </span>-pc<span class="w"> </span><span class="m">1</span>,2<span class="w"> </span>mytaskid
+<span class="c1"># 设置mytaskid只能跑在#1~#3上</span>
+taskset<span class="w"> </span>-p<span class="w"> </span><span class="m">7</span><span class="w"> </span>mytaskid
+<span class="c1"># 启动新任务mytask并限制其只能跑在cpu0和2上</span>
+taskset<span class="w"> </span>--cpu_list<span class="w"> </span><span class="m">0</span>,2<span class="w"> </span>mytask
+</code></pre></div>
+<h3 id="numactl">numactl可以控制的内容更广，但需要额外安装</h3>
+<div class="highlight"><pre><span></span><code>numactl<span class="w"> </span>--membind<span class="o">=</span><span class="m">0</span>,1<span class="w"> </span>application.exe
+</code></pre></div>
 
 
 
