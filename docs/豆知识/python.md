@@ -15,6 +15,8 @@ python3.7 -m pip install numpy
 sudo -H pip install numpy -i http://pypi.douban.com/simple/ --trusted-host=pypi.douban.com/simple
 # 或者
 sudo -H pip install numpy -i https://pypi.doubanio.com/simple
+# 清华源较慢但更稳定
+sudo -H pip install numpy -i https://pypi.tuna.tsinghua.edu.cn/simple
 ```
 也可将其设为缺省源
 ```sh
