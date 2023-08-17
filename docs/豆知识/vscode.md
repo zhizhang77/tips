@@ -37,3 +37,5 @@ add_executable(zztest  ${DIR_SRCS} ${TEST_SRCS})
 - 配置完成后，可以在左下角选择build生成可执行文件，选bug图标启动debug，三角图标执行，以及选择使用的kit，编译选项等等。
 - 通过f1面板调出cmake: edit Cmake Cache(UI)，可以在不修改CMakeLists.txt的情况下，通过直接编辑build目录下的CMakeCache.txt，临时修改各种参数如编译选项（CMAKE_C_FLAGS_RELEASE，CMAKE_C_FLAGS_DEBUG等）设置，以及CMakeLists.txt中用option命令自定义的变量开关等等。
 
+## 在markdown中应用snippet
+vscode支持markdown snippet，但缺省设置没有打开。需要在`File -> Preferences -> Settings`中搜索`@lang:markdown quicksuggestion`，将其中的`other`项改为`on`即可正常使用在markdown.json中配置的snippet。
