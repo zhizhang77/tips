@@ -1338,20 +1338,20 @@
 <h3 id="gperftools">gperftools</h3>
 <p>https://github.com/gperftools/gperftools</p>
 <h3 id="gprof">gprof</h3>
-<p><a href="https://www.gnu.org/software/binutils/">GNU binutils</a>自带，<a href="https://sourceware.org/binutils/docs-2.39/gprof.html">手册地址</a>。
-简单用法：
-- 将编译选项中的<code>-g</code>改为<code>-pg</code>并编译，会生成带有<em>_profile</em>后缀名的目标文件
-- 运行新目标文件，会生成缺省文件名为gmon.out的记录
+<p><a href="https://www.gnu.org/software/binutils/">GNU binutils</a>自带，<a href="https://sourceware.org/binutils/docs-2.39/gprof.html">手册地址</a>。</p>
+<p>简单用法：
+- 将编译选项中的<code>-g</code>改为<code>-pg</code>并编译，会生成带有<strong>profile</strong>后缀名的目标文件
+- 运行新目标文件，会生成缺省文件名为<strong>gmon.out</strong>的记录
 - <code>gprof ./xxx_profile gmon.out</code>输出文本格式的分析结果</p>
 <h2 id="_1">通用</h2>
 <h3 id="perf">perf</h3>
 <p>强大但太复杂不好摘要，建议现用现搜……</p>
 <h3 id="gprof2dot">gprof2dot</h3>
-<p>将perf、gprof、python、java等profiling结果转为graphviz可用的dot脚本。<a href="https://github.com/jrfonseca/gprof2dot">repo</a>
-可以直接pip安装
+<p>将perf、gprof、python、java等profiling结果转为graphviz可用的dot脚本。<a href="https://github.com/jrfonseca/gprof2dot">repo</a></p>
+<p>可以直接pip安装
 <div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>gprof2dot
-</code></pre></div>
-使用时注意缺省设置会忽略占比太低的函数，要用<code>-e -n</code>设置显示门限：
+</code></pre></div></p>
+<p>使用时注意缺省设置会忽略占比太低的函数，要用<code>-e -n</code>设置显示门限：
 <div class="highlight"><pre><span></span><code>gprof<span class="w"> </span>./iperf3_profile<span class="w"> </span>gmon.out<span class="w"> </span>&gt;profile.txt
 gprof2dot<span class="w"> </span>-n<span class="w"> </span><span class="m">0</span><span class="w"> </span>-e<span class="w"> </span><span class="m">0</span><span class="w"> </span>profile.txt<span class="w"> </span><span class="p">|</span><span class="w"> </span>dot<span class="w"> </span>-Tpng<span class="w"> </span>-o<span class="w"> </span>output.png
 </code></pre></div></p>
