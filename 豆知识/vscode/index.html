@@ -1044,6 +1044,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#markdownsnippet" class="md-nav__link">
+    在markdown中应用snippet
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1120,6 +1127,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#markdownsnippet" class="md-nav__link">
+    在markdown中应用snippet
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1142,6 +1156,7 @@
 <li><a href="#_1">程序调试时带输入参数</a></li>
 <li><a href="#vscodec">vscode编译和调试C++</a></li>
 <li><a href="#vscodecmake">vscode中使用cmake</a></li>
+<li><a href="#markdownsnippet">在markdown中应用snippet</a></li>
 </ul>
 </li>
 </ul>
@@ -1182,6 +1197,8 @@
 <li>配置完成后，可以在左下角选择build生成可执行文件，选bug图标启动debug，三角图标执行，以及选择使用的kit，编译选项等等。</li>
 <li>通过f1面板调出cmake: edit Cmake Cache(UI)，可以在不修改CMakeLists.txt的情况下，通过直接编辑build目录下的CMakeCache.txt，临时修改各种参数如编译选项（CMAKE_C_FLAGS_RELEASE，CMAKE_C_FLAGS_DEBUG等）设置，以及CMakeLists.txt中用option命令自定义的变量开关等等。</li>
 </ul>
+<h2 id="markdownsnippet">在markdown中应用snippet</h2>
+<p>vscode支持markdown snippet，但缺省设置没有打开。需要在<code>File -&gt; Preferences -&gt; Settings</code>中搜索<code>@lang:markdown quicksuggestion</code>，将其中的<code>other</code>项改为<code>on</code>即可正常使用在markdown.json中配置的snippet。</p>
 
 
 
