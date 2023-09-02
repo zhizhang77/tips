@@ -21,7 +21,7 @@
     
     
       
-        <title>profiling工具： - zz的杂物堆</title>
+        <title>profiling工具 - zz的杂物堆</title>
       
     
     
@@ -103,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              profiling工具：
+              profiling工具
             
           </span>
         </div>
@@ -368,12 +368,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          profiling工具：
+          profiling工具
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        profiling工具：
+        profiling工具
       </a>
       
         
@@ -1269,7 +1269,7 @@
                   
 
 
-<h1 id="profiling">profiling工具：</h1>
+<h1 id="profiling">profiling工具</h1>
 <h2 id="python">python</h2>
 <h3 id="cprofile">cprofile</h3>
 <p>cprofile是python自带，不需要安装，可以用如下命令行执行，也可以在python代码内部执行</p>
@@ -1339,15 +1339,21 @@
 <p>https://github.com/gperftools/gperftools</p>
 <h3 id="gprof">gprof</h3>
 <p><a href="https://www.gnu.org/software/binutils/">GNU binutils</a>自带，<a href="https://sourceware.org/binutils/docs-2.39/gprof.html">手册地址</a>。</p>
-<p>简单用法：
-- 将编译选项中的<code>-g</code>改为<code>-pg</code>并编译，会生成带有<strong>profile</strong>后缀名的目标文件
-- 运行新目标文件，会生成缺省文件名为<strong>gmon.out</strong>的记录
-- <code>gprof ./xxx_profile gmon.out</code>输出文本格式的分析结果</p>
+<p>简单用法：</p>
+<ul>
+<li>将编译选项中的<code>-g</code>改为<code>-pg</code>并编译，会生成带有<strong>profile</strong>后缀名的目标文件</li>
+</ul>
+<ul>
+<li>运行新目标文件，会生成缺省文件名为<strong>gmon.out</strong>的记录</li>
+</ul>
+<ul>
+<li><code>gprof ./xxx_profile gmon.out</code>输出文本格式的分析结果</li>
+</ul>
 <h2 id="_1">通用</h2>
 <h3 id="perf">perf</h3>
 <p>强大但太复杂不好摘要，建议现用现搜……</p>
 <h3 id="gprof2dot">gprof2dot</h3>
-<p>将perf、gprof、python、java等profiling结果转为graphviz可用的dot脚本。<a href="https://github.com/jrfonseca/gprof2dot">repo</a></p>
+<p>将perf、gprof、python、java等profiling结果转为graphviz可用的dot脚本(<a href="https://github.com/jrfonseca/gprof2dot">repo</a>)。</p>
 <p>可以直接pip安装
 <div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>gprof2dot
 </code></pre></div></p>
