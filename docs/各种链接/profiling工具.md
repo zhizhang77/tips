@@ -1,4 +1,4 @@
-# profiling工具：
+# profiling工具
 
 
 ## python
@@ -93,9 +93,13 @@ https://github.com/gperftools/gperftools
 
 ### gprof
 [GNU binutils](https://www.gnu.org/software/binutils/)自带，[手册地址](https://sourceware.org/binutils/docs-2.39/gprof.html)。
+
 简单用法：
-- 将编译选项中的`-g`改为`-pg`并编译，会生成带有*_profile*后缀名的目标文件
-- 运行新目标文件，会生成缺省文件名为gmon.out的记录
+
+- 将编译选项中的`-g`改为`-pg`并编译，会生成带有**profile**后缀名的目标文件
+
+- 运行新目标文件，会生成缺省文件名为**gmon.out**的记录
+
 - `gprof ./xxx_profile gmon.out`输出文本格式的分析结果
 
 ## 通用
@@ -104,11 +108,13 @@ https://github.com/gperftools/gperftools
 强大但太复杂不好摘要，建议现用现搜……
 
 ### gprof2dot
-将perf、gprof、python、java等profiling结果转为graphviz可用的dot脚本。[repo](https://github.com/jrfonseca/gprof2dot)
+将perf、gprof、python、java等profiling结果转为graphviz可用的dot脚本([repo](https://github.com/jrfonseca/gprof2dot))。
+
 可以直接pip安装
 ```sh
 pip install gprof2dot
 ```
+
 使用时注意缺省设置会忽略占比太低的函数，要用`-e -n`设置显示门限：
 ```sh
 gprof ./iperf3_profile gmon.out >profile.txt
