@@ -28,6 +28,12 @@ ps aux
 top
 ```
 
+## 获取单个进程的详细信息
+```sh
+ps -e # 找到你想看进程的pid，假设是12345
+cat /proc/12345/status
+```
+
 ## 基于Non-Uniform Memory Access (NUMA) 的CPU配置
 
 ### taskset(ubuntu自带)
