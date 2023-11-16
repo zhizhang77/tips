@@ -102,6 +102,17 @@ https://github.com/gperftools/gperftools
 
 - `gprof ./xxx_profile gmon.out`输出文本格式的分析结果
 
+## 动态注入打桩
+### DynamoRIO
+https://github.com/DynamoRIO/dynamorio，老牌工具，包括统计执行次数最多的指令，memory分析，cache命中率等一系列功能
+
+### Intel Pin
+https://www.intel.com/content/www/us/en/developer/articles/tool/pin-a-dynamic-binary-instrumentation-tool.html
+
+### Frida
+https://frida.re/ 功能少但相对简单易用
+
+
 ## 通用
 
 ### perf
