@@ -1,6 +1,20 @@
 # python相关
 [TOC]
 
+## 官方提供的Windows portable版本
+3.10之后官方提供了Windows下的便携版本，直接到https://www.python.org/downloads/windows/ ，选择Windows embeddable package下载并解压，使用时通过绝对路径调用python.exe。但这个版本不带pip，如果需要，下载https://bootstrap.pypa.io/get-pip.py ，然后到python解压目录下执行`python.exe pathto\get-pip.py`即可，安装的所有包都会存储在解压目录下。
+
+## python打包工具
+打包尽量用Python Embeddable版本，比较干净，不容易出依赖问题
+- pyinstaller
+```sh
+pip install pyinstaller
+```
+- nuitka，需要安装c++编译器，生成的包运行速度通常更快
+```sh
+pip install nuitka
+```
+
 ## 多python版本共存时使用pip
 
 用`python版本号 -m pip`的方法可以保证在正确的python版本下操作：
