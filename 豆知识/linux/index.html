@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://zhizhang77.github.io/tips/%E8%B1%86%E7%9F%A5%E8%AF%86/linux/">
       
       
-        <link rel="prev" href="../jupyter/">
+        <link rel="prev" href="../latexify_examples/">
       
       
         <link rel="next" href="../opencv/">
@@ -788,6 +788,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
@@ -904,6 +906,20 @@
               
   
   
+  
+    <li class="md-nav__item">
+      <a href="../latexify_examples/" class="md-nav__link">
+        latexify examples
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
     
   
   
@@ -952,6 +968,13 @@
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     获取各个进程状态和资源占用
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    获取单个进程的详细信息
   </a>
   
 </li>
@@ -1142,6 +1165,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    获取单个进程的详细信息
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#non-uniform-memory-access-numa-cpu" class="md-nav__link">
     基于Non-Uniform Memory Access (NUMA) 的CPU配置
   </a>
@@ -1208,6 +1238,10 @@ cat<span class="w"> </span>/sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_min
 <h2 id="_3">获取各个进程状态和资源占用</h2>
 <div class="highlight"><pre><span></span><code>ps<span class="w"> </span>aux
 top
+</code></pre></div>
+<h2 id="_4">获取单个进程的详细信息</h2>
+<div class="highlight"><pre><span></span><code>ps<span class="w"> </span>-e<span class="w"> </span><span class="c1"># 找到你想看进程的pid，假设是12345</span>
+cat<span class="w"> </span>/proc/12345/status
 </code></pre></div>
 <h2 id="non-uniform-memory-access-numa-cpu">基于Non-Uniform Memory Access (NUMA) 的CPU配置</h2>
 <h3 id="tasksetubuntu">taskset(ubuntu自带)</h3>

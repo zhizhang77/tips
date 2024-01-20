@@ -788,6 +788,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
@@ -906,6 +908,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../latexify_examples/" class="md-nav__link">
+        latexify examples
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../linux/" class="md-nav__link">
         Linux
       </a>
@@ -980,6 +996,20 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#windows-portable" class="md-nav__link">
+    官方提供的Windows portable版本
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python_1" class="md-nav__link">
+    python打包工具
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#pythonpip" class="md-nav__link">
@@ -1252,6 +1282,20 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#windows-portable" class="md-nav__link">
+    官方提供的Windows portable版本
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python_1" class="md-nav__link">
+    python打包工具
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#pythonpip" class="md-nav__link">
     多python版本共存时使用pip
   </a>
@@ -1443,6 +1487,8 @@
 <div class="toc">
 <ul>
 <li><a href="#python">python相关</a><ul>
+<li><a href="#windows-portable">官方提供的Windows portable版本</a></li>
+<li><a href="#python_1">python打包工具</a></li>
 <li><a href="#pythonpip">多python版本共存时使用pip</a></li>
 <li><a href="#_1">豆瓣源地址</a></li>
 <li><a href="#_2">小知识和语法糖</a><ul>
@@ -1474,6 +1520,16 @@
 </li>
 </ul>
 </div>
+<h2 id="windows-portable">官方提供的Windows portable版本</h2>
+<p>3.10之后官方提供了Windows下的便携版本，直接到https://www.python.org/downloads/windows/ ，选择Windows embeddable package下载并解压，使用时通过绝对路径调用python.exe。但这个版本不带pip，如果需要，下载https://bootstrap.pypa.io/get-pip.py ，然后到python解压目录下执行<code>python.exe pathto\get-pip.py</code>即可，安装的所有包都会存储在解压目录下。</p>
+<h2 id="python_1">python打包工具</h2>
+<p>打包尽量用Python Embeddable版本，比较干净，不容易出依赖问题
+- pyinstaller
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>pyinstaller
+</code></pre></div>
+- nuitka，需要安装c++编译器，生成的包运行速度通常更快
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>nuitka
+</code></pre></div></p>
 <h2 id="pythonpip">多python版本共存时使用pip</h2>
 <p>用<code>python版本号 -m pip</code>的方法可以保证在正确的python版本下操作：</p>
 <div class="highlight"><pre><span></span><code>python3.7<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>numpy

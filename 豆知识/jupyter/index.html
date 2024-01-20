@@ -14,7 +14,7 @@
         <link rel="prev" href="../git/">
       
       
-        <link rel="next" href="../linux/">
+        <link rel="next" href="../latexify_examples/">
       
       <link rel="icon" href="../../resources/github_icon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.14">
@@ -788,6 +788,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
@@ -926,6 +928,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#cli" class="md-nav__link">
+    用!开头的行会调用操作系统CLI来执行
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     看属性
   </a>
@@ -1004,6 +1013,20 @@
   
 </nav>
       
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../latexify_examples/" class="md-nav__link">
+        latexify examples
+      </a>
     </li>
   
 
@@ -1152,6 +1175,13 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#cli" class="md-nav__link">
+    用!开头的行会调用操作系统CLI来执行
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
@@ -2291,6 +2321,57 @@ Licensed under the Apache License, Version 2.0.
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="cli">&#29992;!&#24320;&#22836;&#30340;&#34892;&#20250;&#35843;&#29992;&#25805;&#20316;&#31995;&#32479;CLI&#26469;&#25191;&#34892;<a class="anchor-link" href="#cli">&#182;</a></h2>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+        
+        
+        <div class="CodeMirror cm-s-jupyter">
+            <div class="zeroclipboard-container">
+                <clipboard-copy for="cell-1">
+                <div>
+                    <span class="notice" hidden>Copied!</span>
+                    <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
+                        <path fill="currentColor" fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path>
+                        <path fill="currentColor" fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path>
+                    </svg>
+                    </div>
+                </clipboard-copy>
+            </div>
+            <div class="highlight-ipynb hl-python "><pre><span></span><span class="c1"># 可以把依赖项安装嵌在notebook里面</span>
+<span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">numpy</span>
+
+<span class="c1"># 一个小trick，可以在jupytercolab里启动gradio/flask之类网络server，再通过浏览器正常访问</span>
+<span class="err">!</span><span class="n">python3</span> <span class="n">app</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+<div id="cell-1" class="clipboard-copy-txt"># 可以把依赖项安装嵌在notebook里面
+!pip install numpy
+
+# 一个小trick，可以在jupytercolab里启动gradio/flask之类网络server，再通过浏览器正常访问
+!python3 app.py</div>
+        
+        </div>
+    </div>
+
+</div>
+</div>
+
+</div>
+</div>
+<div  class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="">&#30475;&#23646;&#24615;<a class="anchor-link" href="#">&#182;</a></h2>
 </div>
 </div>
@@ -2318,7 +2399,7 @@ Licensed under the Apache License, Version 2.0.
         
         <div class="CodeMirror cm-s-jupyter">
             <div class="zeroclipboard-container">
-                <clipboard-copy for="cell-1">
+                <clipboard-copy for="cell-2">
                 <div>
                     <span class="notice" hidden>Copied!</span>
                     <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
@@ -2331,7 +2412,7 @@ Licensed under the Apache License, Version 2.0.
             <div class="highlight-ipynb hl-python "><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="s1">&#39;hello world&#39;</span>
 <span class="n">a</span><span class="err">?</span>
 </pre></div>
-<div id="cell-1" class="clipboard-copy-txt">a = 'hello world'
+<div id="cell-2" class="clipboard-copy-txt">a = 'hello world'
 a?</div>
         
         </div>
@@ -2364,7 +2445,7 @@ a?</div>
         
         <div class="CodeMirror cm-s-jupyter">
             <div class="zeroclipboard-container">
-                <clipboard-copy for="cell-2">
+                <clipboard-copy for="cell-3">
                 <div>
                     <span class="notice" hidden>Copied!</span>
                     <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
@@ -2380,7 +2461,7 @@ a?</div>
 
 <span class="n">myadd</span><span class="err">??</span>
 </pre></div>
-<div id="cell-2" class="clipboard-copy-txt">def myadd(x,y):
+<div id="cell-3" class="clipboard-copy-txt">def myadd(x,y):
     '''add y to x'''
     return x+y
 
@@ -2416,7 +2497,7 @@ myadd??</div>
         
         <div class="CodeMirror cm-s-jupyter">
             <div class="zeroclipboard-container">
-                <clipboard-copy for="cell-3">
+                <clipboard-copy for="cell-4">
                 <div>
                     <span class="notice" hidden>Copied!</span>
                     <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
@@ -2428,7 +2509,7 @@ myadd??</div>
             </div>
             <div class="highlight-ipynb hl-python "><pre><span></span><span class="nb">str</span><span class="o">.*</span><span class="k">for</span><span class="o">*</span><span class="err">?</span>
 </pre></div>
-<div id="cell-3" class="clipboard-copy-txt">str.*for*?</div>
+<div id="cell-4" class="clipboard-copy-txt">str.*for*?</div>
         
         </div>
     </div>
@@ -2459,7 +2540,7 @@ myadd??</div>
         
         <div class="CodeMirror cm-s-jupyter">
             <div class="zeroclipboard-container">
-                <clipboard-copy for="cell-4">
+                <clipboard-copy for="cell-5">
                 <div>
                     <span class="notice" hidden>Copied!</span>
                     <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
@@ -2472,42 +2553,8 @@ myadd??</div>
             <div class="highlight-ipynb hl-python "><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">IFrame</span>
 <span class="n">IFrame</span><span class="p">(</span><span class="s1">&#39;http://www.baidu.com&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
 </pre></div>
-<div id="cell-4" class="clipboard-copy-txt">from IPython.display import IFrame
+<div id="cell-5" class="clipboard-copy-txt">from IPython.display import IFrame
 IFrame('http://www.baidu.com', width=1000, height=300)</div>
-        
-        </div>
-    </div>
-
-</div>
-</div>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-        
-        
-        <div class="CodeMirror cm-s-jupyter">
-            <div class="zeroclipboard-container">
-                <clipboard-copy for="cell-5">
-                <div>
-                    <span class="notice" hidden>Copied!</span>
-                    <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
-                        <path fill="currentColor" fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path>
-                        <path fill="currentColor" fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path>
-                    </svg>
-                    </div>
-                </clipboard-copy>
-            </div>
-            <div class="highlight-ipynb hl-python "><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
-<span class="n">Image</span><span class="p">(</span><span class="s1">&#39;../images/1.gif&#39;</span><span class="p">)</span>
-</pre></div>
-<div id="cell-5" class="clipboard-copy-txt">from IPython.display import Image
-Image('../images/1.gif')</div>
         
         </div>
     </div>
@@ -2537,10 +2584,44 @@ Image('../images/1.gif')</div>
                     </div>
                 </clipboard-copy>
             </div>
+            <div class="highlight-ipynb hl-python "><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="n">Image</span><span class="p">(</span><span class="s1">&#39;../images/1.gif&#39;</span><span class="p">)</span>
+</pre></div>
+<div id="cell-6" class="clipboard-copy-txt">from IPython.display import Image
+Image('../images/1.gif')</div>
+        
+        </div>
+    </div>
+
+</div>
+</div>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+        
+        
+        <div class="CodeMirror cm-s-jupyter">
+            <div class="zeroclipboard-container">
+                <clipboard-copy for="cell-7">
+                <div>
+                    <span class="notice" hidden>Copied!</span>
+                    <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
+                        <path fill="currentColor" fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path>
+                        <path fill="currentColor" fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path>
+                    </svg>
+                    </div>
+                </clipboard-copy>
+            </div>
             <div class="highlight-ipynb hl-python "><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">IFrame</span>
 <span class="n">IFrame</span><span class="p">(</span><span class="s1">&#39;../cheatsheets/Importing Data File.pdf&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span> <span class="c1"># output varies depend on browser</span>
 </pre></div>
-<div id="cell-6" class="clipboard-copy-txt">from IPython.display import IFrame
+<div id="cell-7" class="clipboard-copy-txt">from IPython.display import IFrame
 IFrame('../cheatsheets/Importing Data File.pdf', width=1000, height=300) # output varies depend on browser</div>
         
         </div>
@@ -2575,7 +2656,7 @@ IFrame('../cheatsheets/Importing Data File.pdf', width=1000, height=300) # outpu
         
         <div class="CodeMirror cm-s-jupyter">
             <div class="zeroclipboard-container">
-                <clipboard-copy for="cell-7">
+                <clipboard-copy for="cell-8">
                 <div>
                     <span class="notice" hidden>Copied!</span>
                     <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
@@ -2591,45 +2672,11 @@ IFrame('../cheatsheets/Importing Data File.pdf', width=1000, height=300) # outpu
 <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">x</span>
 </pre></div>
-<div id="cell-7" class="clipboard-copy-txt">from ipywidgets import interact
+<div id="cell-8" class="clipboard-copy-txt">from ipywidgets import interact
 import ipywidgets as widgets
 
 def f(x):
     return x</div>
-        
-        </div>
-    </div>
-
-</div>
-</div>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-        
-        
-        <div class="CodeMirror cm-s-jupyter">
-            <div class="zeroclipboard-container">
-                <clipboard-copy for="cell-8">
-                <div>
-                    <span class="notice" hidden>Copied!</span>
-                    <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
-                        <path fill="currentColor" fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path>
-                        <path fill="currentColor" fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path>
-                    </svg>
-                    </div>
-                </clipboard-copy>
-            </div>
-            <div class="highlight-ipynb hl-python "><pre><span></span><span class="c1"># Generate a slider </span>
-<span class="n">interact</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">10</span><span class="p">);</span>
-</pre></div>
-<div id="cell-8" class="clipboard-copy-txt"># Generate a slider 
-interact(f, x=10);</div>
         
         </div>
     </div>
@@ -2659,9 +2706,11 @@ interact(f, x=10);</div>
                     </div>
                 </clipboard-copy>
             </div>
-            <div class="highlight-ipynb hl-python "><pre><span></span><span class="n">interact</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span>
+            <div class="highlight-ipynb hl-python "><pre><span></span><span class="c1"># Generate a slider </span>
+<span class="n">interact</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">10</span><span class="p">);</span>
 </pre></div>
-<div id="cell-9" class="clipboard-copy-txt">interact(f, x=True);</div>
+<div id="cell-9" class="clipboard-copy-txt"># Generate a slider 
+interact(f, x=10);</div>
         
         </div>
     </div>
@@ -2691,9 +2740,9 @@ interact(f, x=10);</div>
                     </div>
                 </clipboard-copy>
             </div>
-            <div class="highlight-ipynb hl-python "><pre><span></span><span class="n">interact</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;Hi there!&#39;</span><span class="p">);</span>
+            <div class="highlight-ipynb hl-python "><pre><span></span><span class="n">interact</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span>
 </pre></div>
-<div id="cell-10" class="clipboard-copy-txt">interact(f, x='Hi there!');</div>
+<div id="cell-10" class="clipboard-copy-txt">interact(f, x=True);</div>
         
         </div>
     </div>
@@ -2723,9 +2772,9 @@ interact(f, x=10);</div>
                     </div>
                 </clipboard-copy>
             </div>
-            <div class="highlight-ipynb hl-python "><pre><span></span><span class="n">interact</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Okay&#39;</span><span class="p">,</span><span class="s1">&#39;No way&#39;</span><span class="p">]);</span>
+            <div class="highlight-ipynb hl-python "><pre><span></span><span class="n">interact</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;Hi there!&#39;</span><span class="p">);</span>
 </pre></div>
-<div id="cell-11" class="clipboard-copy-txt">interact(f, x=['Okay','No way']);</div>
+<div id="cell-11" class="clipboard-copy-txt">interact(f, x='Hi there!');</div>
         
         </div>
     </div>
@@ -2755,9 +2804,9 @@ interact(f, x=10);</div>
                     </div>
                 </clipboard-copy>
             </div>
-            <div class="highlight-ipynb hl-python "><pre><span></span><span class="n">interact</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="p">[(</span><span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="mi">20</span><span class="p">)]);</span>
+            <div class="highlight-ipynb hl-python "><pre><span></span><span class="n">interact</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Okay&#39;</span><span class="p">,</span><span class="s1">&#39;No way&#39;</span><span class="p">]);</span>
 </pre></div>
-<div id="cell-12" class="clipboard-copy-txt">interact(f, x=[('one', 10), ('two', 20)]);</div>
+<div id="cell-12" class="clipboard-copy-txt">interact(f, x=['Okay','No way']);</div>
         
         </div>
     </div>
@@ -2787,6 +2836,38 @@ interact(f, x=10);</div>
                     </div>
                 </clipboard-copy>
             </div>
+            <div class="highlight-ipynb hl-python "><pre><span></span><span class="n">interact</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="p">[(</span><span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="mi">20</span><span class="p">)]);</span>
+</pre></div>
+<div id="cell-13" class="clipboard-copy-txt">interact(f, x=[('one', 10), ('two', 20)]);</div>
+        
+        </div>
+    </div>
+
+</div>
+</div>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+        
+        
+        <div class="CodeMirror cm-s-jupyter">
+            <div class="zeroclipboard-container">
+                <clipboard-copy for="cell-14">
+                <div>
+                    <span class="notice" hidden>Copied!</span>
+                    <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
+                        <path fill="currentColor" fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path>
+                        <path fill="currentColor" fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path>
+                    </svg>
+                    </div>
+                </clipboard-copy>
+            </div>
             <div class="highlight-ipynb hl-python "><pre><span></span><span class="n">play</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Play</span><span class="p">(</span>
     <span class="c1"># interval=10,</span>
     <span class="n">value</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
@@ -2800,7 +2881,7 @@ interact(f, x=10);</div>
 <span class="n">widgets</span><span class="o">.</span><span class="n">jslink</span><span class="p">((</span><span class="n">play</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">),</span> <span class="p">(</span><span class="n">slider</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">))</span>
 <span class="n">widgets</span><span class="o">.</span><span class="n">HBox</span><span class="p">([</span><span class="n">play</span><span class="p">,</span> <span class="n">slider</span><span class="p">])</span>
 </pre></div>
-<div id="cell-13" class="clipboard-copy-txt">play = widgets.Play(
+<div id="cell-14" class="clipboard-copy-txt">play = widgets.Play(
     # interval=10,
     value=50,
     min=0,
@@ -2831,7 +2912,7 @@ widgets.HBox([play, slider])</div>
         
         <div class="CodeMirror cm-s-jupyter">
             <div class="zeroclipboard-container">
-                <clipboard-copy for="cell-14">
+                <clipboard-copy for="cell-15">
                 <div>
                     <span class="notice" hidden>Copied!</span>
                     <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
@@ -2846,50 +2927,8 @@ widgets.HBox([play, slider])</div>
     <span class="n">disabled</span><span class="o">=</span><span class="kc">False</span>
 <span class="p">)</span>
 </pre></div>
-<div id="cell-14" class="clipboard-copy-txt">widgets.DatePicker(
+<div id="cell-15" class="clipboard-copy-txt">widgets.DatePicker(
     description='Pick a Date',
-    disabled=False
-)</div>
-        
-        </div>
-    </div>
-
-</div>
-</div>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-        
-        
-        <div class="CodeMirror cm-s-jupyter">
-            <div class="zeroclipboard-container">
-                <clipboard-copy for="cell-15">
-                <div>
-                    <span class="notice" hidden>Copied!</span>
-                    <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
-                        <path fill="currentColor" fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path>
-                        <path fill="currentColor" fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path>
-                    </svg>
-                    </div>
-                </clipboard-copy>
-            </div>
-            <div class="highlight-ipynb hl-python "><pre><span></span><span class="n">widgets</span><span class="o">.</span><span class="n">ColorPicker</span><span class="p">(</span>
-    <span class="n">concise</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-    <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Pick a color&#39;</span><span class="p">,</span>
-    <span class="n">value</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span>
-    <span class="n">disabled</span><span class="o">=</span><span class="kc">False</span>
-<span class="p">)</span>
-</pre></div>
-<div id="cell-15" class="clipboard-copy-txt">widgets.ColorPicker(
-    concise=False,
-    description='Pick a color',
-    value='blue',
     disabled=False
 )</div>
         
@@ -2921,21 +2960,19 @@ widgets.HBox([play, slider])</div>
                     </div>
                 </clipboard-copy>
             </div>
-            <div class="highlight-ipynb hl-python "><pre><span></span><span class="n">tab_contents</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;P0&#39;</span><span class="p">,</span> <span class="s1">&#39;P1&#39;</span><span class="p">,</span> <span class="s1">&#39;P2&#39;</span><span class="p">,</span> <span class="s1">&#39;P3&#39;</span><span class="p">,</span> <span class="s1">&#39;P4&#39;</span><span class="p">]</span>
-<span class="n">children</span> <span class="o">=</span> <span class="p">[</span><span class="n">widgets</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="n">name</span><span class="p">)</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">tab_contents</span><span class="p">]</span>
-<span class="n">tab</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Tab</span><span class="p">()</span>
-<span class="n">tab</span><span class="o">.</span><span class="n">children</span> <span class="o">=</span> <span class="n">children</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">children</span><span class="p">)):</span>
-    <span class="n">tab</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
-<span class="n">tab</span>
+            <div class="highlight-ipynb hl-python "><pre><span></span><span class="n">widgets</span><span class="o">.</span><span class="n">ColorPicker</span><span class="p">(</span>
+    <span class="n">concise</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Pick a color&#39;</span><span class="p">,</span>
+    <span class="n">value</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span>
+    <span class="n">disabled</span><span class="o">=</span><span class="kc">False</span>
+<span class="p">)</span>
 </pre></div>
-<div id="cell-16" class="clipboard-copy-txt">tab_contents = ['P0', 'P1', 'P2', 'P3', 'P4']
-children = [widgets.Text(description=name) for name in tab_contents]
-tab = widgets.Tab()
-tab.children = children
-for i in range(len(children)):
-    tab.set_title(i, str(i))
-tab</div>
+<div id="cell-16" class="clipboard-copy-txt">widgets.ColorPicker(
+    concise=False,
+    description='Pick a color',
+    value='blue',
+    disabled=False
+)</div>
         
         </div>
     </div>
@@ -2965,6 +3002,50 @@ tab</div>
                     </div>
                 </clipboard-copy>
             </div>
+            <div class="highlight-ipynb hl-python "><pre><span></span><span class="n">tab_contents</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;P0&#39;</span><span class="p">,</span> <span class="s1">&#39;P1&#39;</span><span class="p">,</span> <span class="s1">&#39;P2&#39;</span><span class="p">,</span> <span class="s1">&#39;P3&#39;</span><span class="p">,</span> <span class="s1">&#39;P4&#39;</span><span class="p">]</span>
+<span class="n">children</span> <span class="o">=</span> <span class="p">[</span><span class="n">widgets</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="n">name</span><span class="p">)</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">tab_contents</span><span class="p">]</span>
+<span class="n">tab</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Tab</span><span class="p">()</span>
+<span class="n">tab</span><span class="o">.</span><span class="n">children</span> <span class="o">=</span> <span class="n">children</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">children</span><span class="p">)):</span>
+    <span class="n">tab</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+<span class="n">tab</span>
+</pre></div>
+<div id="cell-17" class="clipboard-copy-txt">tab_contents = ['P0', 'P1', 'P2', 'P3', 'P4']
+children = [widgets.Text(description=name) for name in tab_contents]
+tab = widgets.Tab()
+tab.children = children
+for i in range(len(children)):
+    tab.set_title(i, str(i))
+tab</div>
+        
+        </div>
+    </div>
+
+</div>
+</div>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+        
+        
+        <div class="CodeMirror cm-s-jupyter">
+            <div class="zeroclipboard-container">
+                <clipboard-copy for="cell-18">
+                <div>
+                    <span class="notice" hidden>Copied!</span>
+                    <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
+                        <path fill="currentColor" fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path>
+                        <path fill="currentColor" fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path>
+                    </svg>
+                    </div>
+                </clipboard-copy>
+            </div>
             <div class="highlight-ipynb hl-python "><pre><span></span><span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">interactive</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -2981,7 +3062,7 @@ tab</div>
 <span class="n">output</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">height</span> <span class="o">=</span> <span class="s1">&#39;350px&#39;</span>
 <span class="n">interactive_plot</span>
 </pre></div>
-<div id="cell-17" class="clipboard-copy-txt">from ipywidgets import interactive
+<div id="cell-18" class="clipboard-copy-txt">from ipywidgets import interactive
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -3015,7 +3096,7 @@ interactive_plot</div>
         
         <div class="CodeMirror cm-s-jupyter">
             <div class="zeroclipboard-container">
-                <clipboard-copy for="cell-18">
+                <clipboard-copy for="cell-19">
                 <div>
                     <span class="notice" hidden>Copied!</span>
                     <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
@@ -3053,7 +3134,7 @@ interactive_plot</div>
 <span class="p">))</span>
 <span class="n">form</span>
 </pre></div>
-<div id="cell-18" class="clipboard-copy-txt"># 复合功能
+<div id="cell-19" class="clipboard-copy-txt"># 复合功能
 from ipywidgets import Layout, Button, Box, FloatText, Textarea, Dropdown, Label, IntSlider
 
 form_item_layout = Layout(
@@ -3137,7 +3218,7 @@ form</div>
         
         <div class="CodeMirror cm-s-jupyter">
             <div class="zeroclipboard-container">
-                <clipboard-copy for="cell-19">
+                <clipboard-copy for="cell-20">
                 <div>
                     <span class="notice" hidden>Copied!</span>
                     <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
@@ -3149,39 +3230,7 @@ form</div>
             </div>
             <div class="highlight-ipynb hl-python "><pre><span></span><span class="o">%</span><span class="n">lsmagic</span>
 </pre></div>
-<div id="cell-19" class="clipboard-copy-txt">%lsmagic</div>
-        
-        </div>
-    </div>
-
-</div>
-</div>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-        
-        
-        <div class="CodeMirror cm-s-jupyter">
-            <div class="zeroclipboard-container">
-                <clipboard-copy for="cell-20">
-                <div>
-                    <span class="notice" hidden>Copied!</span>
-                    <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
-                        <path fill="currentColor" fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path>
-                        <path fill="currentColor" fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path>
-                    </svg>
-                    </div>
-                </clipboard-copy>
-            </div>
-            <div class="highlight-ipynb hl-python "><pre><span></span><span class="o">%</span><span class="n">quickref</span>
-</pre></div>
-<div id="cell-20" class="clipboard-copy-txt">%quickref</div>
+<div id="cell-20" class="clipboard-copy-txt">%lsmagic</div>
         
         </div>
     </div>
@@ -3211,9 +3260,9 @@ form</div>
                     </div>
                 </clipboard-copy>
             </div>
-            <div class="highlight-ipynb hl-python "><pre><span></span><span class="o">%</span><span class="n">timeit</span><span class="err">?</span>
+            <div class="highlight-ipynb hl-python "><pre><span></span><span class="o">%</span><span class="n">quickref</span>
 </pre></div>
-<div id="cell-21" class="clipboard-copy-txt">%timeit?</div>
+<div id="cell-21" class="clipboard-copy-txt">%quickref</div>
         
         </div>
     </div>
@@ -3243,9 +3292,41 @@ form</div>
                     </div>
                 </clipboard-copy>
             </div>
+            <div class="highlight-ipynb hl-python "><pre><span></span><span class="o">%</span><span class="n">timeit</span><span class="err">?</span>
+</pre></div>
+<div id="cell-22" class="clipboard-copy-txt">%timeit?</div>
+        
+        </div>
+    </div>
+
+</div>
+</div>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+        
+        
+        <div class="CodeMirror cm-s-jupyter">
+            <div class="zeroclipboard-container">
+                <clipboard-copy for="cell-23">
+                <div>
+                    <span class="notice" hidden>Copied!</span>
+                    <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
+                        <path fill="currentColor" fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path>
+                        <path fill="currentColor" fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path>
+                    </svg>
+                    </div>
+                </clipboard-copy>
+            </div>
             <div class="highlight-ipynb hl-python "><pre><span></span><span class="o">%</span><span class="n">magic</span><span class="err">??</span>
 </pre></div>
-<div id="cell-22" class="clipboard-copy-txt">%magic??</div>
+<div id="cell-23" class="clipboard-copy-txt">%magic??</div>
         
         </div>
     </div>
@@ -3276,7 +3357,7 @@ form</div>
         
         <div class="CodeMirror cm-s-jupyter">
             <div class="zeroclipboard-container">
-                <clipboard-copy for="cell-23">
+                <clipboard-copy for="cell-24">
                 <div>
                     <span class="notice" hidden>Copied!</span>
                     <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
@@ -3290,7 +3371,7 @@ form</div>
 <span class="nb">min</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 <span class="c1"># line mode: 执行当前行的指令，如上例中min(a)的时间不会被计入</span>
 </pre></div>
-<div id="cell-23" class="clipboard-copy-txt">%timeit a = range(10)
+<div id="cell-24" class="clipboard-copy-txt">%timeit a = range(10)
 min(a)
 # line mode: 执行当前行的指令，如上例中min(a)的时间不会被计入</div>
         
@@ -3312,7 +3393,7 @@ min(a)
         
         <div class="CodeMirror cm-s-jupyter">
             <div class="zeroclipboard-container">
-                <clipboard-copy for="cell-24">
+                <clipboard-copy for="cell-25">
                 <div>
                     <span class="notice" hidden>Copied!</span>
                     <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
@@ -3326,7 +3407,7 @@ min(a)
 <span class="nb">min</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 <span class="c1"># cell mode: 执行整个cell，注意%%只能放在当前cell的第一行，而line mode则没有这个限制</span>
 </pre></div>
-<div id="cell-24" class="clipboard-copy-txt">%%timeit a = range (10)
+<div id="cell-25" class="clipboard-copy-txt">%%timeit a = range (10)
 min(a)
 # cell mode: 执行整个cell，注意%%只能放在当前cell的第一行，而line mode则没有这个限制</div>
         
