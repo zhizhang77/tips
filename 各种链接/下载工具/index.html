@@ -406,6 +406,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#hugging_face" class="md-nav__link">
+    hugging_face模型下载
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     视频下载
   </a>
@@ -1150,6 +1157,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#hugging_face" class="md-nav__link">
+    hugging_face模型下载
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     视频下载
   </a>
@@ -1220,6 +1234,24 @@
 
 
 <h1 id="_1">下载工具</h1>
+<h2 id="hugging_face">hugging_face模型下载</h2>
+<ul>
+<li>因为hf被墙了，不能直接下载上面的模型，很多代码没法工作，这时可以先设置环境变量<code>HF_ENDPOINT</code>指向其镜像站点，再运行程序就ok了。
+<div class="highlight"><pre><span></span><code><span class="c1"># 如果是windows，要把export改成SET</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">HF_ENDPOINT</span><span class="o">=</span>https://hf-mirror.com
+</code></pre></div></li>
+</ul>
+<ul>
+<li>要是完全不能联网（例如在内网搭建服务），可以将环境变量<code>HF_HUB_OFFLINE</code>置为1。这样只会尝试使用本地已经下载的权重数据。直接在python脚本中调<code>os.system()</code>设置即可。</li>
+</ul>
+<ul>
+<li>其它环境变量可参考https://huggingface.co/docs/huggingface_hub/v0.20.3/en/package_reference/environment_variables</li>
+</ul>
+<ul>
+<li>hf下载的模型缺省会放在隐藏目录<code>.cache</code>下，如果想用其它目录，可以在下载函数如<em>snapshot_download</em>中添加参数<code>local_dir='目录名'</code>。
+<div class="highlight"><pre><span></span><code><span class="n">model_path</span> <span class="o">=</span> <span class="n">snapshot_download</span><span class="p">(</span><span class="s2">&quot;vikhyatk/moondream1&quot;</span><span class="p">,</span><span class="n">local_dir</span><span class="o">=</span><span class="s1">&#39;./checkpoints&#39;</span><span class="p">)</span>
+</code></pre></div></li>
+</ul>
 <h2 id="_2">视频下载</h2>
 <h3 id="you-get">you-get</h3>
 <p>https://github.com/soimort/you-get</p>
