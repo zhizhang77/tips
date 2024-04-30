@@ -44,3 +44,15 @@ Ubuntu的设置->打印机有时会出错打不开，这时可以直接通过CUP
 用admin账户打开命令行或者powershell，然后运行`sfc /scannow`，该命令会自动校验系统文件并修复，可以解决一些奇奇怪怪的异常现象。执行完之后在提示位置的CBS.log中可以看到受影响的文件列表。
 
 另一个命令是`DISM.exe /Online /Cleanup-Image /Restorehealth`，$/Online$表示检查当前运行中的系统，$/Cleanup-Image$表示系统还原，$/Restorehealth$表示修复损坏的文件。
+
+## windows下解决端口占用
+
+在cmd中输入`netstat -ano|findstr 端口号`
+```powershell
+C:\Users\Administrator>netstat -ano|findstr 8080
+  TCP    0.0.0.0:8080           0.0.0.0:0              LISTENING       1236
+  TCP    0.0.0.0:8080           192.168.1.100:49706      ESTABLISHED     1236
+```
+  
+  可以看到占用8080端口的进程号是1236，然后用`tasklist|findstr 1236`来查看该进程的名称，比如是`java.exe`，然后用`taskkill /f /im java.exe`来结束该进程。也可以直接`taskkill /pid 占用端口的进程号`。
+

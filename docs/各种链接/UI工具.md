@@ -2,6 +2,7 @@
 
 ## 通用UI开发
 - 可任意拖拽的grid layout https://github.com/react-grid-layout/react-grid-layout
+- LLM生成前端，可以用GPT4V也可以用他们自己训练的权重 https://salt-nlp.github.io/Design2Code/
 
 ## 数据分析UI构建
 
