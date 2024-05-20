@@ -37,6 +37,13 @@ sudo -H pip install numpy -i https://pypi.tuna.tsinghua.edu.cn/simple
 pip config set global.index-url https://pypi.doubanio.com/simple
 ```
 
+## 用pip下载包并离线安装
+`pip download -d ./packages/ -r requirements.txt`
+把requirements.txt中指定的所有包及其依赖全部下载保存到./packages/目录下，然后使用
+`pip install --no-index --find-links=./packages/ -r requirements.txt`
+安装这些包，这样在离线环境下也能正常运行。
+
+
 ## 小知识和语法糖
 
 ### 字符串和列表通用的逆序方法
