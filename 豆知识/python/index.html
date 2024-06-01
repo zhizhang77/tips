@@ -1026,6 +1026,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#pip" class="md-nav__link">
+    用pip下载包并离线安装
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     小知识和语法糖
   </a>
@@ -1310,6 +1317,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#pip" class="md-nav__link">
+    用pip下载包并离线安装
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     小知识和语法糖
   </a>
@@ -1491,6 +1505,7 @@
 <li><a href="#python_1">python打包工具</a></li>
 <li><a href="#pythonpip">多python版本共存时使用pip</a></li>
 <li><a href="#_1">豆瓣源地址</a></li>
+<li><a href="#pip">用pip下载包并离线安装</a></li>
 <li><a href="#_2">小知识和语法糖</a><ul>
 <li><a href="#_3">字符串和列表通用的逆序方法</a></li>
 <li><a href="#_4">有放回随机采样和无放回随机采样</a></li>
@@ -1544,6 +1559,11 @@ sudo<span class="w"> </span>-H<span class="w"> </span>pip<span class="w"> </span
 也可将其设为缺省源
 <div class="highlight"><pre><span></span><code>pip<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>global.index-url<span class="w"> </span>https://pypi.doubanio.com/simple
 </code></pre></div></p>
+<h2 id="pip">用pip下载包并离线安装</h2>
+<p><code>pip download -d ./packages/ -r requirements.txt</code>
+把requirements.txt中指定的所有包及其依赖全部下载保存到./packages/目录下，然后使用
+<code>pip install --no-index --find-links=./packages/ -r requirements.txt</code>
+安装这些包，这样在离线环境下也能正常运行。</p>
 <h2 id="_2">小知识和语法糖</h2>
 <h3 id="_3">字符串和列表通用的逆序方法</h3>
 <div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>

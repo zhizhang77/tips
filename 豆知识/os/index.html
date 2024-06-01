@@ -1018,6 +1018,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#windows" class="md-nav__link">
+    windows下解决端口占用
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1164,6 +1171,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#windows" class="md-nav__link">
+    windows下解决端口占用
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1188,6 +1202,7 @@
 <li><a href="#_1">不卸载程序的情况下防止其服务开关机启动</a></li>
 <li><a href="#_2">设置打印机</a></li>
 <li><a href="#win10sfcsystem-file-checker">win10下使用sfc(system file checker)修复系统文件</a></li>
+<li><a href="#windows">windows下解决端口占用</a></li>
 </ul>
 </li>
 </ul>
@@ -1228,6 +1243,13 @@ mask会把该服务的符号链接指向/dev/null，这样任何唤起请求都�
 <h2 id="win10sfcsystem-file-checker">win10下使用sfc(system file checker)修复系统文件</h2>
 <p>用admin账户打开命令行或者powershell，然后运行<code>sfc /scannow</code>，该命令会自动校验系统文件并修复，可以解决一些奇奇怪怪的异常现象。执行完之后在提示位置的CBS.log中可以看到受影响的文件列表。</p>
 <p>另一个命令是<code>DISM.exe /Online /Cleanup-Image /Restorehealth</code>，<span class="arithmatex">\(/Online\)</span>表示检查当前运行中的系统，<span class="arithmatex">\(/Cleanup-Image\)</span>表示系统还原，<span class="arithmatex">\(/Restorehealth\)</span>表示修复损坏的文件。</p>
+<h2 id="windows">windows下解决端口占用</h2>
+<p>在cmd中输入<code>netstat -ano|findstr 端口号</code>
+<div class="highlight"><pre><span></span><code><span class="n">C</span><span class="p">:\</span><span class="n">Users</span><span class="p">\</span><span class="n">Administrator</span><span class="p">&gt;</span><span class="n">netstat</span> <span class="n">-ano</span><span class="p">|</span><span class="n">findstr</span> <span class="n">8080</span>
+  <span class="n">TCP</span>    <span class="n">0</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span><span class="p">:</span><span class="n">8080</span>           <span class="n">0</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span><span class="p">:</span><span class="n">0</span>              <span class="n">LISTENING</span>       <span class="n">1236</span>
+  <span class="n">TCP</span>    <span class="n">0</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span><span class="p">:</span><span class="n">8080</span>           <span class="n">192</span><span class="p">.</span><span class="n">168</span><span class="p">.</span><span class="n">1</span><span class="p">.</span><span class="n">100</span><span class="p">:</span><span class="n">49706</span>      <span class="n">ESTABLISHED</span>     <span class="n">1236</span>
+</code></pre></div></p>
+<p>可以看到占用8080端口的进程号是1236，然后用<code>tasklist|findstr 1236</code>来查看该进程的名称，比如是<code>java.exe</code>，然后用<code>taskkill /f /im java.exe</code>来结束该进程。也可以直接<code>taskkill /pid 占用端口的进程号</code>。</p>
 
 
 
