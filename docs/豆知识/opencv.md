@@ -40,3 +40,13 @@ mask3channel = np.expand_dims(mask,2).repeat(3,axis=2)
 ## 检查当前opencv的build信息
 
 `print(cv2.getBuildInformation()`可以显示编译时使用的模块、依赖等信息，与cmake时输出的一致
+
+## YUV和YCbCr转换公式的区别
+YUV多用于模拟而YCbCr用于数字，数字图像处理中即使叫YUV，很多时候实际也是用的YCbCr。
+```matlab
+% YCbCr/YPbPr with Rec 470/601 luma
+A = [0.299 0.587 0.114;-0.1687 -0.3313 0.5;0.5 -0.4187 -0.08131];
+% YUV with Rec 470/601 luma
+A = [0.299 0.587 0.114; -0.14713 -0.28886 0.436; 0.615 -0.51499 -0.10001];
+```
+In the first case, the nominal range of the chroma components are both 2\*0.5=1.  They're equal and normalized and so they easily scale to fit integer data range.  In the case of YUV, the chroma components have different widths (2\*0.436=0.872 and 2\*0.615=1.23).  If uniformly scaled to an integer data range, either U would make poor use of the range of an integer class, or V would get truncated.  These scaling factors are the same regardless of which luma constants are used.
