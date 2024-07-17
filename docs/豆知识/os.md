@@ -56,3 +56,4 @@ C:\Users\Administrator>netstat -ano|findstr 8080
   
   可以看到占用8080端口的进程号是1236，然后用`tasklist|findstr 1236`来查看该进程的名称，比如是`java.exe`，然后用`taskkill /f /im java.exe`来结束该进程。也可以直接`taskkill /pid 占用端口的进程号`。
 
+还有一种情况是端口被windows系统预留了，可以用`netsh interface ipv4 show excludedportrange protocol=tcp`检查要用的端口是否有被预留。
