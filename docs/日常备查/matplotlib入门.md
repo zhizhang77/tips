@@ -1816,6 +1816,13 @@ plt.xticks(np.arange(0, len(df), 15), fontsize=12)
 plt.show()
 ```
 
+### 在matplotlib中使用中文
+缺省字体无法显示中文，只要手动指定字体映射即可，例如：
+```python
+plt.rcParams['font.sans-serif'] = ['SimHei']  # 用来正常显示中文标签
+plt.rcParams['axes.unicode_minus'] = False  # 用来正常显示负号
+```
+
 ## 14.其他常用绘图
  
 ### 表达多个变量间的关系
