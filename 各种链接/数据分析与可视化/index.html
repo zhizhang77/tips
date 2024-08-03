@@ -1502,8 +1502,8 @@ https://nbcharts.com/map/map.php 3D地图</p>
 <span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">haishoku</span><span class="o">.</span><span class="n">palette</span><span class="p">)</span>
 </code></pre></div></p>
 <h2 id="matplotlib">matplotlib自带配色表：</h2>
-<p>https://matplotlib.org/tutorials/colors/colormaps.html#colorcet</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<p>https://matplotlib.org/stable/users/explain/colors/colormaps.html</p>
+<p><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 <span class="c1"># Have colormaps separated into categories:</span>
@@ -1558,6 +1558,22 @@ https://nbcharts.com/map/map.php 3D地图</p>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div>
+使用时通过名字引用即可，如：
+<div class="highlight"><pre><span></span><code><span class="n">plt</span><span class="o">.</span><span class="n">pie</span><span class="p">(</span><span class="n">sizes</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">colormaps</span><span class="p">[</span><span class="s1">&#39;tab10&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">colors</span><span class="p">)</span>
+</code></pre></div>
+或者用get_cmap设置颜色数量：
+<div class="highlight"><pre><span></span><code><span class="n">plt</span><span class="o">.</span><span class="n">pie</span><span class="p">(</span><span class="n">sizes</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s1">&#39;tab10&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">sizes</span><span class="p">))</span><span class="o">.</span><span class="n">colors</span><span class="p">)</span>
+</code></pre></div>
+注意以上两者对LinearSegmentedColormap类型的colormap无效，只对ListedColormap类型有效。LinearSegmentedColormap取色可以如下实现：
+<div class="highlight"><pre><span></span><code>    <span class="n">cmap</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s1">&#39;hsv&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">sizes</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># +1是针对cyclic型colormap的特殊处理，否则可能第一种颜色和最后一种非常接近</span>
+    <span class="n">colors</span> <span class="o">=</span> <span class="n">cmap</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sizes</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">pie</span><span class="p">(</span><span class="n">sizes</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="n">colors</span><span class="p">)</span>
+</code></pre></div>
+此外，也可以从给定的几种颜色线性插值得到自定义colormap
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">matplotlib.colors</span> <span class="k">as</span> <span class="nn">mcolors</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;#FFC125&quot;</span><span class="p">,</span> <span class="s2">&quot;#969696&quot;</span><span class="p">,</span> <span class="s2">&quot;#473C8B&quot;</span><span class="p">]</span>
+<span class="n">cmap</span> <span class="o">=</span> <span class="n">mcolors</span><span class="o">.</span><span class="n">LinearSegmentedColormap</span><span class="o">.</span><span class="n">from_list</span><span class="p">(</span><span class="s2">&quot;my_cmap&quot;</span><span class="p">,</span> <span class="n">colors</span><span class="p">)</span>
+</code></pre></div></p>
 <h2 id="palettable">palettable：</h2>
 <p>https://github.com/jiffyclub/palettable</p>
 

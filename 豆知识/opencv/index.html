@@ -990,6 +990,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#yuvycbcr" class="md-nav__link">
+    YUV和YCbCr转换公式的区别
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1136,6 +1143,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#yuvycbcr" class="md-nav__link">
+    YUV和YCbCr转换公式的区别
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1158,6 +1172,7 @@
 <li><a href="#contour">contour的格式</a></li>
 <li><a href="#3">将灰度图或者掩模扩展到3通道上，以便与彩色图片互操作</a></li>
 <li><a href="#opencvbuild">检查当前opencv的build信息</a></li>
+<li><a href="#yuvycbcr">YUV和YCbCr转换公式的区别</a></li>
 </ul>
 </li>
 </ul>
@@ -1196,6 +1211,14 @@
 </code></pre></div>
 <h2 id="opencvbuild">检查当前opencv的build信息</h2>
 <p><code>print(cv2.getBuildInformation()</code>可以显示编译时使用的模块、依赖等信息，与cmake时输出的一致</p>
+<h2 id="yuvycbcr">YUV和YCbCr转换公式的区别</h2>
+<p>YUV多用于模拟而YCbCr用于数字，数字图像处理中即使叫YUV，很多时候实际也是用的YCbCr。
+<div class="highlight"><pre><span></span><code><span class="c">% YCbCr/YPbPr with Rec 470/601 luma</span>
+<span class="n">A</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="mf">0.299</span><span class="w"> </span><span class="mf">0.587</span><span class="w"> </span><span class="mf">0.114</span><span class="p">;</span><span class="o">-</span><span class="mf">0.1687</span><span class="w"> </span><span class="o">-</span><span class="mf">0.3313</span><span class="w"> </span><span class="mf">0.5</span><span class="p">;</span><span class="mf">0.5</span><span class="w"> </span><span class="o">-</span><span class="mf">0.4187</span><span class="w"> </span><span class="o">-</span><span class="mf">0.08131</span><span class="p">];</span>
+<span class="c">% YUV with Rec 470/601 luma</span>
+<span class="n">A</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="mf">0.299</span><span class="w"> </span><span class="mf">0.587</span><span class="w"> </span><span class="mf">0.114</span><span class="p">;</span><span class="w"> </span><span class="o">-</span><span class="mf">0.14713</span><span class="w"> </span><span class="o">-</span><span class="mf">0.28886</span><span class="w"> </span><span class="mf">0.436</span><span class="p">;</span><span class="w"> </span><span class="mf">0.615</span><span class="w"> </span><span class="o">-</span><span class="mf">0.51499</span><span class="w"> </span><span class="o">-</span><span class="mf">0.10001</span><span class="p">];</span>
+</code></pre></div>
+In the first case, the nominal range of the chroma components are both 2*0.5=1.  They're equal and normalized and so they easily scale to fit integer data range.  In the case of YUV, the chroma components have different widths (2*0.436=0.872 and 2*0.615=1.23).  If uniformly scaled to an integer data range, either U would make poor use of the range of an integer class, or V would get truncated.  These scaling factors are the same regardless of which luma constants are used.</p>
 
 
 

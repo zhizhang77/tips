@@ -1250,6 +1250,7 @@ mask会把该服务的符号链接指向/dev/null，这样任何唤起请求都�
   <span class="n">TCP</span>    <span class="n">0</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span><span class="p">:</span><span class="n">8080</span>           <span class="n">192</span><span class="p">.</span><span class="n">168</span><span class="p">.</span><span class="n">1</span><span class="p">.</span><span class="n">100</span><span class="p">:</span><span class="n">49706</span>      <span class="n">ESTABLISHED</span>     <span class="n">1236</span>
 </code></pre></div></p>
 <p>可以看到占用8080端口的进程号是1236，然后用<code>tasklist|findstr 1236</code>来查看该进程的名称，比如是<code>java.exe</code>，然后用<code>taskkill /f /im java.exe</code>来结束该进程。也可以直接<code>taskkill /pid 占用端口的进程号</code>。</p>
+<p>还有一种情况是端口被windows系统预留了，可以用<code>netsh interface ipv4 show excludedportrange protocol=tcp</code>检查要用的端口是否有被预留。</p>
 
 
 

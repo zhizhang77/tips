@@ -1099,6 +1099,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#matplotlib_1" class="md-nav__link">
+    在matplotlib中使用中文
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2094,6 +2101,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#matplotlib_1" class="md-nav__link">
+    在matplotlib中使用中文
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2249,6 +2263,7 @@
 <li><a href="#_29">减少坐标轴刻度数量，避免刻度过于密集</a></li>
 <li><a href="#_30">使用辅助轴在一张图上显示两个变量</a></li>
 <li><a href="#x">共享x轴的子图坐标对齐</a></li>
+<li><a href="#matplotlib_1">在matplotlib中使用中文</a></li>
 </ul>
 </li>
 <li><a href="#14">14.其他常用绘图</a><ul>
@@ -3571,6 +3586,11 @@
 <span class="n">ax2</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">),</span> <span class="mi">15</span><span class="p">),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></p>
+<h3 id="matplotlib_1">在matplotlib中使用中文</h3>
+<p>缺省字体无法显示中文，只要手动指定字体映射即可，例如：
+<div class="highlight"><pre><span></span><code><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.sans-serif&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;SimHei&#39;</span><span class="p">]</span>  <span class="c1"># 用来正常显示中文标签</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;axes.unicode_minus&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>  <span class="c1"># 用来正常显示负号</span>
 </code></pre></div></p>
 <h2 id="14">14.其他常用绘图</h2>
 <h3 id="_31">表达多个变量间的关系</h3>

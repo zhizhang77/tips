@@ -1002,6 +1002,26 @@
     官方提供的Windows portable版本
   </a>
   
+    <nav class="md-nav" aria-label="官方提供的Windows portable版本">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pip" class="md-nav__link">
+    安装pip
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python3xx_pth" class="md-nav__link">
+    修改python3xx._pth
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1026,7 +1046,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pip" class="md-nav__link">
+  <a href="#pip_1" class="md-nav__link">
     用pip下载包并离线安装
   </a>
   
@@ -1293,6 +1313,26 @@
     官方提供的Windows portable版本
   </a>
   
+    <nav class="md-nav" aria-label="官方提供的Windows portable版本">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pip" class="md-nav__link">
+    安装pip
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python3xx_pth" class="md-nav__link">
+    修改python3xx._pth
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1317,7 +1357,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pip" class="md-nav__link">
+  <a href="#pip_1" class="md-nav__link">
     用pip下载包并离线安装
   </a>
   
@@ -1501,11 +1541,15 @@
 <div class="toc">
 <ul>
 <li><a href="#python">python相关</a><ul>
-<li><a href="#windows-portable">官方提供的Windows portable版本</a></li>
+<li><a href="#windows-portable">官方提供的Windows portable版本</a><ul>
+<li><a href="#pip">安装pip</a></li>
+<li><a href="#python3xx_pth">修改python3xx._pth</a></li>
+</ul>
+</li>
 <li><a href="#python_1">python打包工具</a></li>
 <li><a href="#pythonpip">多python版本共存时使用pip</a></li>
 <li><a href="#_1">豆瓣源地址</a></li>
-<li><a href="#pip">用pip下载包并离线安装</a></li>
+<li><a href="#pip_1">用pip下载包并离线安装</a></li>
 <li><a href="#_2">小知识和语法糖</a><ul>
 <li><a href="#_3">字符串和列表通用的逆序方法</a></li>
 <li><a href="#_4">有放回随机采样和无放回随机采样</a></li>
@@ -1536,7 +1580,11 @@
 </ul>
 </div>
 <h2 id="windows-portable">官方提供的Windows portable版本</h2>
-<p>3.10之后官方提供了Windows下的便携版本，直接到https://www.python.org/downloads/windows/ ，选择Windows embeddable package下载并解压，使用时通过绝对路径调用python.exe。但这个版本不带pip，如果需要，下载https://bootstrap.pypa.io/get-pip.py ，然后到python解压目录下执行<code>python.exe pathto\get-pip.py</code>即可，安装的所有包都会存储在解压目录下。</p>
+<p>3.10之后官方提供了Windows下的便携版本，直接到https://www.python.org/downloads/windows/ ，选择Windows embeddable package下载并解压，使用时通过绝对路径调用python.exe。</p>
+<h3 id="pip">安装pip</h3>
+<p>portable版本不带pip，如果需要，下载https://bootstrap.pypa.io/get-pip.py ，然后到python解压目录下执行<code>python.exe pathto\get-pip.py</code>即可，安装的所有包都会存储在解压目录下。</p>
+<h3 id="python3xx_pth">修改<code>python3xx._pth</code></h3>
+<p>portable版本的搜索路径在<code>python3xx._pth</code>里指定（xx是python版本号），缺省只有<code>python3xx.zip</code>和<code>.</code>目录，所以pip装好之后运行<code>python -m pip xxx</code>还是会显示<strong>ModuleNotFoundError: No module named 'pip'</strong>。解决办法是修改<code>python3xx._pth</code>，在文件末尾添加一行<code>import site</code>，这样pip安装的包就会自动添加到搜索路径中。</p>
 <h2 id="python_1">python打包工具</h2>
 <p>打包尽量用Python Embeddable版本，比较干净，不容易出依赖问题
 - pyinstaller
@@ -1559,7 +1607,7 @@ sudo<span class="w"> </span>-H<span class="w"> </span>pip<span class="w"> </span
 也可将其设为缺省源
 <div class="highlight"><pre><span></span><code>pip<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>global.index-url<span class="w"> </span>https://pypi.doubanio.com/simple
 </code></pre></div></p>
-<h2 id="pip">用pip下载包并离线安装</h2>
+<h2 id="pip_1">用pip下载包并离线安装</h2>
 <p><code>pip download -d ./packages/ -r requirements.txt</code>
 把requirements.txt中指定的所有包及其依赖全部下载保存到./packages/目录下，然后使用
 <code>pip install --no-index --find-links=./packages/ -r requirements.txt</code>
