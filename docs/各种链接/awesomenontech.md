@@ -3,6 +3,8 @@
 ## 数据类
 各种社会与环境数据： https://ourworldindata.org/
 
+海外投融资信息：https://www.crunchbase.com/
+
 ## 地图下载
 ### 现代地图
 自然资源部标准地图服务系统：http://bzdt.ch.mnr.gov.cn/
