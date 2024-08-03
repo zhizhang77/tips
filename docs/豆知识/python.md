@@ -2,7 +2,13 @@
 [TOC]
 
 ## 官方提供的Windows portable版本
-3.10之后官方提供了Windows下的便携版本，直接到https://www.python.org/downloads/windows/ ，选择Windows embeddable package下载并解压，使用时通过绝对路径调用python.exe。但这个版本不带pip，如果需要，下载https://bootstrap.pypa.io/get-pip.py ，然后到python解压目录下执行`python.exe pathto\get-pip.py`即可，安装的所有包都会存储在解压目录下。
+3.10之后官方提供了Windows下的便携版本，直接到https://www.python.org/downloads/windows/ ，选择Windows embeddable package下载并解压，使用时通过绝对路径调用python.exe。
+
+### 安装pip
+portable版本不带pip，如果需要，下载https://bootstrap.pypa.io/get-pip.py ，然后到python解压目录下执行`python.exe pathto\get-pip.py`即可，安装的所有包都会存储在解压目录下。
+
+### 修改`python3xx._pth`
+portable版本的搜索路径在`python3xx._pth`里指定（xx是python版本号），缺省只有`python3xx.zip`和`.`目录，所以pip装好之后运行`python -m pip xxx`还是会显示**ModuleNotFoundError: No module named 'pip'**。解决办法是修改`python3xx._pth`，在文件末尾添加一行`import site`，这样pip安装的包就会自动添加到搜索路径中。
 
 ## python打包工具
 打包尽量用Python Embeddable版本，比较干净，不容易出依赖问题
