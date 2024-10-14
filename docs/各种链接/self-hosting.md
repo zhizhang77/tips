@@ -1,10 +1,21 @@
+## DNS
+
+### ddns-go 自动映射公网IP
+https://github.com/jeessy2/ddns-go
+
 ## 笔记应用
+
+### logseq
+https://logseq.com/
+
+### trilium
+https://github.com/zadam/trilium/blob/master/README-ZH_CN.md 很好用但作者不想维护了
 
 ### appflowy
 https://appflowy.io/
 
 ### memos
-https://github.com/usememos/memos
+https://github.com/usememos/memos 小巧占资源少
 
 ### kanboard
 https://kanboard.org/ 安装超简单资源占用少
