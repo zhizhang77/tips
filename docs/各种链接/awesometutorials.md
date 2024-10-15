@@ -19,9 +19,13 @@
 - https://github.com/CamDavidsonPilon/Probabilistic-Programming-and-Bayesian-Methods-for-Hackers MCMC讲的很好
 
 ### 数学工具
-
 - https://github.com/fmfn/BayesianOptimization
 - Sympy用的很好的处理动态控制过程的一本书：https://dynamics-and-control.readthedocs.io/en/latest/index.html
+
+## 图像视觉相关
+
+### 可视计算与交互概论
+https://vcl-pku.github.io/vci-book/
 
 ## Python
 - https://github.com/HanXinzi-AI/awesome-python-resources
@@ -30,6 +34,7 @@
 - numba示例集： https://github.com/numba/numba-examples.git
 
 ### 数据分析
+- https://github.com/ujjwalkarn/DataSciencePython
 - python数据之道：https://github.com/liyangbit/PyDataRoad.git
 - Python for Data Analysis, 2nd Edition： https://github.com/wesm/pydata-book
 - Bayesian data analysis：http://www.stat.columbia.edu/~gelman/book/
@@ -41,6 +46,9 @@
 - pyecharts的示例集：https://github.com/pyecharts/pyecharts-gallery.git
 - scikit-learn入门： https://github.com/jakevdp/sklearn_tutorial
 - 非常直观的3D可视化GPT模型：https://bbycroft.net/llm ，以及可以对照的excel版本： https://github.com/dabochen/spreadsheet-is-all-you-need?tab=readme-ov-file
+
+## 机器学习
+- https://github.com/ujjwalkarn/Machine-Learning-Tutorials
 
 ## git
 - github workflow syntax： https://docs.github.com/en/actions/learn-github-actions/workflow-syntax-for-github-actions
