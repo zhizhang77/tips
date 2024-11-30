@@ -67,3 +67,7 @@ https://vcl-pku.github.io/vci-book/
 - https://github.com/freechipsproject/chisel-template
 - https://github.com/schoeberl/chisel-book
 - https://github.com/schoeberl/chisel-examples
+
+## FPGA
+- https://github.com/alexforencich 以太网、AXI、PCIe、I2C、UART等大量IP核实现，包含源码和仿真
+- https://github.com/WangXuan95 
