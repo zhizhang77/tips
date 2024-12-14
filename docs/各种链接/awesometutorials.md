@@ -10,6 +10,7 @@
 ## 算法
 - https://github.com/TheAlgorithms/Python
 - https://github.com/tayllan/awesome-algorithms
+- https://www.hello-algo.com/
 
 ## 数学和信号处理基础
 - https://github.com/rlabbe/Kalman-and-Bayesian-Filters-in-Python

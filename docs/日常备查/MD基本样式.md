@@ -48,6 +48,20 @@ emoji:slightly_smiling_face:可能有兼容性问题:bomb::smile_cat::arrow_left
 | 手机   |   \$12 |  12  |
 | 管线   |    \$1 | 234  |
 
+如果想支持合并单元格，需要在MPW插件的setting中打开enableExtendedTableSyntax
+
+| Column 1 | Column 2 | Column 3 |
+| ------ | -----: | :--: |
+| A1 |  |
+| A2 | > |  C2  |
+| > | B3   | C3 |
+
+| Column 1 | Column 2 | Column 3 |
+| ------ | -----: | :--: |
+| A1 | B1 | C1 |
+| ^ | ^ |  C2  |
+| ^ | B3   |  |
+
 ---
 
 ## 嵌入本地和外部图片
@@ -291,139 +305,11 @@ State1 -> State2
 
 ### 波形图可以用[plantuml][5]或者[wavedrom][7]实现
 
-#### 用[plantuml][5]画波形图
+#### 用[plantuml][5]画波形图（不如wavedrom，删掉了）
 官方说明见 https://plantuml.com/zh/timing-diagram
 
-plantuml可以使用时间或者信号两种方式描述信号的时序关系，下面先基于**时间方式**举例，也就是在用`@`指定的每个时刻点，描述各个信号的取值。
 
-`@`接立即数表示绝对时间，接`+x`表示相对上一个`@`时间点的offset。
-
-无论时间还是信号都可以用`as`指定别名，时间的别名要以`:`开始，时间用别名的一个好处是可以用`别名-x`格式指定相对时间。
-
-时钟信号使用`clock`关键词声明，`offset`设置相位（默认0），`pulse`设置脉宽（默认占空比50%），
-```plantuml
-@startuml x
-Title This is my title
-header: Some header
-footer: Some footer
-legend
-Some legend
-end legend
-caption Some caption
-
-clock "clk0" as clk0  with period 100
-clock "clk1" as clk1  with period 100 offset 20
-clock "clk2" as clk2  with period 100 offset 100
-clock "clk3" as clk3  with period 100 pulse 30
-clock "clk4" as clk4  with period 100 pulse 30 offset 20
-
-@0
-@+1000
-@enduml
-```
-
-[plantuml][5]中使用`binary`，`concise`和`robust`声明逻辑变量，`analog`声明模拟变量
-`concise`：简明的图形化数据表示，可表示数据的移动（非常适合表示信息）。
-`robust`：用信号线表示的状态，便于呈现状态间的转化（可设置多种状态）。
-`binary`：二进制信号，只有两个状态。(binary)。
-`analog`：无限多取值，在画图时会自动线性插值。
-
-逻辑信号值使用`is`表达.
-
-在两个信号变量之间使用`->`可以添加消息。无论消息发射方还是接收方都可以在变量名后面接绝对或相对时间，如：
-`en->fsm@+50：stop now.`
-表示消息的起点是当前时刻的en信号，终点是50单位以后的fsm信号。
-
-```plantuml
-@startuml x
-
-clock clk with period 20 offset 1
-binary "en" as en
-robust "fsm_state" as fsm
-concise "addr" as addr
-analog "sensor_input" as sen
-@20 as :en_high
-
-fsm is idle
-en is high
-
-@0
-en is low
-fsm is "busy"
-addr is {-}
-en ->addr : start now!
-sen is 0
-
-@:en_high
-en is high
-fsm is "start"
-addr is "0xFF" #lightblue
-en -> fsm@+50: stop now!
-
-@+10
-addr is "0xA5A5"
-fsm is {idle,start}
-sen is 3
-
-@40
-en is 0
-fsm is "busy"
-note bottom of addr : line1\nline2
-
-@60
-en is {0,1}
-sen is 1
-
-@70
-en is 1
-fsm is "idle"
-addr is "0xDEAD" #red
-
-@100
-sen is 2
-
-highlight 70 to 90 #Gold;line:DimGrey : notify this signal\nby highlight it
-@enduml
-```
-**Tips：**
-
-1. 初始值设置
-在声明变量后，`@`标注时间前，使用*A is B*的格式，将A的初始值设置为B。不能对时钟信号设置初始值。
-
-2. 不定态设置
-使用`A is {X,Y}`的方式，将信号A的值设置在X和Y之间，表示一种不定范围。特殊的，`A is {-}`表示A是不定态或高阻。
-
-**信号方式**与时间方式很类似，在`@信号名`下面指定不同时间的值即可，两种方式也可以混用。
-特别的，`<->`表示约束关系，只能在基于信号方式的时序描述中，并且是同一个信号的不同时刻间使用。
-
-```plantuml
-@startuml x
-
-clock clk with period 20 offset 1
-binary "en" as en
-concise "addr" as addr
-
-en is high
-
-@en
-0 is low
-20 is high
-+30 is 0
-addr -> en : label1
-+20 is  0
-@20 <-> @50 : A constraint
-
-@addr
-0 is {-}
-10 is "0xFF"
-20 is {-}
-en -> addr : label2
-+30 is "0xA5A5"
-
-@enduml
-```
-
-#### 用[wavedrom][7]画波形图
+#### 用[wavedrom][7]画波形图（可以嵌入js）
 
 眼下同样只有markdown preview enhanced插件支持，typora不支持
 
@@ -451,6 +337,44 @@ en -> addr : label2
     ]
   ]
 ]}
+```
+
+```wavedrom
+{
+  signal:[
+    //clock generation
+    function clockGen(clockName,repeatNum){
+      var clock={name:clockName,wave:'p'+'.'.repeat(repeatNum-1)};
+      return clock
+    }('clk',16),
+    //reset generation
+    function resetGen(repeatNum,resetName,resetActiveLevel,resetAssertCycle){
+      var reset={name:resetName,wave:''};
+      reset.wave+=resetActiveLevel+''+'.'.repeat(resetAssertCycle-1)+(1-resetActiveLevel)+''+'.'.repeat(repeatNum-resetAssertCycle-1);
+      return reset;
+    }(16,'rst',1,5),
+    //data generation
+    function dataGen(cycleNum,startCycle,activeCycle,signalNum){
+      var signalList=[]
+      //signal name generation
+
+      //valid generation
+      signalList.push(
+        {name:"valid",wave: '0'+ '.'.repeat(startCycle-1) + '1' + '.'.repeat(activeCycle-1) + '0'+'.'.repeat(cycleNum-startCycle-activeCycle-1)}
+      );
+      //data generation
+      for(var signalIndex=0;signalIndex <signalNum;signalIndex++){
+        signalList.push({name:"data"+signalIndex+'',wave:'',data:[]} )
+        for(var cycleIndex=0;cycleIndex< cycleNum;cycleIndex++){
+          signalList[signalIndex+1].wave+=(Math.floor(Math.random() * 8) + 2)+'';
+          signalList[signalIndex+1].data.push((cycleIndex*signalNum+signalIndex)+'');
+        }
+      }
+      signalList.unshift('bus');
+      return signalList
+    }(16,5,6,32)
+  ]
+}
 ```
 
 ### dot画图
