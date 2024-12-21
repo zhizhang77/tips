@@ -158,57 +158,55 @@ markdown:
 ---
 
 ## 图表
+大部分用[mermaid][3]实现，部分用到wavedrom和dot。mermaid的自定义配色方案参考[这里][6]。
+```mermaid
+%%{init: {'theme':'neutral'}}%%
+  graph LR
+    a --> b((b))
+```
+### 流程图
+除开基本形状，还有大量用`@{ shape:`开头的扩充节点，种类繁多，可查[在线文档][8]。
+```mermaid
+flowchart TD  
+%% TD/TB表示自上而下，LR自左向右
+    id1((**start**\/_end_))
+    id2[[subprocess]]
+    id3{decision}
+    id4[/input\/output/]
+    
+    id6@{ shape: doc, label: "document#9829;" }
+    id7[(database)]
+    
+    id9(((shape1)))
+    id10>shape2]
+    id11{{shape3}}
+    id12[/shape4\]
 
-### 流程图用```flow开头[^流程图]
+    id1 --> id2 --- id3
+    subgraph mysub1
+    id3 -->|true| id4
+    id3 --false--o id5[process]
+    id4 -.-> id6
+    id5 ==> id7
+    id6 & id7 --x id8([stadium shape])
+    end
+    id8 --- id9
 
-```flow
-st=>start: 采购需求:>http://192.168.8.41:8080[blank]
-e=>end 
-op1=>operation: 打印入库单
-op2=>operation: 申请人签收
-验收入库
-op3=>operation: 领用人提出出库申请
-op4=>operation: 采购助理打印出库单:>这里假装是出库单链接
-op5=>operation: 领用人签字
-op6=>operation: 直属主管签字
-para1=>parallel: 物料出库
-op7=>operation: 领用人归还
-sub1=>subroutine: 采购助理统
-计采购清单
-sub2=>subroutine: 财务工作
+    subgraph mysub2
+    direction LR
+    id11 ~~~ id12
+    %% ~~~ 是无形线，方便调整位置排版什么的
+    end
+    mysub2 <--这是超长线-----> id10
+    %% 超长线上有文字的话，多出的-或.必须出现在文字之后
 
-tianbiao=>operation: 填写申请表
-并发邮件
-cond1=>condition: 有合同
-cond2=>condition: 金额>=2000
-cond3=>condition: 研发采购
-or 行政采购?
-gm=>operation: 总经理审批
-cto=>operation: CTO审批
-admin=>operation: 行政主管审批
-io=>inputoutput: 采购员采购
-arrive=>operation: 物料到货
-
-st->tianbiao->cond1
-cond1(yes,right)->gm
-cond1(no,bottom)->cond2
-cond2(yes)->gm
-cond2(no,bottom)->cond3
-cond3(yes)->cto
-cond3(no)->admin
-gm->io
-cto->io
-admin->io
-io->arrive
-arrive->op1
-
-op1->op2->op3->op4->op5->op6->para1
-para1(path1)->sub1(right)->sub2(right)->e
-para1(path2,right)->op7(top)->op1
-
+    classDef green fill:#9f6,stroke:#333,stroke-width:2px;
+    classDef orange fill:#f96,stroke:#333,stroke-width:4px;
+    class id7,id2 green
+    class id5 orange
 ```
 
-### 序列图使用```[mermaid][3]语法[^序列图]
+### 序列图
 
 ```mermaid
 %% Example of sequence diagram
@@ -240,8 +238,9 @@ para1(path2,right)->op7(top)->op1
     deactivate Alice
     Alice-x-Tom: shut up
 ```
+---
 
-### 甘特图同样用[mermaid][3]语法
+### 甘特图
 
 ```mermaid
     gantt
@@ -266,41 +265,30 @@ para1(path2,right)->op7(top)->op1
 
 ---
 
-### uml和其它很多类型的图可以用[plantuml][5]
 
-plantuml在Typora中不支持，vscode中的markdown preview enhanced插件可以部分支持但版本不是最新[^json]，[这里][6]有很多用例可以抄
 
-```plantuml
-@startuml
-scale 550 width
-[*] --> NotShooting
-state NotShooting {
-[*] --> Idle
-Idle --> Configuring : EvConfig
-Configuring --> Idle : EvConfig
-}
-state Configuring {
-[*] --> NewValueSelection
-NewValueSelection --> NewValuePreview : EvNewValue
-NewValuePreview --> NewValueSelection : EvNewValueRejected
-NewValuePreview --> NewValueSelection : EvNewValueSaved
-state NewValuePreview {
-State1 -> State2
-}
-}
-@enduml
-```
-
-#### 用[plantuml][5]画思维导图
-可以用OrgMode或markdown格式，这里以markdown格式为例：
-```plantuml
-@startmindmap
-* root node
-	* some first level node
-		* second level node
-		* another second level node
-	* another first level node
-@endmindmap
+### 思维导图
+直接通过缩进控制层级，可以复用流程图的部分形状符号，label中也可以使用markdown语法：
+```mermaid
+mindmap
+  root((mindmap))
+    (Origins)
+      {{Long history}}
+      ::icon(fa fa-book)
+      Popularisation
+        book1 ["British popular
+         psychology
+          *author* __Tony Buzan__"]
+    [Research]
+      On effectiveness<br/>and features
+      On Automatic creation
+        Uses
+            )Creative techniques(
+            Strategic planning
+            ))Argument mapping((
+    Tools
+      Pen and paper
+      Mermaid
 ```
 
 ### 波形图可以用[plantuml][5]或者[wavedrom][7]实现
@@ -396,93 +384,176 @@ digraph G {
 }
 ```
 
-### 统计图用[vega-lite][8]或[vega][9]
+### 行程图
+```mermaid
+  journey
+    title 毕业设计安排
+    section 选题阶段
+      导师申报论文题目 : 7 : 导师
+      学生与导师双选 : 7 : 学生, 导师
+      导师下达任务书 : 7 : 导师
+    section 调研阶段
+      学生搜集资料阅读资料 : 4 : 导师, 学生
+      学生上交综述与译文 : 5 : 导师, 学生
+    section 开题阶段
+      完成开题报告与开题答辩 : 7 : 导师, 学生, 专业系, 学院
+    section 撰写阶段
+      写完三稿论文和设计说明书，经过三位老师评审 : 6 : 导师, 学生
+      论文进度期中检查 : 6 : 专业系, 学院
+    section 答辩评定阶段
+      组织答辩 : 4 : 导师, 答辩小组, 答辩委员会
+      成绩评定 : 3 : 导师, 答辩小组, 答辩委员会, 学院
+    section 补充
+      二次答辩 : 1 : 学院
+    section 资料归档
+      收尾工作 : 9 : 学院
+```
 
-眼下同样只有markdown preview enhanced插件支持，typora不支持，vega-lite在MPE上还有问题
+---
 
-```vega
-{
-  "$schema": "https://vega.github.io/schema/vega/v5.json",
-  "description": "A basic stacked bar chart example.",
-  "width": 500,
-  "height": 200,
-  "padding": 5,
+### 数据包图
+```mermaid
+---
+title: "TCP Packet"
+---
+packet-beta
+0-15: "Source Port"
+16-31: "Destination Port"
+32-63: "Sequence Number"
+64-95: "Acknowledgment Number"
+96-99: "Data Offset"
+100-105: "Reserved"
+106: "URG"
+107: "ACK"
+108: "PSH"
+109: "RST"
+110: "SYN"
+111: "FIN"
+112-127: "Window"
+128-143: "Checksum"
+144-159: "Urgent Pointer"
+160-191: "(Options and Padding)"
+192-255: "Data (variable length)"
+```
 
-  "data": [
-    {
-      "name": "table",
-      "values": [
-        {"x": 0, "y": 28, "c": 0}, {"x": 0, "y": 55, "c": 1},
-        {"x": 1, "y": 43, "c": 0}, {"x": 1, "y": 91, "c": 1},
-        {"x": 2, "y": 81, "c": 0}, {"x": 2, "y": 53, "c": 1},
-        {"x": 3, "y": 19, "c": 0}, {"x": 3, "y": 87, "c": 1},
-        {"x": 4, "y": 52, "c": 0}, {"x": 4, "y": 48, "c": 1},
-        {"x": 5, "y": 24, "c": 0}, {"x": 5, "y": 49, "c": 1},
-        {"x": 6, "y": 87, "c": 0}, {"x": 6, "y": 66, "c": 1},
-        {"x": 7, "y": 17, "c": 0}, {"x": 7, "y": 27, "c": 1},
-        {"x": 8, "y": 68, "c": 0}, {"x": 8, "y": 16, "c": 1},
-        {"x": 9, "y": 49, "c": 0}, {"x": 9, "y": 15, "c": 1}
-      ],
-      "transform": [
-        {
-          "type": "stack",
-          "groupby": ["x"],
-          "sort": {"field": "c"},
-          "field": "y"
-        }
-      ]
-    }
-  ],
+### XY图（当下只支持柱状和折线图）
+```mermaid
+---
+config:
+    xyChart:
+        width: 900
+        height: 600
+    themeVariables:
+        xyChart:
+            titleColor: "#ff0000"
+---
+xychart-beta
+    title "Sales Revenue"
+    x-axis [jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec]
+    y-axis "Revenue (in $)" 4000 --> 11000
+    bar [5000, 6000, 7500, 8200, 9500, 10500, 11000, 10200, 9200, 8500, 7000, 6000]
+    line [5000, 6000, 7500, 8200, 9500, 10500, 11000, 10200, 9200, 8500, 7000, 6000]
+```
 
-  "scales": [
-    {
-      "name": "x",
-      "type": "band",
-      "range": "width",
-      "domain": {"data": "table", "field": "x"}
-    },
-    {
-      "name": "y",
-      "type": "linear",
-      "range": "height",
-      "nice": true, "zero": true,
-      "domain": {"data": "table", "field": "y1"}
-    },
-    {
-      "name": "color",
-      "type": "ordinal",
-      "range": "category",
-      "domain": {"data": "table", "field": "c"}
-    }
-  ],
+### 象限图
+```mermaid
+quadrantChart
+  title Reach and engagement of campaigns
+  x-axis Low Reach --> High Reach
+  y-axis Low Engagement --> High Engagement
+  quadrant-1 We should expand
+  quadrant-2 Need to promote
+  quadrant-3 Re-evaluate
+  quadrant-4 May be improved
+  Campaign A: [0.9, 0.0] radius: 12
+  Campaign B:::class1: [0.8, 0.7] color: #ff3300, radius: 10
+  Campaign C: [0.7, 0.2] radius: 3, color: #00ff33, stroke-color: #10f0f0
+  Campaign D: [0.6, 0.3] radius: 15, stroke-color: #00ff0f, stroke-width: 5px ,color: #ff33f0
+  Campaign E:::class2: [0.2, 0.4]
+  Campaign F:::class3: [0.4, 0.5] color: #0000ff
+  classDef class1 color: #109060
+  classDef class2 color: #908342, radius : 10, stroke-color: #310085, stroke-width: 10px
+  classDef class3 color: #f00fff, radius : 10
+```
 
-  "axes": [
-    {"orient": "bottom", "scale": "x", "zindex": 1},
-    {"orient": "left", "scale": "y", "zindex": 1}
-  ],
+### 桑基图
+将数据保存为`source,target,value`格式的csv文件，直接粘贴进来就可以
+```mermaid
+---
+config:
+  sankey:
+    showValues: false
+---
+sankey-beta
 
-  "marks": [
-    {
-      "type": "rect",
-      "from": {"data": "table"},
-      "encode": {
-        "enter": {
-          "x": {"scale": "x", "field": "x"},
-          "width": {"scale": "x", "band": 1, "offset": -1},
-          "y": {"scale": "y", "field": "y0"},
-          "y2": {"scale": "y", "field": "y1"},
-          "fill": {"scale": "color", "field": "c"}
-        },
-        "update": {
-          "fillOpacity": {"value": 1}
-        },
-        "hover": {
-          "fillOpacity": {"value": 0.5}
-        }
-      }
-    }
-  ]
-}
+Agricultural 'waste',Bio-conversion,124.729
+Bio-conversion,Liquid,0.597
+Bio-conversion,Losses,26.862
+Bio-conversion,Solid,280.322
+Bio-conversion,Gas,81.144
+Biofuel imports,Liquid,35
+Biomass imports,Solid,35
+Coal imports,Coal,11.606
+Coal reserves,Coal,63.965
+Coal,Solid,75.571
+District heating,Industry,10.639
+District heating,Heating and cooling - commercial,22.505
+District heating,Heating and cooling - homes,46.184
+Electricity grid,Over generation / exports,104.453
+Electricity grid,Heating and cooling - homes,113.726
+Electricity grid,H2 conversion,27.14
+Electricity grid,Industry,342.165
+Electricity grid,Road transport,37.797
+Electricity grid,Agriculture,4.412
+Electricity grid,Heating and cooling - commercial,40.858
+Electricity grid,Losses,56.691
+Electricity grid,Rail transport,7.863
+Electricity grid,Lighting & appliances - commercial,90.008
+Electricity grid,Lighting & appliances - homes,93.494
+Gas imports,Ngas,40.719
+Gas reserves,Ngas,82.233
+Gas,Heating and cooling - commercial,0.129
+Gas,Losses,1.401
+Gas,Thermal generation,151.891
+Gas,Agriculture,2.096
+Gas,Industry,48.58
+Geothermal,Electricity grid,7.013
+H2 conversion,H2,20.897
+H2 conversion,Losses,6.242
+H2,Road transport,20.897
+Hydro,Electricity grid,6.995
+Liquid,Industry,121.066
+Liquid,International shipping,128.69
+Liquid,Road transport,135.835
+Liquid,Domestic aviation,14.458
+Liquid,International aviation,206.267
+Liquid,Agriculture,3.64
+Liquid,National navigation,33.218
+Liquid,Rail transport,4.413
+Marine algae,Bio-conversion,4.375
+Ngas,Gas,122.952
+Nuclear,Thermal generation,839.978
+Oil imports,Oil,504.287
+Oil reserves,Oil,107.703
+Oil,Liquid,611.99
+Other waste,Solid,56.587
+Other waste,Bio-conversion,77.81
+Pumped heat,Heating and cooling - homes,193.026
+Pumped heat,Heating and cooling - commercial,70.672
+Solar PV,Electricity grid,59.901
+Solar Thermal,Heating and cooling - homes,19.263
+Solar,Solar Thermal,19.263
+Solar,Solar PV,59.901
+Solid,Agriculture,0.882
+Solid,Thermal generation,400.12
+Solid,Industry,46.477
+Thermal generation,Electricity grid,525.531
+Thermal generation,Losses,787.129
+Thermal generation,District heating,79.329
+Tidal,Electricity grid,9.452
+UK land based bioenergy,Bio-conversion,182.01
+Wave,Electricity grid,19.013
+Wind,Electricity grid,289.366
 
 ```
 
@@ -491,19 +562,18 @@ GitHub Markdown支持用geojson和topojson显示地图，还可以用stl生成3D
 
 [^注]: 最多支持六级小标题。
 [^LaTeX]: 支持 **LaTeX** 编辑显示，例如：$\sum_{i=1}^n a_i=0$， 访问 [MathJax][4] 参考更多使用方法。
-
 [^代码]: typora支持高亮的语言列表及代码见[这里](http://support.typora.io/Code-Fences-Language-Support/)。
-[^流程图]: 用[flowchart.js](https://github.com/adrai/flowchart.js/)渲染，也支持[mermaid][3]的flowchart
+
 [^序列图]: 详细语法见https://github.com/mermaid-js/mermaid/blob/develop/docs/sequenceDiagram.md，另外也支持[js-sequence](https://bramp.github.io/js-sequence-diagrams/)
 [^json]: 例如startjson就不支持～
 
 [1]: http://support.typora.io/
 [2]: https://help.github.com/en/categories/writing-on-github
-[3]: https://mermaid-js.github.io/mermaid/#/
+[3]: https://mermaid.js.org/intro/
 [4]: http://meta.math.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference
 [5]: https://plantuml.com/zh/
-[6]: https://real-world-plantuml.com/
+[6]: https://mermaid.js.org/config/theming.html
 [7]: https://wavedrom.com/tutorial.html
-[8]: https://vega.github.io/vega-lite/
+[8]: https://mermaid.js.org/syntax/flowchart.html
 [9]: https://vega.github.io/vega/
 [10]: https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams
