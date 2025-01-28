@@ -10,6 +10,37 @@ portable版本不带pip，如果需要，下载https://bootstrap.pypa.io/get-pip
 ### 修改`python3xx._pth`
 portable版本的搜索路径在`python3xx._pth`里指定（xx是python版本号），缺省只有`python3xx.zip`和`.`目录，所以pip装好之后运行`python -m pip xxx`还是会显示**ModuleNotFoundError: No module named 'pip'**。解决办法是修改`python3xx._pth`，在文件末尾添加一行`import site`，这样pip安装的包就会自动添加到搜索路径中。
 
+下面是个比较简明的自动安装脚本：
+```batch
+@echo off
+setlocal enabledelayedexpansion
+
+set PYTHON_URL=https://www.python.org/ftp/python/3.12.7/python-3.12.7-embed-amd64.zip
+set PIP_URL=https://bootstrap.pypa.io/get-pip.py
+set HF_ENDPOINT=https://hf-mirror.com
+set PIP_MIRROR=https://mirrors.aliyun.com/pypi/simple
+
+if not exist pdf2zh_dist/python.exe (
+    powershell -Command "& {Invoke-WebRequest -Uri !PYTHON_URL! -OutFile python.zip}"
+    powershell -Command "& {Expand-Archive -Path python.zip -DestinationPath pdf2zh_dist -Force}"
+    del python.zip
+    echo import site >> pdf2zh_dist/python312._pth
+)
+cd pdf2zh_dist
+
+if not exist Scripts/pip.exe (
+    powershell -Command "& {Invoke-WebRequest -Uri !PIP_URL! -OutFile get-pip.py}"
+    python get-pip.py
+)
+path Scripts
+
+pip install --no-warn-script-location --upgrade pdf2zh -i !PIP_MIRROR!
+pdf2zh -i
+
+pause
+
+```
+
 ## python打包工具
 打包尽量用Python Embeddable版本，比较干净，不容易出依赖问题
 - pyinstaller
