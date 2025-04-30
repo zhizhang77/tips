@@ -131,3 +131,8 @@ pip install gprof2dot
 gprof ./iperf3_profile gmon.out >profile.txt
 gprof2dot -n 0 -e 0 profile.txt | dot -Tpng -o output.png
 ```
+
+### Perfetto
+谷歌发布，能跟踪CPU/GPU/linux/android/chrome扩展/wasm等等，非常通用的工具
+https://ui.perfetto.dev/
+https://perfetto.dev/docs/
