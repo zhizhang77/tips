@@ -30,3 +30,7 @@ https://nextcloud.com/ ，功能比较全的网盘+写作办公
 
 ### ChatGPT-Next-Web
 https://github.com/ChatGPTNextWeb/ChatGPT-Next-Web ，可以通过vercel免费部署，可以选择使用哪种模型，支持多用户
+
+### 快速创建、调试和部署 AI Agent 的平台Coze
+Coze Studio：https://github.com/coze-dev/coze-studio
+Coze Loop：https://github.com/coze-dev/coze-loop
