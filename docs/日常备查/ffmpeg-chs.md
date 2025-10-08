@@ -228,8 +228,9 @@ an: a 代表视频，n 代表 no 也就是无音频的意思。
 - **转格式**
 
 `ffmpeg -i out.mp4 -vcodec copy -acodec copy out.flv`
-
 上面的命令表式的是音频、视频都直接 copy，只是将 mp4 的封装格式转成了 flv。
+`ffmpeg -i input.mp4  -vcodec h264 -acodec mp3 -ar 48000 output.mp4`
+视频编码转为H264，音频编码转为48K mp3
 
 - **音视频合并**
 
@@ -249,10 +250,7 @@ ffmpeg -i input.mov -vcodec h264   -an -strict -2 output.mp4
 ffmpeg -i input.mov -vcodec libvpx -an output.webm
 ffmpeg -i input.mov -vcodec h264 -acodec aac -strict -2 output.mp4
 ffmpeg -i input.mov -vcodec libvpx -acodec libvorbis output.webm
-<video width="320" height="240" controls>
-  <source src="movie.mp4" type='video/mp4'></source>
-  <source src="movie.webm" type='video/ogg'></source>
-</video>
+
 ```
 
 - 视频缩小一倍

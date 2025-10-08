@@ -1,6 +1,5 @@
 # profiling工具
 
-
 ## python
 
 ### cprofile
@@ -115,8 +114,8 @@ https://frida.re/ 功能少但相对简单易用
 
 ## 通用
 
-### perf
-强大但太复杂不好摘要，建议现用现搜……
+### 大牛Grendan Gregg的Linux性能分析工具汇总，非常完整，且perf、bpf等都有详细讲解
+https://www.brendangregg.com/linuxperf.html
 
 ### gprof2dot
 将perf、gprof、python、java等profiling结果转为graphviz可用的dot脚本([repo](https://github.com/jrfonseca/gprof2dot))。
@@ -131,3 +130,8 @@ pip install gprof2dot
 gprof ./iperf3_profile gmon.out >profile.txt
 gprof2dot -n 0 -e 0 profile.txt | dot -Tpng -o output.png
 ```
+
+### Perfetto
+谷歌发布，能跟踪CPU/GPU/linux/android/chrome扩展/wasm等等，非常通用的工具
+https://ui.perfetto.dev/
+https://perfetto.dev/docs/
