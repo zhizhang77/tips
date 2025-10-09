@@ -143,6 +143,17 @@ slist = [x**2 for x in range(1, 6)]     # 结果是列表[1, 4, 9, 16, 25]
 sdict = {x: x**2 for x in range(1, 6)}  # 结果是字典{1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
 ```
 
+### 但如果数据量很大且每个结果只访问一次，应当使用生成器，可以极大降低内存需求
+```python
+# 列表推导式
+big_list = [x*2 for x in range(1000000)]
+print(big_list[999999])  # 直接访问最后一个元素
+
+# 生成器表达式
+big_gen = (x*2 for x in range(1000000))
+print(next(big_gen))     # 只能逐步获取下一个元素
+```
+
 ### iter排序和排列组合
 
 ```python
@@ -167,6 +178,39 @@ for index, fruit in enumerate(fruits):
     print(index, fruit)
 ```
 
+### 自己重载缺省方法
+#### 重载__enter__和__exit__来定位问题和统计时间
+```python
+class Timer:
+    def __enter__(self):
+        self.start = time.time()
+    def __exit__(self, *args):
+        print(f"耗时:{time.time()-self.start:.2f}秒")
+
+with Timer():
+    run_complex_calculation()  # 自动计时
+```
+
+#### 重载字典里的__missing__处理缺省值
+```python
+class AutoDict(dict):
+    def __missing__(self, key):
+        value = self[key] = f"[{key} not found]"
+        return value
+monkey = {'a': 1, 'b': 2}
+d = AutoDict(monkey)
+print(monkey['a'])      # 输出：1
+print(d['a'])           # 输出：1
+# print(monkey['python']) # KeyError 异常
+print(d['python']) # 输出：[python not found]
+```
+
+### 用typing.Literal检查输入内容合法性
+```python
+from typing import Literal
+def connect(mode: Literal['read', 'write']):
+    ...
+```
 ### 调用外部命令并检查返回结果
 
 ```python
@@ -190,6 +234,18 @@ print_arguments(1, 2, 3, name='John', age=30)
 # 输出：
 # (1, 2, 3)
 # {'name': 'John', 'age': 30}
+```
+
+### 另外还能用**实现字典合并
+
+```python
+config = {'debug': True}
+user_settings = {'theme': 'dark'}
+# 传统写法
+merged = config.copy()
+merged.update(user_settings)
+# 魔法写法
+merged = {**config, **user_settings}
 ```
 
 ### 用装饰器对函数进行封装可以不影响其它代码
